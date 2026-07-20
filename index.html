@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SPACE — Desenvolvimento Web de alto nível. Sites, sistemas, IA e segurança digital com design minimalista e performance excepcional.">
+    <meta name="keywords" content="desenvolvimento web, sistemas, inteligência artificial, segurança digital, landing pages, dashboards, APIs, automação, SPACE">
+    <meta name="author" content="SPACE">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SPACE — Desenvolvimento Web Premium">
+    <meta property="og:description" content="Sites, sistemas e inteligência artificial com design minimalista suíço e performance impecável.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://space.dev">
+    <meta property="og:image" content="https://space.dev/og-image.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SPACE — Desenvolvimento Web Premium">
+    <meta name="twitter:description" content="Sites, sistemas e IA com design minimalista suíço.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" href="images/spacelogo.png">
+    <title>SPACE — Desenvolvimento Web Premium</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "SPACE",
+            "description": "Desenvolvimento Web • Sistemas • Inteligência Artificial • Segurança Digital",
+            "url": "https://space.dev",
+            "telephone": "+55-11-99999-9999",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "São Paulo",
+                "addressCountry": "BR"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "$$$"
+        }
+    </script>
+    <style>
+        :root {
+            --white: #000000;
+            --black: #FFFFFF;
+            --font: 'Space Grotesk', 'Inter', 'Helvetica Neue', sans-serif;
+            --fs-hero: clamp(3.5rem, 8vw, 8rem);
+            --fs-h1: clamp(2.2rem, 5vw, 4.5rem);
+            --fs-h2: clamp(1.6rem, 3.5vw, 2.8rem);
+            --fs-h3: clamp(1.1rem, 2.2vw, 1.6rem);
+            --fs-body: clamp(0.9rem, 1.4vw, 1.05rem);
+            --fs-small: clamp(0.7rem, 1vw, 0.85rem);
+            --spacing-xs: clamp(0.4rem, 0.8vw, 0.6rem);
+            --spacing-sm: clamp(0.8rem, 1.5vw, 1.2rem);
+            --spacing-md: clamp(1.5rem, 3vw, 2.5rem);
+            --spacing-lg: clamp(2.5rem, 5vw, 5rem);
+            --spacing-xl: clamp(4rem, 8vw, 9rem);
+            --max-width: 1400px;
+            --border-thin: 1px solid var(--black);
+            --transition-fast: 180ms cubic-bezier(.4, 0, .2, 1);
+            --transition-med: 350ms cubic-bezier(.4, 0, .2, 1);
+            --transition-slow: 550ms cubic-bezier(.4, 0, .2, 1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --z-nav: 1000;
+            --z-cursor: 9999;
+            --z-modal: 2000;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-size: 16px;
+            color: var(--black);
+            scrollbar-width: thin;
+            scrollbar-color: #FFFFFF #000000;
+            background: #000;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFFFFF;
+            border-radius: 4px;
+            border: 2px solid #000000;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cccccc;
+        }
+
+        body {
+            font-family: var(--font);
+            font-weight: 400;
+            line-height: 1.6;
+            background: transparent;
+            color: var(--black);
+            overflow-x: hidden;
+            cursor: none;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+            body { cursor: auto; }
+        }
+
+        #starCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: #000;
+        }
+
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            border: 1.5px solid var(--black);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: var(--z-cursor);
+            transition: width var(--transition-fast), height var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+        }
+        .cursor.dot {
+            width: 8px;
+            height: 8px;
+            background: var(--black);
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .cursor { display: none; }
+        }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+
+        a, button, input, textarea, select, [tabindex] {
+            cursor: none;
+        }
+        @media (max-width: 768px) {
+            a, button, input, textarea, select, [tabindex] { cursor: auto; }
+        }
+
+        .container {
+            width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-md);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0; scroll-snap-align: start;
+        }
+        .section-label {
+            display: inline-block; font-size: var(--fs-small); font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--black);
+            opacity: 0.5; margin-bottom: var(--spacing-xs);
+        }
+        .section-title {
+            font-size: var(--fs-h2); font-weight: 700; line-height: 1.15;
+            letter-spacing: -0.02em; margin-bottom: var(--spacing-sm); color: var(--black);
+        }
+        .section-desc {
+            font-size: var(--fs-body); color: var(--black); opacity: 0.65;
+            max-width: 620px; line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: clamp(0.7rem, 1.2vw, 0.9rem) clamp(1.3rem, 2.2vw, 2rem);
+            font-family: var(--font); font-size: var(--fs-body); font-weight: 600;
+            letter-spacing: 0.01em; border-radius: var(--radius-sm);
+            transition: all var(--transition-med); text-decoration: none;
+            position: relative; overflow: hidden; border: var(--border-thin); white-space: nowrap;
+        }
+        .btn-primary { background: var(--black); color: var(--white); border-color: var(--black); }
+        .btn-primary:hover { background: var(--white); color: var(--black); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.12); }
+        .btn-secondary { background: transparent; color: var(--black); border-color: var(--black); }
+        .btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.12); }
+        .btn-sm { padding: clamp(0.4rem, 0.7vw, 0.55rem) clamp(0.8rem, 1.3vw, 1.1rem); font-size: var(--fs-small); }
+
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: var(--z-nav);
+            padding: var(--spacing-sm) 0; transition: all var(--transition-med);
+            background: transparent; border-bottom: 1px solid transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(0,0,0,0.82); backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+        }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-sm); }
+        .nav-logo { font-size: clamp(1.3rem, 2vw, 1.7rem); font-weight: 700; letter-spacing: 0.06em; text-decoration: none; color: var(--black); z-index: 2; transition: color var(--transition-fast); }
+        .nav-links { display: flex; list-style: none; gap: clamp(0.8rem, 1.8vw, 1.8rem); flex-wrap: wrap; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--black); font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.03em; transition: opacity var(--transition-fast); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--black); transition: width var(--transition-med); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 2; flex-direction: column; gap: 5px; }
+        .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--black); transition: all var(--transition-med); }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; transform: translateY(-100%); transition: transform var(--transition-slow); z-index: 1; }
+            .nav-links.open { transform: translateY(0); }
+            .nav-toggle { display: flex; }
+            .nav-links a { font-size: var(--fs-h3); }
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start;
+            text-align: left; 
+            position: relative; 
+            scroll-snap-align: start; 
+            padding: var(--spacing-lg) 0;
+        }
+        .hero-content { transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1); will-change: opacity, transform; }
+        .hero-logo { font-size: var(--fs-hero); font-weight: 700; letter-spacing: 0.08em; line-height: 1; color: var(--black); margin-bottom: var(--spacing-sm); }
+        .hero-sub { font-size: var(--fs-h3); font-weight: 400; opacity: 0.55; margin-bottom: var(--spacing-md); letter-spacing: 0.01em; line-height: 1.5; color: var(--black); }
+        .hero-text { font-size: var(--fs-body); opacity: 0.7; max-width: 600px; line-height: 1.7; margin-bottom: var(--spacing-md); color: var(--black); }
+        .hero-btns { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+
+        /* SOBRE */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); align-items: center; }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: var(--spacing-md); } }
+        .about-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-xs); margin-top: var(--spacing-sm); }
+        .about-tag { padding: 6px 14px; border: var(--border-thin); border-radius: 20px; font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.02em; transition: all var(--transition-fast); color: var(--black); }
+        .about-tag:hover { background: var(--black); color: var(--white); }
+
+        /* SERVIÇOS */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--spacing-md); }
+        .service-card { border: var(--border-thin); padding: var(--spacing-md); border-radius: var(--radius-md); transition: all var(--transition-med); background: var(--white); position: relative; overflow: hidden; color: var(--black); }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(255,255,255,0.1); border-color: var(--black); }
+        .service-card i { font-size: 2rem; display: block; margin-bottom: 0.8rem; color: var(--black); }
+        .service-card h3 { font-size: var(--fs-h3); font-weight: 600; margin-bottom: 4px; }
+        .service-card p { font-size: var(--fs-small); opacity: 0.6; margin-bottom: var(--spacing-xs); }
+        .service-card ul { list-style: none; font-size: var(--fs-small); opacity: 0.7; display: flex; flex-wrap: wrap; gap: 6px; }
+        .service-card ul li { padding: 3px 10px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; font-size: var(--fs-small); }
+
+        /* DIFERENCIAIS */
+        .diff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--spacing-md); }
+        .diff-item { text-align: center; padding: var(--spacing-md); border: var(--border-thin); border-radius: var(--radius-md); transition: all var(--transition-med); color: var(--black); }
+        .diff-item:hover { background: var(--black); color: var(--white); transform: translateY(-4px); }
+        .diff-item .diff-icon { font-size: 2rem; margin-bottom: var(--spacing-xs); color: inherit; }
+
+        /* MODELOS */
+        .modelos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--spacing-md); }
+        .modelo-card { border: var(--border-thin); border-radius: var(--radius-md); overflow: hidden; transition: all var(--transition-med); background: var(--white); color: var(--black); }
+        .modelo-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(255,255,255,0.1); }
+        .modelo-img { width: 100%; aspect-ratio: 4/3; background: #070707; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .modelo-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.3s, transform 0.3s; }
+        .modelo-card:hover .modelo-img img { opacity: 1; transform: scale(1.03); }
+        .modelo-img .placeholder-layout { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 70%; border: 2px dashed rgba(255,255,255,0.25); border-radius: 4px; display: flex; flex-direction: column; gap: 8px; padding: 12px; pointer-events: none; }
+        .placeholder-layout .pl-bar { height: 8px; background: rgba(255,255,255,0.15); border-radius: 2px; }
+        .placeholder-layout .pl-bar.short { width: 60%; }
+        .placeholder-layout .pl-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); align-self: center; }
+        .modelo-img img.error { display: none; }
+        .modelo-img img.error + .placeholder-layout { display: flex; }
+
+        .modelo-info { padding: var(--spacing-sm); }
+        .modelo-info h3 { font-weight: 600; font-size: var(--fs-body); }
+        .modelo-info .modelo-cat { font-size: var(--fs-small); opacity: 0.5; text-transform: uppercase; letter-spacing: 0.04em; }
+        .modelo-info p { font-size: var(--fs-small); opacity: 0.65; margin: 4px 0; }
+
+        /* TIMELINE */
+        .timeline { position: relative; padding-left: var(--spacing-lg); border-left: 1px solid rgba(255,255,255,0.2); margin-left: var(--spacing-md); }
+        .timeline-step { position: relative; margin-bottom: var(--spacing-lg); padding-left: var(--spacing-md); color: var(--black); }
+        .timeline-step::before { content: ''; position: absolute; left: calc(-1 * var(--spacing-lg) - 7px); top: 4px; width: 13px; height: 13px; background: var(--black); border-radius: 50%; transition: transform var(--transition-med); }
+        .timeline-step:hover::before { transform: scale(1.6); }
+        .timeline-step h3 { font-weight: 600; font-size: var(--fs-body); }
+        .timeline-step p { font-size: var(--fs-small); opacity: 0.6; }
+
+        /* ESTATÍSTICAS */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md); text-align: center; }
+        @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat-item .stat-number { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--black); }
+        .stat-item .stat-label { font-size: var(--fs-small); opacity: 0.5; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; color: var(--black); }
+
+        /* TECNOLOGIAS */
+        .tech-grid { display: flex; flex-wrap: wrap; gap: var(--spacing-md); justify-content: center; align-items: center; }
+        .tech-item { font-size: var(--fs-h3); font-weight: 600; letter-spacing: 0.02em; opacity: 0.4; transition: all var(--transition-med); padding: var(--spacing-xs) var(--spacing-sm); border: 1px solid transparent; border-radius: var(--radius-sm); cursor: default; color: var(--black); }
+        .tech-item:hover { opacity: 1; border-color: var(--black); transform: scale(1.05); }
+
+        /* FAQ */
+        .faq-list { display: flex; flex-direction: column; gap: var(--spacing-sm); max-width: 800px; }
+        .faq-item { border: var(--border-thin); border-radius: var(--radius-md); overflow: hidden; transition: all var(--transition-med); color: var(--black); }
+        .faq-question { width: 100%; background: none; border: none; font-family: var(--font); font-size: var(--fs-body); font-weight: 600; text-align: left; padding: var(--spacing-sm) var(--spacing-md); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--spacing-sm); color: var(--black); letter-spacing: 0.01em; }
+        .faq-icon { font-size: 1.4rem; transition: transform var(--transition-med); flex-shrink: 0; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--transition-slow), padding var(--transition-slow); padding: 0 var(--spacing-md); font-size: var(--fs-small); opacity: 0.65; line-height: 1.7; color: var(--black); }
+        .faq-item.open .faq-answer { max-height: 300px; padding: 0 var(--spacing-md) var(--spacing-sm); }
+
+        /* CONTATO */
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); max-width: 900px; }
+        @media (max-width: 600px) { .contact-form { grid-template-columns: 1fr; } }
+        .contact-form .full-width { grid-column: 1 / -1; }
+        .contact-form label { display: block; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.03em; margin-bottom: 4px; text-transform: uppercase; color: var(--black); }
+        .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: var(--spacing-xs) var(--spacing-sm); border: var(--border-thin); border-radius: var(--radius-sm); font-family: var(--font); font-size: var(--fs-body); background: var(--white); color: var(--black); transition: all var(--transition-fast); outline: none; }
+        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--black); box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
+        .form-feedback { font-size: var(--fs-small); margin-top: var(--spacing-xs); min-height: 1.2em; transition: all var(--transition-fast); }
+        .form-feedback.success { color: #4ade80; }
+        .form-feedback.error { color: #f87171; }
+
+        /* FOOTER */
+        .footer { border-top: var(--border-thin); padding: var(--spacing-lg) 0; scroll-snap-align: end; color: var(--black); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--spacing-md); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-col h4 { font-weight: 600; font-size: var(--fs-small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--spacing-xs); }
+        .footer-col a, .footer-col p { font-size: var(--fs-small); opacity: 0.6; text-decoration: none; color: var(--black); display: block; margin-bottom: 4px; transition: opacity var(--transition-fast); }
+        .footer-col a:hover { opacity: 1; }
+        .footer-bottom { margin-top: var(--spacing-md); padding-top: var(--spacing-sm); border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: var(--fs-small); opacity: 0.5; }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: var(--z-modal); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition-med); padding: var(--spacing-md); }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-content { background: var(--white); border: var(--border-thin); border-radius: var(--radius-lg); padding: var(--spacing-lg); max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 24px 60px rgba(255,255,255,0.15); color: var(--black); }
+        .modal-close { position: absolute; top: var(--spacing-sm); right: var(--spacing-sm); background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--black); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all var(--transition-fast); }
+        .modal-close:hover { background: rgba(255,255,255,0.05); }
+        .modal-preview { width: 100%; aspect-ratio: 16/10; background: #060606; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-sm); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+        .modal-preview img { width: 100%; height: 100%; object-fit: cover; }
+
+        .text-center { text-align: center; }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="container">
+            <a href="#hero" class="nav-logo">SPACE</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" id="hero" aria-label="Hero">
+            <div class="container">
+                <div class="hero-content" id="heroContent">
+                    <h1 class="hero-logo">SPACE</h1>
+                    <p class="hero-sub">Desenvolvimento Web • Sistemas • Inteligência Artificial • Segurança Digital</p>
+                    <p class="hero-text">Transformamos ideias em plataformas digitais de alto impacto. Somos especialistas em criar experiências web que aliam design minimalista suíço, engenharia de software de ponta e performance impecável. Da landing page ao sistema corporativo, cada projeto é uma extensão da sua visão — com código limpo, escalável e pronto para o futuro.</p>
+                    <div class="hero-btns">
+                        <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+                        <a href="#modelos" class="btn btn-secondary">Ver modelos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sobre" aria-labelledby="sobreTitulo">
+            <div class="container">
+                <span class="section-label reveal">Sobre</span>
+                <h2 class="section-title reveal reveal-delay-1" id="sobreTitulo">Tecnologia que impulsiona negócios</h2>
+                <div class="about-grid">
+                    <div class="reveal reveal-delay-2">
+                        <p class="section-desc">A SPACE desenvolve soluções digitais completas para empresas que exigem excelência. Combinamos design minimalista suíço com engenharia de software de alto nível para entregar produtos que unem estética refinada e performance impecável.</p>
+                        <p class="section-desc mt-sm">Cada projeto é tratado como uma obra de engenharia e design — com atenção obsessiva aos detalhes, código limpo e arquitetura escalável.</p>
+                    </div>
+                    <div class="about-tags reveal reveal-delay-3">
+                        <span class="about-tag">Sites institucionais</span>
+                        <span class="about-tag">Landing Pages</span>
+                        <span class="about-tag">Sistemas Web</span>
+                        <span class="about-tag">Dashboards</span>
+                        <span class="about-tag">Inteligência Artificial</span>
+                        <span class="about-tag">APIs</span>
+                        <span class="about-tag">Plataformas</span>
+                        <span class="about-tag">Automações</span>
+                        <span class="about-tag">Soluções personalizadas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="servicos" aria-labelledby="servicosTitulo">
+            <div class="container">
+                <span class="section-label reveal">Serviços</span>
+                <h2 class="section-title reveal reveal-delay-1" id="servicosTitulo">O que fazemos</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">Oferecemos um ecossistema completo de desenvolvimento digital, desde a concepção até a manutenção contínua.</p>
+                <div class="services-grid" id="servicesGrid"></div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="diferenciaisTitulo">
+            <div class="container">
+                <span class="section-label reveal">Diferenciais</span>
+                <h2 class="section-title reveal reveal-delay-1" id="diferenciaisTitulo">Por que a SPACE</h2>
+                <div class="diff-grid" id="diffGrid"></div>
+            </div>
+        </section>
+
+        <!-- MODELOS COM IMAGENS E DATA-IMG PARA O MODAL -->
+        <section class="section" id="modelos" aria-labelledby="modelosTitulo">
+            <div class="container">
+                <span class="section-label reveal">Modelos</span>
+                <h2 class="section-title reveal reveal-delay-1" id="modelosTitulo">Escolha um modelo para se inspirar</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">Conheça alguns modelos desenvolvidos pela SPACE. Eles servem como inspiração para que você visualize diferentes estilos de layout antes de solicitar seu orçamento. Cada projeto pode ser totalmente personalizado para atender às necessidades do seu negócio.</p>
+                <div class="modelos-grid">
+                    <!-- Modelo 1: Restaurante -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/restaurante.png" alt="restaurante">
+                        </div>
+                        <div class="modelo-info">
+                            <span class="modelo-cat">Site</span>
+                            <h3>Site para Restaurante</h3>
+                            <p>Modelo profissional com design minimalista e alta performance.</p>
+                            <button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Restaurante" data-desc="Modelo de site para restaurante desenvolvido pela SPACE. Design responsivo, otimizado para SEO e com performance excepcional." data-img="images/restaurante.png" data-url="https://space-techno.github.io/space-models/restaurante">Visualizar modelo</button>
+                        </div>
+                    </div>
+                    <!-- Modelo 2: Academia -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/academia.png" alt="academia">
+                        </div>
+                        <div class="modelo-info">
+                            <span class="modelo-cat">Site</span>
+                            <h3>Site para Academia</h3>
+                            <p>Modelo profissional com design minimalista e alta performance.</p>
+                            <button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Academia" data-desc="Modelo de site para academia desenvolvido pela SPACE." data-img="images/academia.png" data-url="https://space-techno.github.io/space-models/academia">Visualizar modelo</button>
+                        </div>
+                    </div>
+                    <!-- Modelo 3: Clínica -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/clinica.png" alt="clinica">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Clínica</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Clínica" data-desc="Modelo de site para clínica." data-img="images/clinica.png" data-url="https://space-techno.github.io/space-models/clinica">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 4: Escritório -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/escritorio.png" alt="escritorio">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Escritório</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Escritório" data-desc="Modelo de site para escritório." data-img="images/escritorio.png" data-url="https://space-techno.github.io/space-models/escritorio">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 5: Barbearia -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/barbearia.png" alt="barbearia">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Barbearia</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Barbearia" data-desc="Modelo de site para barbearia." data-img="images/barbearia.png" data-url="https://space-techno.github.io/space-models/barbearia">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 6: Advogado -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/advogado.png" alt="advogado">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Advogado</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Advogado" data-desc="Modelo de site para advogado." data-img="images/advogado.png" data-url="https://space-techno.github.io/space-models/advogado">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 7: Igreja -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/igreja.png" alt="igreja">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Igreja</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Igreja" data-desc="Modelo de site para igreja." data-img="images/igreja.png" data-url="https://space-techno.github.io/space-models/igreja">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 8: Escola -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/escola.png" alt="escola">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Escola</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Escola" data-desc="Modelo de site para escola." data-img="images/escola.png" data-url="https://space-techno.github.io/space-models/escola">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 9: Empresa de Tecnologia -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/empresa.png" alt="empresa">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Site</span><h3>Site para Empresa de Tecnologia</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Site para Empresa de Tecnologia" data-desc="Modelo de site para empresa de tecnologia." data-img="images/empresa.png" data-url="https://space-techno.github.io/space-models/empresa">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 10: Landing Page -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/landing.png" alt="landing">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Landing Page</span><h3>Landing Page</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Landing Page" data-desc="Modelo de landing page desenvolvido pela SPACE." data-img="images/landing.png" data-url="https://space-techno.github.io/space-models/landing">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 11: Loja Virtual -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/loja.png" alt="loja">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">E-commerce</span><h3>Loja Virtual</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Loja Virtual" data-desc="Modelo de loja virtual desenvolvido pela SPACE." data-img="images/loja.png" data-url="https://space-techno.github.io/space-models/loja">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 12: Dashboard -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/admin.png" alt="admin">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Dashboard</span><h3>Dashboard Administrativo</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Dashboard Administrativo" data-desc="Modelo de dashboard desenvolvido pela SPACE." data-img="images/admin.png" data-url="https://space-techno.github.io/space-models/admin">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 13: Agendamentos -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/agendamentos.png" alt="agendamentos">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Sistema</span><h3>Sistema de Agendamentos</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Sistema de Agendamentos" data-desc="Modelo de sistema de agendamentos." data-img="images/agendamentos.png" data-url="https://space-techno.github.io/space-models/agendamentos">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 14: Portfólio Pessoal -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/portifolio.png" alt="portifolio">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Portfólio</span><h3>Portfólio Pessoal</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Portfólio Pessoal" data-desc="Modelo de portfólio pessoal." data-img="images/portifolio.png" data-url="https://space-techno.github.io/space-models/portifolio">Visualizar modelo</button></div>
+                    </div>
+                    <!-- Modelo 15: Sistema Empresarial -->
+                    <div class="modelo-card reveal">
+                        <div class="modelo-img">
+                            <img src="images/sistema.png" alt="sistema">
+                        </div>
+                        <div class="modelo-info"><span class="modelo-cat">Sistema</span><h3>Sistema Empresarial</h3><p>Modelo profissional com design minimalista e alta performance.</p><button class="btn btn-sm btn-primary modal-trigger" data-title="Sistema Empresarial" data-desc="Modelo de sistema empresarial." data-img="images/sistema.png" data-url="https://space-techno.github.io/space-models/sistema">Visualizar modelo</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="processoTitulo">
+            <div class="container">
+                <span class="section-label reveal">Processo</span>
+                <h2 class="section-title reveal reveal-delay-1" id="processoTitulo">Como trabalhamos</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">Um método estruturado que garante previsibilidade, qualidade e transparência em cada etapa.</p>
+                <div class="timeline">
+                    <div class="timeline-step reveal"><h3>1. Conversa inicial</h3><p>Entendemos suas necessidades, objetivos e visão do projeto em uma reunião descontraída.</p></div>
+                    <div class="timeline-step reveal"><h3>2. Planejamento</h3><p>Definimos escopo, tecnologias, cronograma e entregáveis com precisão.</p></div>
+                    <div class="timeline-step reveal"><h3>3. Protótipo</h3><p>Criamos wireframes e protótipos de alta fidelidade para validação visual e funcional.</p></div>
+                    <div class="timeline-step reveal"><h3>4. Desenvolvimento</h3><p>Codificamos com as melhores práticas, código limpo e arquitetura escalável.</p></div>
+                    <div class="timeline-step reveal"><h3>5. Testes</h3><p>Testes automatizados, de performance, segurança e acessibilidade antes do lançamento.</p></div>
+                    <div class="timeline-step reveal"><h3>6. Publicação</h3><p>Deploy em ambiente de produção com monitoramento e configuração de DNS/SSL.</p></div>
+                    <div class="timeline-step reveal"><h3>7. Suporte</h3><p>Acompanhamento contínuo, atualizações e evolução do produto.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="techTitulo">
+            <div class="container text-center">
+                <span class="section-label reveal">Tecnologias</span>
+                <h2 class="section-title reveal reveal-delay-1" id="techTitulo">Stack que utilizamos</h2>
+                <div class="tech-grid mt-md" id="techGrid"></div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="faqTitulo">
+            <div class="container">
+                <span class="section-label reveal">FAQ</span>
+                <h2 class="section-title reveal reveal-delay-1" id="faqTitulo">Perguntas frequentes</h2>
+                <div class="faq-list mt-md" id="faqList"></div>
+            </div>
+        </section>
+
+        <section class="section" id="contato" aria-labelledby="contatoTitulo">
+            <div class="container">
+                <span class="section-label reveal">Contato</span>
+                <h2 class="section-title reveal reveal-delay-1" id="contatoTitulo">Vamos conversar</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">Preencha o formulário abaixo e retornaremos em até 24 horas com uma proposta personalizada.</p>
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div><label for="nome">Nome *</label><input type="text" id="nome" name="nome" required placeholder="Seu nome completo"></div>
+                    <div><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa"></div>
+                    <div><label for="email">Email *</label><input type="email" id="email" name="email" required placeholder="seu@email.com"></div>
+                    <div><label for="telefone">Telefone</label><input type="tel" id="telefone" name="telefone" placeholder="+55 (11) 99999-9999"></div>
+                    <div class="full-width"><label for="tipoProjeto">Tipo de projeto *</label><select id="tipoProjeto" name="tipoProjeto" required><option value="">Selecione...</option><option>Site Institucional</option><option>Landing Page</option><option>Sistema Web</option><option>Dashboard</option><option>Inteligência Artificial</option><option>API</option><option>Automação</option><option>Consultoria</option><option>Outro</option></select></div>
+                    <div><label for="prazo">Prazo estimado</label><select id="prazo" name="prazo"><option value="">Selecione...</option><option>Urgente (até 2 semanas)</option><option>Curto (1 mês)</option><option>Médio (2-3 meses)</option><option>Longo (4+ meses)</option><option>A definir</option></select></div>
+                    <div><label for="orcamento">Orçamento estimado</label><select id="orcamento" name="orcamento"><option value="">Selecione...</option><option>Até R$ 3.000</option><option>R$ 3.000 - R$ 10.000</option><option>R$ 10.000 - R$ 30.000</option><option>R$ 30.000 - R$ 100.000</option><option>Acima de R$ 100.000</option><option>A definir</option></select></div>
+                    <div class="full-width"><label for="mensagem">Mensagem *</label><textarea id="mensagem" name="mensagem" rows="5" required placeholder="Descreva seu projeto, objetivos e necessidades..."></textarea></div>
+                    <div class="full-width"><button type="submit" class="btn btn-primary">Solicitar orçamento</button></div>
+                    <div class="full-width form-feedback" id="formFeedback" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>SPACE</h4><p>Desenvolvimento Web Premium. Design minimalista, engenharia de excelência.</p></div>
+                <div class="footer-col"><h4>Links</h4><a href="#hero">Home</a><a href="#servicos">Serviços</a><a href="#modelos">Modelos</a><a href="#contato">Contato</a></div>
+                <div class="footer-col"><h4>Contato</h4><a href="mailto:spacethecnologyltda@gmail.com">spacethecnologyltda@gmail.com</a><a href="tel:+5511948081905">+55 (11) 94808-1905</a><p>São Paulo, Brasil</p></div>
+                <div class="footer-col"><h4>Redes</h4><a href="https://github.com/space" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a><a href="https://linkedin.com/company/space" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a><a href="https://wa.me/5511948081905" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> SPACE. Todos os direitos reservados.</p></div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+        <div class="modal-content" id="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalClose" aria-label="Fechar modal">&times;</button>
+            <div class="modal-preview" id="modalPreview"></div>
+            <h3 id="modalTitle" style="font-weight:700;font-size:var(--fs-h3);"></h3>
+            <p id="modalDesc" style="opacity:0.6;font-size:var(--fs-small);margin-top:4px;"></p>
+            <div id="modalLinkContainer" style="margin-top:var(--spacing-sm);"></div>
+            <p style="font-size:var(--fs-small);opacity:0.5;margin-top:8px;">Este é um modelo de demonstração. Cada projeto real é totalmente personalizado para atender às necessidades específicas do cliente.</p>
+        </div>
+    </div>
+
+    <script type="module">
+        // ============ INTERACTIVE STARFIELD ============
+        class InteractiveStarfield {
+            constructor() {
+                this.canvas = document.getElementById('starCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.stars = [];
+                this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+                this.targetMouse = { x: this.mouse.x, y: this.mouse.y };
+                this.animationId = 0;
+                this.STAR_COUNT = 300;
+                this.resize();
+                this.createStars();
+                window.addEventListener('resize', this.resize.bind(this));
+                window.addEventListener('mousemove', this.onMouseMove.bind(this));
+                this.animate();
+            }
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                this.canvas.width = window.innerWidth * dpr;
+                this.canvas.height = window.innerHeight * dpr;
+                this.canvas.style.width = window.innerWidth + 'px';
+                this.canvas.style.height = window.innerHeight + 'px';
+                this.ctx.scale(dpr, dpr);
+            }
+            onMouseMove(e) { this.targetMouse.x = e.clientX; this.targetMouse.y = e.clientY; }
+            createStars() {
+                this.stars = [];
+                for (let i = 0; i < this.STAR_COUNT; i++) {
+                    this.stars.push({
+                        baseX: Math.random() * window.innerWidth,
+                        baseY: Math.random() * window.innerHeight,
+                        radius: Math.random() * 1.8 + 0.3,
+                        phase: Math.random() * Math.PI * 2,
+                        speed: 0.02 + Math.random() * 0.04,
+                        influence: 0.005 + Math.random() * 0.03
+                    });
+                }
+            }
+            animate() {
+                this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.05;
+                this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.05;
+                this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                const now = performance.now() * 0.001;
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                this.stars.forEach(star => {
+                    const dx = this.mouse.x - width / 2;
+                    const dy = this.mouse.y - height / 2;
+                    const offsetX = dx * star.influence;
+                    const offsetY = dy * star.influence;
+                    const currentX = star.baseX + offsetX;
+                    const currentY = star.baseY + offsetY;
+                    const twinkle = 0.4 + 0.6 * Math.sin(now * star.speed * 8 + star.phase);
+                    const alpha = 0.25 + twinkle * 0.75;
+                    this.ctx.beginPath();
+                    this.ctx.arc(currentX, currentY, star.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                    this.ctx.fill();
+                });
+                this.animationId = requestAnimationFrame(this.animate.bind(this));
+            }
+        }
+        if (document.getElementById('starCanvas')) new InteractiveStarfield();
+
+        // ============ CURSOR ============
+        const cursor = document.getElementById('cursor');
+        if (cursor && window.matchMedia('(min-width: 769px)').matches) {
+            let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+            const interactiveSelectors = 'a, button, input, textarea, select, [tabindex], .btn, .service-card, .modelo-card, .faq-question, .tech-item, .about-tag';
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest(interactiveSelectors)) cursor.classList.add('dot');
+                else cursor.classList.remove('dot');
+            });
+            document.addEventListener('mouseout', () => cursor.classList.remove('dot'));
+            function animateCursor() {
+                const dx = mouseX - cursorX, dy = mouseY - cursorY;
+                cursorX += dx * 0.18; cursorY += dy * 0.18;
+                cursor.style.left = cursorX + 'px'; cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            requestAnimationFrame(animateCursor);
+        }
+
+        // ============ NAVBAR ============
+        const navbar = document.getElementById('navbar');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        function updateNavbar() {
+            if (window.scrollY > 80) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        }
+        window.addEventListener('scroll', updateNavbar, { passive: true });
+        updateNavbar();
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ============ HERO FADE ============
+        const heroContent = document.getElementById('heroContent');
+        if (heroContent) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const maxFade = 500;
+                heroContent.style.opacity = Math.max(0, 1 - scrollY / maxFade);
+                heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
+            }, { passive: true });
+        }
+
+        // ============ REVEAL OBSERVER ============
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ============ SERVIÇOS ============
+        const servicesGrid = document.getElementById('servicesGrid');
+        if (servicesGrid) {
+            const servicesData = [
+                { title: 'Desenvolvimento Web', desc: 'Sites e aplicações web de alto desempenho.', icon: 'bi-globe2', items: ['React', 'Next.js', 'TypeScript', 'Node.js'] },
+                { title: 'Aplicações Web', desc: 'PWAs e SPAs com experiência nativa.', icon: 'bi-window-stack', items: ['Offline-first', 'Responsivo', 'Push'] },
+                { title: 'Landing Pages', desc: 'Páginas otimizadas para conversão.', icon: 'bi-rocket-takeoff', items: ['SEO', 'Alta velocidade', 'A/B Testing'] },
+                { title: 'Lojas Virtuais', desc: 'E-commerce robusto e escalável.', icon: 'bi-cart3', items: ['Shopify', 'WooCommerce', 'Custom'] },
+                { title: 'Automação', desc: 'Processos inteligentes que economizam tempo.', icon: 'bi-gear-wide-connected', items: ['n8n', 'Zapier', 'Scripts'] },
+                { title: 'Inteligência Artificial', desc: 'Soluções com machine learning e NLP.', icon: 'bi-cpu', items: ['ChatGPT API', 'RAG', 'Fine-tuning'] },
+                { title: 'Integrações', desc: 'Conexão entre sistemas e APIs.', icon: 'bi-plug', items: ['REST', 'GraphQL', 'Webhooks'] },
+                { title: 'Manutenção', desc: 'Suporte contínuo e evolução constante.', icon: 'bi-tools', items: ['Monitoramento', 'Updates', 'Backups'] },
+                { title: 'Consultoria', desc: 'Orientação estratégica em tecnologia.', icon: 'bi-people', items: ['Arquitetura', 'Code Review', 'Auditoria'] },
+                { title: 'Segurança Digital', desc: 'Proteção de dados e infraestrutura.', icon: 'bi-shield-check', items: ['Pentest', 'LGPD', 'SSL'] },
+            ];
+            servicesData.forEach((s, i) => {
+                const card = document.createElement('div');
+                card.className = 'service-card reveal';
+                card.style.transitionDelay = `${i * 0.06}s`;
+                card.innerHTML = `<i class="bi ${s.icon}"></i><h3>${s.title}</h3><p>${s.desc}</p><ul>${s.items.map(it => `<li>${it}</li>`).join('')}</ul>`;
+                servicesGrid.appendChild(card);
+                revealObserver.observe(card);
+            });
+        }
+
+        // ============ DIFERENCIAIS ============
+        const diffGrid = document.getElementById('diffGrid');
+        if (diffGrid) {
+            const diffs = [
+                { label: 'Código limpo', icon: 'bi-code-slash' },
+                { label: 'Alta performance', icon: 'bi-speedometer2' },
+                { label: 'SEO otimizado', icon: 'bi-graph-up-arrow' },
+                { label: 'Design Responsivo', icon: 'bi-phone' },
+                { label: 'Segurança', icon: 'bi-lock' },
+                { label: 'Escalabilidade', icon: 'bi-bar-chart-steps' },
+                { label: 'Boas práticas', icon: 'bi-patch-check' },
+                { label: 'Interfaces modernas', icon: 'bi-palette2' },
+                { label: 'Experiência do usuário', icon: 'bi-heart' },
+            ];
+            diffs.forEach((d, i) => {
+                const item = document.createElement('div');
+                item.className = 'diff-item reveal';
+                item.style.transitionDelay = `${i * 0.05}s`;
+                item.innerHTML = `<i class="bi ${d.icon} diff-icon"></i><p style="font-weight:600;font-size:var(--fs-body);">${d.label}</p>`;
+                diffGrid.appendChild(item);
+                revealObserver.observe(item);
+            });
+        }
+
+        // ============ MODAL COM IMAGEM REAL E LINK ============
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalPreview = document.getElementById('modalPreview');
+        const modalLinkContainer = document.getElementById('modalLinkContainer');
+
+        function openModal(title, desc, imgSrc, url) {
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            
+            if (imgSrc) {
+                modalPreview.innerHTML = `<img src="${imgSrc}" alt="${title}" style="width:100%;height:100%;object-fit:cover;">`;
+            } else {
+                modalPreview.innerHTML = `<div class="mock-layout"><div class="mock-header"></div><div class="mock-body"><div class="mock-sidebar"></div><div class="mock-main"><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-line" style="width:80%"></div></div></div></div>`;
+            }
+            
+            if (url) {
+                modalLinkContainer.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-sm" style="width:100%;">Abrir modelo em nova aba <i class="bi bi-box-arrow-up-right"></i></a>`;
+            } else {
+                modalLinkContainer.innerHTML = '';
+            }
+            
+            modalOverlay.classList.add('active');
+            modalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal(); });
+        
+        document.querySelectorAll('.modal-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const title = btn.dataset.title;
+                const desc = btn.dataset.desc;
+                const imgSrc = btn.dataset.img || null;
+                const url = btn.dataset.url || null;
+                openModal(title, desc, imgSrc, url);
+            });
+        });
+
+        // ============ TECNOLOGIAS ============
+        const techsList = ['HTML','CSS','JavaScript','TypeScript','React','Next.js','Node.js','Python','FastAPI','Docker','Git','GitHub','PostgreSQL','MySQL'];
+        const techGrid = document.getElementById('techGrid');
+        if (techGrid) {
+            techsList.forEach((t, i) => {
+                const span = document.createElement('span');
+                span.className = 'tech-item reveal';
+                span.style.transitionDelay = `${i * 0.04}s`;
+                span.textContent = t;
+                techGrid.appendChild(span);
+                revealObserver.observe(span);
+            });
+        }
+
+        // ============ FAQ ============
+        const faqData = [
+            { q: 'Qual o prazo médio para desenvolvimento?', a: 'Depende da complexidade. Sites institucionais levam em média 2 a 4 semanas. Sistemas web mais complexos podem levar de 2 a 4 meses.' },
+            { q: 'Vocês oferecem suporte após a entrega?', a: 'Sim. Oferecemos planos de manutenção e suporte contínuo.' },
+            { q: 'Trabalham com design personalizado?', a: 'Sim. Cada projeto é único, os modelos servem apenas como inspiração.' },
+            { q: 'Quais tecnologias utilizam?', a: 'TypeScript, React, Next.js, Node.js, Python, FastAPI, PostgreSQL, MySQL, Docker.' },
+            { q: 'Fazem integração com sistemas existentes?', a: 'Sim, integramos com ERPs, CRMs, gateways de pagamento e APIs diversas.' },
+            { q: 'O site será otimizado para SEO?', a: 'Sim, todos os projetos incluem SEO técnico completo e performance otimizada.' },
+        ];
+        const faqList = document.getElementById('faqList');
+        if (faqList) {
+            faqData.forEach((faq, i) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item reveal';
+                item.style.transitionDelay = `${i * 0.05}s`;
+                item.innerHTML = `<button class="faq-question" aria-expanded="false">${faq.q}<span class="faq-icon">+</span></button><div class="faq-answer"><p>${faq.a}</p></div>`;
+                faqList.appendChild(item);
+                revealObserver.observe(item);
+                const btn = item.querySelector('.faq-question');
+                btn.addEventListener('click', () => {
+                    const isOpen = item.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen);
+                    btn.querySelector('.faq-icon').textContent = isOpen ? '−' : '+';
+                });
+            });
+        }
+
+        // ============ FORMULÁRIO ============
+        const contactForm = document.getElementById('contactForm');
+        const formFeedback = document.getElementById('formFeedback');
+        function validateForm(data) {
+            const errors = [];
+            if (!data.nome || data.nome.trim().length < 2) errors.push('Nome é obrigatório (mínimo 2 caracteres).');
+            if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.push('Email inválido.');
+            if (!data.tipoProjeto) errors.push('Selecione o tipo de projeto.');
+            if (!data.mensagem || data.mensagem.trim().length < 10) errors.push('Mensagem é obrigatória (mínimo 10 caracteres).');
+            return errors;
+        }
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                formFeedback.textContent = '';
+                formFeedback.className = 'form-feedback';
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
+                const errors = validateForm(data);
+                if (errors.length > 0) {
+                    formFeedback.textContent = errors.join(' ');
+                    formFeedback.classList.add('error');
+                    return;
+                }
+                formFeedback.textContent = 'Enviando...';
+                try {
+                    const response = await fetch('https://httpbin.org/post', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                    if (response.ok) {
+                        formFeedback.textContent = 'Mensagem enviada com sucesso! Retornaremos em até 24 horas.';
+                        formFeedback.classList.add('success');
+                        contactForm.reset();
+                        sessionStorage.setItem('formSubmitted', 'true');
+                        sessionStorage.setItem('formTimestamp', Date.now().toString());
+                    } else throw new Error('Erro');
+                } catch {
+                    formFeedback.textContent = 'Erro ao enviar. Tente novamente.';
+                    formFeedback.classList.add('error');
+                }
+            });
+            const savedForm = sessionStorage.getItem('formSubmitted');
+            if (savedForm === 'true' && Date.now() - parseInt(sessionStorage.getItem('formTimestamp')||'0') < 3600000) {
+                formFeedback.textContent = 'Você já enviou uma mensagem recentemente. Retornaremos em breve!';
+                formFeedback.classList.add('success');
+            }
+        }
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
