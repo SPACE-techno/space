@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Creation | Space – Design & Performance</title>
+    <meta name="description" content="Professional website creation with exclusive design, SEO optimized, responsive and high performance. Transform your digital presence with Space." />
+    <link rel="canonical" href="https://spacetechn.com/en/website-creation/" />
+    <link rel="alternate" hreflang="en" href="https://spacetechn.com/en/website-creation/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/criacao-de-sites/" />
+    <link rel="alternate" hreflang="x-default" href="https://spacetechn.com/en/website-creation/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Website Creation | Space – Design & Performance" />
+    <meta property="og:description" content="Professional websites with exclusive design, SEO optimized and high performance. Transform your digital presence." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacetechn.com/en/website-creation/" />
+    <meta property="og:image" content="https://spacetechn.com/images/og-website-creation.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Website Creation | Space – Design & Performance" />
+    <meta name="twitter:description" content="Professional websites with exclusive design and high performance." />
+
+    <!-- Fonts, Icons, Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" type="image/png" href="https://spacetechn.com/images/spacelogo.png" />
+    <link rel="apple-touch-icon" href="https://spacetechn.com/images/apple-touch-icon.png" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Website Creation",
+        "description": "Professional website creation with exclusive design, SEO optimized, responsive and high performance.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Space"
+        },
+        "url": "https://spacetechn.com/en/website-creation/"
+    }
+    </script>
+
+    <!-- CSS (mesmo da versão PT) -->
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --deep-purple: #0a0518;
+            --purple-dark: #1a0a2e;
+            --purple-mid: #2d1b4e;
+            --purple-light: #7c3aed;
+            --gray-light: #f0f0f0;
+            --gray-border: rgba(255, 255, 255, 0.12);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --font: 'Space Grotesk', 'Inter', 'Helvetica Neue', sans-serif;
+            --fs-hero: clamp(3rem, 7vw, 5.5rem);
+            --fs-h2: clamp(1.8rem, 3.5vw, 2.8rem);
+            --fs-h3: clamp(1.1rem, 2.2vw, 1.6rem);
+            --fs-body: clamp(0.9rem, 1.4vw, 1.05rem);
+            --fs-small: clamp(0.7rem, 1vw, 0.85rem);
+            --spacing-xs: clamp(0.4rem, 0.8vw, 0.6rem);
+            --spacing-sm: clamp(0.8rem, 1.5vw, 1.2rem);
+            --spacing-md: clamp(1.5rem, 3vw, 2.5rem);
+            --spacing-lg: clamp(2.5rem, 5vw, 5rem);
+            --spacing-xl: clamp(4rem, 8vw, 9rem);
+            --max-width: 1400px;
+            --transition-med: 350ms cubic-bezier(.4, 0, .2, 1);
+            --z-nav: 1000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background: var(--deep-purple);
+            color: var(--white);
+            font-family: var(--font);
+        }
+
+        body {
+            background: transparent;
+            color: var(--white);
+            font-family: var(--font);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        #nebulaCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at 40% 30%, #1a0a2e 0%, #0a0518 60%, #000000 100%);
+        }
+
+        @media (min-width: 769px) {
+            body { cursor: none; }
+            .cursor {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 24px;
+                height: 24px;
+                border: 1.5px solid var(--white);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+                mix-blend-mode: difference;
+                will-change: transform;
+            }
+            .cursor.dot {
+                width: 8px;
+                height: 8px;
+                background: var(--white);
+                border: none;
+                mix-blend-mode: difference;
+            }
+            a, button, input, textarea, select, [tabindex] { cursor: none; }
+        }
+        @media (max-width: 768px) { .cursor { display: none; } }
+
+        /* ===== HEADER ===== */
+        .globalnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: var(--z-nav);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            background: rgba(10, 5, 24, 0.6);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: background var(--transition-med), border-color var(--transition-med);
+            padding: 0 var(--spacing-md);
+        }
+        .globalnav.scrolled {
+            background: rgba(10, 5, 24, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .globalnav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.06em;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(0.6rem, 1.5vw, 1.8rem);
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: var(--fs-small);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.7;
+            transition: opacity var(--transition-med);
+            padding: 4px 0;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--white);
+            transition: width var(--transition-med);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown > a { cursor: default; }
+        .nav-dropdown > a::after { display: none; }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: rgba(10, 5, 24, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 220px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            list-style: none;
+            z-index: 10;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-dropdown-menu li { padding: 0; }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 0.4rem 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+        .nav-dropdown-sub {
+            position: relative;
+        }
+        .nav-dropdown-sub > a { display: flex; align-items: center; }
+        .nav-dropdown-sub-menu {
+            position: absolute;
+            top: -0.4rem;
+            left: 100%;
+            background: rgba(10, 5, 24, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform: translateX(4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            list-style: none;
+        }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+        .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+        .nav-dropdown-sub-menu a {
+            padding: 0.4rem 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            display: block;
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-dropdown-sub-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.7;
+            transition: opacity var(--transition-med);
+            position: relative;
+        }
+        .search-icon:hover { opacity: 1; }
+        .search-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .search-input-wrapper {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(10, 5, 24, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            min-width: 240px;
+        }
+        .search-input-wrapper.open { display: flex; }
+        .search-input-wrapper input {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-family: var(--font);
+            font-size: var(--fs-body);
+            outline: none;
+            width: 100%;
+            padding: 4px 0;
+        }
+        .search-input-wrapper input::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .search-input-wrapper .search-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            transition: opacity var(--transition-med);
+            padding: 0 4px;
+        }
+        .search-input-wrapper .search-close:hover { opacity: 1; }
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: var(--fs-small);
+            font-weight: 500;
+        }
+        .lang-switch a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            padding: 2px 6px;
+            transition: color var(--transition-med);
+        }
+        .lang-switch a.active {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .lang-switch a:hover { color: #fff; }
+        .lang-switch .sep { color: rgba(255, 255, 255, 0.2); }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 2;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--white);
+            transition: all var(--transition-med);
+            transform-origin: center;
+        }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 5, 24, 0.97);
+                backdrop-filter: saturate(180%) blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1.8rem;
+                transform: translateY(-100%);
+                transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+                padding: 2rem;
+                pointer-events: none;
+                overflow-y: auto;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+            .nav-links.open {
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            .nav-links a {
+                font-size: 1.4rem;
+                opacity: 1;
+                color: var(--white);
+            }
+            .nav-links a::after { display: none; }
+            .nav-dropdown-menu {
+                position: static;
+                transform: none;
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+                padding: 0.5rem 0 0;
+                opacity: 1;
+                pointer-events: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                min-width: unset;
+            }
+            .nav-dropdown-menu a {
+                font-size: 1rem;
+                padding: 0.2rem 1rem;
+                color: rgba(255, 255, 255, 0.6);
+            }
+            .nav-dropdown-menu a:hover {
+                background: transparent;
+                color: #fff;
+            }
+            .nav-dropdown-sub-menu {
+                position: static;
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+                padding: 0.3rem 0 0;
+                opacity: 1;
+                pointer-events: auto;
+                transform: none;
+                min-width: unset;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.3rem;
+            }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+            .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+                display: flex;
+                transform: none;
+            }
+            .nav-toggle { display: flex; }
+            .nav-actions .search-icon { display: none; }
+            .search-input-wrapper {
+                position: fixed;
+                top: 52px;
+                left: 0;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+                padding: 0.8rem var(--spacing-md);
+                background: rgba(10, 5, 24, 0.97);
+            }
+            .search-input-wrapper.open { display: flex; }
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 1;
+        }
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: var(--fs-small);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .section-title {
+            font-size: var(--fs-h2);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+        .section-desc {
+            font-size: var(--fs-body);
+            opacity: 0.7;
+            max-width: 620px;
+            line-height: 1.7;
+            color: var(--white);
+        }
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.7rem 1.8rem;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: var(--fs-body);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all var(--transition-med);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
+            color: var(--white);
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1), transform 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        .hero-site {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: calc(var(--spacing-xl) * 1.6) 0 var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-site .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-site .hero-logo {
+            font-size: var(--fs-hero);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            color: var(--white);
+            text-shadow: 0 0 60px rgba(124, 58, 237, 0.15);
+        }
+        .hero-site .hero-sub {
+            font-size: var(--fs-h3);
+            font-weight: 400;
+            opacity: 0.6;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+        .hero-site .hero-text {
+            font-size: var(--fs-body);
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            line-height: 1.7;
+            color: var(--white);
+        }
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: var(--spacing-md) auto var(--spacing-lg);
+            max-width: 700px;
+        }
+        .hero-tags span {
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            font-size: var(--fs-small);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all var(--transition-med);
+            color: var(--white);
+            cursor: default;
+        }
+        .hero-tags span:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+        }
+
+        .site-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .site-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .site-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .site-card i {
+            font-size: 2.6rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+            transition: transform var(--transition-med);
+        }
+        .site-card:hover i { transform: scale(1.08); }
+        .site-card h3 {
+            font-weight: 600;
+            font-size: var(--fs-body);
+            margin-bottom: 4px;
+        }
+        .site-card p {
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+        .site-card .site-tag {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 2px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.5;
+            transition: all var(--transition-med);
+        }
+        .site-card:hover .site-tag {
+            opacity: 0.9;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .diff-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--white);
+        }
+        .diff-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .diff-item i {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .diff-item p {
+            font-weight: 500;
+            font-size: var(--fs-body);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .process-step {
+            text-align: center;
+            padding: var(--spacing-sm);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all var(--transition-med);
+        }
+        .process-step:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .process-step .step-num {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            opacity: 0.3;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .process-step h4 {
+            font-weight: 600;
+            font-size: var(--fs-body);
+            color: var(--white);
+        }
+        .process-step p {
+            font-size: var(--fs-small);
+            opacity: 0.5;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--white);
+        }
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            font-family: var(--font);
+            font-size: var(--fs-body);
+            font-weight: 600;
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--white);
+            letter-spacing: 0.01em;
+        }
+        .faq-icon {
+            font-size: 1.4rem;
+            transition: transform var(--transition-med);
+            flex-shrink: 0;
+            color: var(--white);
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 var(--spacing-md);
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            line-height: 1.7;
+            color: var(--white);
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 var(--spacing-md) var(--spacing-sm);
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .cta-section .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+        .cta-section .btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+        }
+        .cta-section .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: var(--white);
+        }
+        .cta-section .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            color: var(--white);
+            margin-top: var(--spacing-lg);
+            background: rgba(10, 5, 24, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+        .footer-col h4 {
+            font-weight: 600;
+            font-size: var(--fs-small);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .footer-col a,
+        .footer-col p {
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            text-decoration: none;
+            color: var(--white);
+            display: block;
+            margin-bottom: 4px;
+            transition: opacity var(--transition-med);
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.7;
+            transition: all var(--transition-med);
+            text-decoration: none;
+            background: transparent;
+        }
+        .footer-social a:hover {
+            opacity: 1;
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.08);
+        }
+        .footer-bottom {
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            font-size: var(--fs-small);
+            opacity: 0.5;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        .footer-bottom a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity var(--transition-med);
+        }
+        .footer-bottom a:hover { opacity: 1; }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-med);
+            padding: var(--spacing-md);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            background: rgba(10, 5, 24, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+            color: var(--white);
+        }
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition-med);
+        }
+        .modal-close:hover { background: rgba(255, 255, 255, 0.05); }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NEBULA CANVAS ===== -->
+    <canvas id="nebulaCanvas"></canvas>
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="globalnav" id="globalnav" role="navigation" aria-label="Main navigation">
+        <div class="globalnav-content">
+            <a href="/en/" class="nav-logo" aria-label="Space">
+                <img src="https://spacetechn.com/images/spacelogo.png" alt="Space logo" />
+                <span>SPACE</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li class="nav-dropdown">
+                    <a href="#services" aria-haspopup="true" aria-expanded="false">Services</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Web Development</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-creation/" class="active">Website Creation</a></li>
+                                <li><a href="/en/web-development/">Web Development</a></li>
+                                <li><a href="/en/corporate-websites/">Corporate Websites</a></li>
+                                <li><a href="/en/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/en/digital-platforms/">Digital Platforms</a></li>
+                                <li><a href="/en/web-applications/">Web Applications</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Systems &amp; Platforms</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/web-systems/">Web Systems</a></li>
+                                <li><a href="/en/dashboards/">Dashboards</a></li>
+                                <li><a href="/en/custom-solutions/">Custom Solutions</a></li>
+                                <li><a href="/en/apis-integrations/">APIs &amp; Integrations</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automation &amp; AI</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/process-automation/">Process Automation</a></li>
+                                <li><a href="/en/artificial-intelligence/">Artificial Intelligence</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consulting &amp; Support</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-maintenance/">Website Maintenance</a></li>
+                                <li><a href="/en/seo-services/">SEO Services</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/en/projects/">Projects</a></li>
+                <li><a href="/en/models/">Models</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Company</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/en/about/">About</a></li>
+                        <li><a href="/en/process/">Process</a></li>
+                        <li><a href="/en/technologies/">Technologies</a></li>
+                        <li><a href="/en/faq/">FAQ</a></li>
+                        <li><a href="/en/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="/en/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-icon" id="searchToggle" aria-label="Search">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
+                    <div class="search-input-wrapper" id="searchInputWrapper">
+                        <input type="text" id="searchInput" placeholder="Search..." />
+                        <button class="search-close" id="searchClose">✕</button>
+                    </div>
+                </div>
+                <div class="lang-switch">
+                    <a href="https://spacetechn.com/en/website-creation/" hreflang="en" class="active" aria-label="English">EN</a>
+                    <span class="sep">|</span>
+                    <a href="https://spacetechn.com/pt/criacao-de-sites/" hreflang="pt-BR" aria-label="Português">PT</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero-site" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-logo" translate="no">Website Creation</h1>
+                    <p class="hero-sub">Your digital presence starts here</p>
+                    <p class="hero-text">
+                        We create professional websites with exclusive design, SEO optimized,
+                        fully responsive and with top‑notch performance. Turn your idea into a
+                        digital experience that captivates and converts.
+                    </p>
+                    <div class="hero-tags">
+                        <span>Exclusive design</span>
+                        <span>SEO optimized</span>
+                        <span>Responsive</span>
+                        <span>High performance</span>
+                        <span>Security</span>
+                        <span>Ongoing support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TYPES OF WEBSITES ===== -->
+        <section class="section" id="tipos">
+            <div class="container">
+                <span class="section-label reveal">Solutions</span>
+                <h2 class="section-title reveal reveal-delay-1">Types of websites we create</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Each project is unique, but we work with some models that can
+                    serve as a starting point for your idea.
+                </p>
+                <div class="site-grid" id="siteTypesGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== DIFFERENTIALS ===== -->
+        <section class="section" id="diferenciais" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04);">
+            <div class="container text-center">
+                <span class="section-label reveal">Differentials</span>
+                <h2 class="section-title reveal reveal-delay-1">Why choose Space for your website?</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    We deliver much more than a beautiful website. We build a business
+                    tool that generates results.
+                </p>
+                <div class="diff-grid" id="diffGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== PROCESS ===== -->
+        <section class="section" id="processo">
+            <div class="container text-center">
+                <span class="section-label reveal">Process</span>
+                <h2 class="section-title reveal reveal-delay-1">How we create your website</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    A transparent and collaborative flow, from idea to launch.
+                </p>
+                <div class="process-steps" id="processStepsGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section" id="faq" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04);">
+            <div class="container">
+                <span class="section-label reveal">FAQ</span>
+                <h2 class="section-title reveal reveal-delay-1">Frequently asked questions about website creation</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">
+                    Get answers about the website creation process.
+                </p>
+                <div class="faq-list" id="faqList"></div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section cta-section" id="cta">
+            <div class="container text-center">
+                <span class="section-label reveal" style="color: rgba(255,255,255,0.5);">Let's create</span>
+                <h2 class="section-title reveal reveal-delay-1" style="color: var(--white);">Ready for a website that impresses?</h2>
+                <p class="section-desc reveal reveal-delay-2" style="margin:0 auto; color: rgba(255,255,255,0.7);">
+                    Get in touch and let's build the digital presence your business deserves.
+                </p>
+                <div class="hero-btns mt-md reveal reveal-delay-3">
+                    <a href="/en/contact/" class="btn btn-primary">Request a quote</a>
+                    <a href="/en/models/" class="btn btn-secondary">View models</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SPACE</h4>
+                    <p>Technology &amp; Innovation. Minimalist design, engineering excellence.</p>
+                    <p style="margin-top:8px;">spacetechn.com</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/SPACE-techno" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/company/spacetechn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://instagram.com/spacetech.ltda" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/5511954270090" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="/en/#hero">Home</a>
+                    <a href="/en/website-creation/">Website Creation</a>
+                    <a href="/en/web-development/">Web Development</a>
+                    <a href="/en/web-systems/">Web Systems</a>
+                    <a href="/en/process-automation/">Automation</a>
+                    <a href="/en/artificial-intelligence/">AI</a>
+                    <a href="/en/apis-integrations/">APIs</a>
+                    <a href="/en/custom-solutions/">Custom Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/en/projects/">Projects</a>
+                    <a href="/en/about/">About</a>
+                    <a href="/en/process/">Process</a>
+                    <a href="/en/technologies/">Technologies</a>
+                    <a href="/en/faq/">FAQ</a>
+                    <a href="/en/contact/">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:spacetechnologyltda@gmail.com">spacetechnologyltda@gmail.com</a>
+                    <a href="tel:+5511954270090">+55 (11) 95427-0090</a>
+                    <p>São Paulo, Brazil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Space. All rights reserved.</span>
+                <span>
+                    <a href="#" id="privacyLink">Privacy Policy</a> &middot;
+                    <a href="#" id="cookieLink">Cookie Policy</a> &middot;
+                    <a href="#" id="termsLink">Terms of Use</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== LEGAL MODAL ===== -->
+    <div class="modal-overlay" id="legalModalOverlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <button class="modal-close" id="legalModalClose" aria-label="Close modal">&times;</button>
+            <h3 id="legalModalTitle" style="font-weight:700;font-size:var(--fs-h3);margin-bottom:var(--spacing-sm);"></h3>
+            <div id="legalModalBody" style="font-size:var(--fs-small);opacity:0.7;line-height:1.7;"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============ DATA (English) ============
+        const siteTypesData = [
+            { icon: 'bi-building', title: 'Corporate Website', desc: 'Professional digital presence for companies and organizations.', tag: 'Corporate' },
+            { icon: 'bi-rocket-takeoff', title: 'Landing Page', desc: 'Conversion‑focused pages for campaigns and products.', tag: 'Conversion' },
+            { icon: 'bi-cart3', title: 'E‑commerce', desc: 'Complete online stores with product and payment management.', tag: 'Sales' },
+            { icon: 'bi-pencil', title: 'Blog & Content', desc: 'Platforms for content publishing and engagement.', tag: 'Content' },
+            { icon: 'bi-layers', title: 'Portfolio', desc: 'Digital showcase for creative professionals and photographers.', tag: 'Portfolio' },
+            { icon: 'bi-people', title: 'Community & Network', desc: 'Spaces for interaction, forums and internal networks.', tag: 'Community' },
+        ];
+
+        const diffData = [
+            { icon: 'bi-palette', label: 'Exclusive design' },
+            { icon: 'bi-graph-up-arrow', label: 'SEO optimized' },
+            { icon: 'bi-phone', label: 'Responsive' },
+            { icon: 'bi-speedometer2', label: 'High performance' },
+            { icon: 'bi-lock', label: 'Security' },
+            { icon: 'bi-heart', label: 'User‑focused UX' },
+            { icon: 'bi-code-slash', label: 'Clean code' },
+            { icon: 'bi-gear', label: 'Ongoing support' },
+        ];
+
+        const processStepsData = [
+            { title: '1. Conversation', desc: 'We understand your needs and goals.' },
+            { title: '2. Planning', desc: 'Define scope, deadlines and technologies.' },
+            { title: '3. Design', desc: 'Create wireframes and high‑fidelity prototypes.' },
+            { title: '4. Development', desc: 'Code with best practices.' },
+            { title: '5. Testing', desc: 'Validate on all devices and browsers.' },
+            { title: '6. Launch', desc: 'Deploy and continuous monitoring.' },
+        ];
+
+        const faqData = [
+            { q: 'How much does it cost to create a website?', a: 'The price depends on complexity. Corporate websites start at $2,500, landing pages from $1,500. Contact us for a custom quote.' },
+            { q: 'How long does it take to create a website?', a: 'Corporate websites take 2‑4 weeks. Landing pages 1‑2 weeks. More complex projects may take up to 3 months.' },
+            { q: 'Will the website be optimized for mobile?', a: 'Yes! All our websites are responsive and tested on multiple devices and screen sizes.' },
+            { q: 'Do you offer maintenance after launch?', a: 'Yes, we have maintenance plans and ongoing support to ensure security, updates and evolution of your website.' },
+            { q: 'Can I update the website content myself?', a: 'Yes! We deliver all websites with an easy‑to‑use CMS (content management system) like WordPress or a custom dashboard.' },
+            { q: 'Will the website be optimized for search engines?', a: 'Yes. We apply SEO best practices from development, including meta tags, URL structure, sitemap and loading speed.' },
+        ];
+
+        // ============ RENDER ============
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        function renderSiteTypes() {
+            const container = document.getElementById('siteTypesGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            siteTypesData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'site-card reveal';
+                div.style.transitionDelay = `${i * 0.06}s`;
+                div.innerHTML = `
+                    <i class="bi ${item.icon}"></i>
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                    <span class="site-tag">${item.tag}</span>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderDiffs() {
+            const container = document.getElementById('diffGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            diffData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'diff-item reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.innerHTML = `<i class="bi ${item.icon}"></i><p>${item.label}</p>`;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderProcessSteps() {
+            const container = document.getElementById('processStepsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            processStepsData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'process-step reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.innerHTML = `
+                    <span class="step-num">${item.title.split(' ')[0]}</span>
+                    <h4>${item.title}</h4>
+                    <p>${item.desc}</p>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faqList');
+            if (!container) return;
+            container.innerHTML = '';
+            faqData.forEach((faq, i) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item reveal';
+                item.style.transitionDelay = `${i * 0.05}s`;
+                item.innerHTML = `
+                    <button class="faq-question" aria-expanded="false">
+                        ${faq.q}
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>${faq.a}</p></div>
+                `;
+                container.appendChild(item);
+                revealObserver.observe(item);
+                const btn = item.querySelector('.faq-question');
+                btn.addEventListener('click', () => {
+                    const isOpen = item.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen);
+                    btn.querySelector('.faq-icon').textContent = isOpen ? '−' : '+';
+                });
+            });
+        }
+
+        renderSiteTypes();
+        renderDiffs();
+        renderProcessSteps();
+        renderFAQ();
+
+        // ============ NEBULA + STARS (same as PT) ============
+        class NebulaCanvas {
+            constructor() {
+                this.canvas = document.getElementById('nebulaCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.stars = [];
+                this.nebulaParticles = [];
+                this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+                this.targetMouse = { x: this.mouse.x, y: this.mouse.y };
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.STAR_COUNT = 300;
+                this.NEBULA_COUNT = 120;
+                this.resize();
+                this.createStars();
+                this.createNebulaParticles();
+                window.addEventListener('resize', this.resize.bind(this));
+                window.addEventListener('mousemove', this.onMouseMove.bind(this));
+                this.animate();
+            }
+
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width * dpr;
+                this.canvas.height = this.height * dpr;
+                this.canvas.style.width = this.width + 'px';
+                this.canvas.style.height = this.height + 'px';
+                this.ctx.scale(dpr, dpr);
+                const grad = this.ctx.createRadialGradient(
+                    this.width * 0.3, this.height * 0.3, 0,
+                    this.width * 0.3, this.height * 0.3, this.width * 0.7
+                );
+                grad.addColorStop(0, '#2d1b4e');
+                grad.addColorStop(0.4, '#1a0a2e');
+                grad.addColorStop(1, '#0a0518');
+                this.ctx.fillStyle = grad;
+                this.ctx.fillRect(0, 0, this.width, this.height);
+            }
+
+            onMouseMove(e) {
+                this.targetMouse.x = e.clientX;
+                this.targetMouse.y = e.clientY;
+            }
+
+            createStars() {
+                this.stars = [];
+                for (let i = 0; i < this.STAR_COUNT; i++) {
+                    this.stars.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        radius: Math.random() * 1.5 + 0.2,
+                        speed: 0.01 + Math.random() * 0.03,
+                        phase: Math.random() * Math.PI * 2,
+                        influence: 0.005 + Math.random() * 0.02,
+                        alpha: 0.3 + Math.random() * 0.7,
+                        twinkleSpeed: 0.5 + Math.random() * 0.5,
+                        twinkleOffset: Math.random() * Math.PI * 2
+                    });
+                }
+            }
+
+            createNebulaParticles() {
+                this.nebulaParticles = [];
+                for (let i = 0; i < this.NEBULA_COUNT; i++) {
+                    this.nebulaParticles.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        radius: 50 + Math.random() * 150,
+                        alpha: 0.01 + Math.random() * 0.04,
+                        speed: 0.002 + Math.random() * 0.005,
+                        angle: Math.random() * Math.PI * 2,
+                        drift: 0.5 + Math.random() * 0.5,
+                        color: `rgba(124, 58, 237, ${0.02 + Math.random() * 0.04})`
+                    });
+                }
+            }
+
+            animate() {
+                this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.05;
+                this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.05;
+
+                const grad = this.ctx.createRadialGradient(
+                    this.width * 0.3 + (this.mouse.x - this.width * 0.3) * 0.02,
+                    this.height * 0.3 + (this.mouse.y - this.height * 0.3) * 0.02,
+                    0,
+                    this.width * 0.3 + (this.mouse.x - this.width * 0.3) * 0.02,
+                    this.height * 0.3 + (this.mouse.y - this.height * 0.3) * 0.02,
+                    this.width * 0.8
+                );
+                grad.addColorStop(0, '#2d1b4e');
+                grad.addColorStop(0.3, '#1a0a2e');
+                grad.addColorStop(0.7, '#0d0620');
+                grad.addColorStop(1, '#050208');
+                this.ctx.fillStyle = grad;
+                this.ctx.fillRect(0, 0, this.width, this.height);
+
+                const time = performance.now() * 0.0002;
+                this.nebulaParticles.forEach(p => {
+                    p.x += Math.sin(time * p.speed + p.angle) * 0.15;
+                    p.y += Math.cos(time * p.speed * 0.8 + p.angle * 0.5) * 0.15;
+                    if (p.x < -p.radius) p.x = this.width + p.radius;
+                    if (p.x > this.width + p.radius) p.x = -p.radius;
+                    if (p.y < -p.radius) p.y = this.height + p.radius;
+                    if (p.y > this.height + p.radius) p.y = -p.radius;
+
+                    const grad2 = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
+                    grad2.addColorStop(0, `rgba(124, 58, 237, ${p.alpha * 0.5})`);
+                    grad2.addColorStop(0.5, `rgba(124, 58, 237, ${p.alpha * 0.3})`);
+                    grad2.addColorStop(1, `rgba(124, 58, 237, 0)`);
+                    this.ctx.fillStyle = grad2;
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    this.ctx.fill();
+                });
+
+                const now = performance.now() * 0.001;
+                this.stars.forEach(star => {
+                    const dx = this.mouse.x - this.width / 2;
+                    const dy = this.mouse.y - this.height / 2;
+                    const offsetX = dx * star.influence;
+                    const offsetY = dy * star.influence;
+                    const currentX = star.x + offsetX;
+                    const currentY = star.y + offsetY;
+                    const twinkle = 0.4 + 0.6 * Math.sin(now * star.twinkleSpeed * 2 + star.twinkleOffset);
+                    const alpha = star.alpha * (0.3 + twinkle * 0.7);
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(currentX, currentY, star.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                    this.ctx.fill();
+
+                    if (star.radius > 1) {
+                        const glow = this.ctx.createRadialGradient(currentX, currentY, 0, currentX, currentY, star.radius * 4);
+                        glow.addColorStop(0, `rgba(255, 255, 255, ${alpha * 0.1})`);
+                        glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                        this.ctx.fillStyle = glow;
+                        this.ctx.beginPath();
+                        this.ctx.arc(currentX, currentY, star.radius * 4, 0, Math.PI * 2);
+                        this.ctx.fill();
+                    }
+                });
+
+                if (Math.random() < 0.003) {
+                    const x = Math.random() * this.width * 0.6;
+                    const y = Math.random() * this.height * 0.4;
+                    const angle = Math.PI / 4 + (Math.random() * Math.PI / 4);
+                    const speed = 4 + Math.random() * 4;
+                    const length = 60 + Math.random() * 80;
+                    let life = 1;
+                    const decay = 0.008 + Math.random() * 0.012;
+                    let posX = x,
+                        posY = y;
+                    const vx = Math.cos(angle) * speed;
+                    const vy = Math.sin(angle) * speed;
+                    const animateShooting = () => {
+                        posX += vx;
+                        posY += vy;
+                        life -= decay;
+                        if (life <= 0 || posX > this.width || posY > this.height) return;
+                        const endX = posX - vx / Math.hypot(vx, vy) * length * life;
+                        const endY = posY - vy / Math.hypot(vx, vy) * length * life;
+                        const grad3 = this.ctx.createLinearGradient(posX, posY, endX, endY);
+                        grad3.addColorStop(0, `rgba(255, 255, 255, ${life * 0.8})`);
+                        grad3.addColorStop(1, `rgba(255, 255, 255, 0)`);
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(posX, posY);
+                        this.ctx.lineTo(endX, endY);
+                        this.ctx.strokeStyle = grad3;
+                        this.ctx.lineWidth = 1.5;
+                        this.ctx.stroke();
+                        this.ctx.beginPath();
+                        this.ctx.arc(posX, posY, 2, 0, Math.PI * 2);
+                        this.ctx.fillStyle = `rgba(255, 255, 255, ${life * 0.6})`;
+                        this.ctx.fill();
+                        requestAnimationFrame(animateShooting);
+                    };
+                    animateShooting();
+                }
+
+                this.animationId = requestAnimationFrame(this.animate.bind(this));
+            }
+        }
+
+        const nebula = new NebulaCanvas();
+
+        // ============ LEGAL MODAL (English) ============
+        const legalModalOverlay = document.getElementById('legalModalOverlay');
+        const legalModalClose = document.getElementById('legalModalClose');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalBody = document.getElementById('legalModalBody');
+
+        const legalTexts = {
+            privacy: 'This Privacy Policy explains how SPACE collects, uses and protects your personal data in accordance with applicable laws, including LGPD for Brazil.',
+            cookie: 'We use cookies to improve your browsing experience, analyze site traffic and personalize content. By continuing to use this site, you agree to our use of cookies.',
+            terms: 'By accessing this site, you agree to these terms. All content is provided for informational purposes. SPACE reserves the right to modify these terms at any time.'
+        };
+
+        function openLegalModal(type) {
+            const titles = { privacy: 'Privacy Policy', cookie: 'Cookie Policy', terms: 'Terms of Use' };
+            legalModalTitle.textContent = titles[type];
+            legalModalBody.textContent = legalTexts[type];
+            legalModalOverlay.classList.add('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegalModal() {
+            legalModalOverlay.classList.remove('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        legalModalClose.addEventListener('click', closeLegalModal);
+        legalModalOverlay.addEventListener('click', (e) => { if (e.target === legalModalOverlay) closeLegalModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && legalModalOverlay.classList.contains('active'))
+                closeLegalModal(); });
+
+        document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('privacy'); });
+        document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('cookie'); });
+        document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('terms'); });
+
+        // ============ CURSOR ============
+        const cursor = document.getElementById('cursor');
+        if (cursor && window.matchMedia('(min-width: 769px)').matches) {
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+                mouseY = e.clientY; });
+            const interactiveSelectors =
+                'a, button, input, textarea, select, [tabindex], .btn, .site-card, .diff-item, .process-step, .faq-question, .hero-tags span, .modal-close, .footer-social a';
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest(interactiveSelectors)) cursor.classList.add('dot');
+                else cursor.classList.remove('dot');
+            });
+            document.addEventListener('mouseout', () => cursor.classList.remove('dot'));
+
+            function animateCursor() {
+                const dx = mouseX - cursorX,
+                    dy = mouseY - cursorY;
+                cursorX += dx * 0.18;
+                cursorY += dy * 0.18;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        }
+
+        // ============ HEADER SCROLL ============
+        const header = document.getElementById('globalnav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
+
+        // ============ MOBILE TOGGLE ============
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            toggle.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ============ SEARCH ============
+        const searchToggle = document.getElementById('searchToggle');
+        const searchInputWrapper = document.getElementById('searchInputWrapper');
+        const searchInput = document.getElementById('searchInput');
+        const searchClose = document.getElementById('searchClose');
+
+        searchToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = searchInputWrapper.classList.toggle('open');
+            if (isOpen) searchInput.focus();
+        });
+        searchClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInputWrapper.classList.remove('open');
+            searchInput.value = '';
+        });
+        document.addEventListener('click', (e) => {
+            if (!searchToggle.contains(e.target) && !searchInputWrapper.contains(e.target)) {
+                searchInputWrapper.classList.remove('open');
+                searchInput.value = '';
+            }
+        });
+
+        // ============ HERO FADE ============
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const maxFade = 300;
+                heroContent.style.opacity = Math.max(0.3, 1 - scrollY / maxFade);
+                heroContent.style.transform = `translateY(${scrollY * 0.2}px)`;
+            }, { passive: true });
+        }
+
+        // ============ REVEAL ON SCROLL ============
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
