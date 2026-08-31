@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre a Space | Tecnologia, Inovação e Soluções Digitais</title>
+    <meta name="description" content="Conheça a Space – empresa de tecnologia especializada em desenvolvimento web, automação, IA e soluções digitais personalizadas. Equipe apaixonada por inovação e código de qualidade." />
+    <link rel="canonical" href="https://spacetechn.com/pt/sobre/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/sobre/" />
+    <link rel="alternate" hreflang="en" href="https://spacetechn.com/en/about/" />
+    <link rel="alternate" hreflang="x-default" href="https://spacetechn.com/en/about/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sobre a Space | Tecnologia, Inovação e Soluções Digitais" />
+    <meta property="og:description" content="Conheça a Space – desenvolvimento web, automação, IA e soluções digitais personalizadas. Feito com paixão por tecnologia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacetechn.com/pt/sobre/" />
+    <meta property="og:image" content="https://spacetechn.com/images/og-sobre.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sobre a Space | Tecnologia, Inovação e Soluções Digitais" />
+    <meta name="twitter:description" content="Conheça a Space – desenvolvimento web, automação, IA e soluções digitais personalizadas." />
+    <meta name="twitter:image" content="https://spacetechn.com/images/og-sobre.jpg" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/images/spacelogo.png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <!-- JSON-LD (Organization + AboutPage + Breadcrumb) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Space",
+            "url": "https://spacetechn.com",
+            "logo": "https://spacetechn.com/images/spacelogo.png",
+            "description": "Empresa de tecnologia focada em desenvolvimento web, automação, inteligência artificial e soluções digitais personalizadas.",
+            "sameAs": [
+                "https://github.com/SPACE-techno",
+                "https://linkedin.com/company/spacetechn",
+                "https://instagram.com/spacetech.ltda",
+                "https://wa.me/5511954270090"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "São Paulo",
+                "addressCountry": "BR"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+55-11-95427-0090",
+                "contactType": "sales",
+                "availableLanguage": ["Portuguese", "English"]
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "Sobre a Space",
+            "description": "Conheça a Space – empresa de tecnologia com foco em inovação, desenvolvimento web, automação e IA.",
+            "url": "https://spacetechn.com/pt/sobre/",
+            "about": {
+                "@type": "Organization",
+                "name": "Space"
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://spacetechn.com/pt/" },
+                { "@type": "ListItem", "position": 2, "name": "Sobre", "item": "https://spacetechn.com/pt/sobre/" }
+            ]
+        }
+    </script>
+
+    <style>
+        /* --- RESET E VARIÁVEIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --font: 'Space Grotesk', 'Inter', 'Helvetica Neue', sans-serif;
+            --fs-hero: clamp(3rem, 7vw, 5.5rem);
+            --fs-h2: clamp(1.8rem, 3.5vw, 2.8rem);
+            --fs-h3: clamp(1.1rem, 2.2vw, 1.6rem);
+            --fs-body: clamp(0.9rem, 1.4vw, 1.05rem);
+            --fs-small: clamp(0.7rem, 1vw, 0.85rem);
+            --spacing-xs: clamp(0.4rem, 0.8vw, 0.6rem);
+            --spacing-sm: clamp(0.8rem, 1.5vw, 1.2rem);
+            --spacing-md: clamp(1.5rem, 3vw, 2.5rem);
+            --spacing-lg: clamp(2.5rem, 5vw, 5rem);
+            --spacing-xl: clamp(4rem, 8vw, 9rem);
+            --max-width: 1400px;
+            --border-thin: 1px solid rgba(255, 255, 255, 0.15);
+            --transition-med: 350ms cubic-bezier(.4, 0, .2, 1);
+            --z-nav: 1000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background: #000;
+            color: var(--white);
+            font-family: var(--font);
+        }
+
+        body {
+            background: transparent;
+            color: var(--white);
+            font-family: var(--font);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        #starCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background: #000;
+        }
+
+        /* --- CURSOR --- */
+        @media (min-width: 769px) {
+            body { cursor: none; }
+            .cursor {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 24px;
+                height: 24px;
+                border: 1.5px solid var(--white);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+                mix-blend-mode: difference;
+                will-change: transform;
+            }
+            .cursor.dot {
+                width: 8px;
+                height: 8px;
+                background: var(--white);
+                border: none;
+            }
+            a, button, input, textarea, select, [tabindex] { cursor: none; }
+        }
+        @media (max-width: 768px) { .cursor { display: none; } }
+
+        /* --- NAVEGAÇÃO (igual à página principal) --- */
+        .globalnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: var(--z-nav);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-bottom: 1px solid transparent;
+            transition: background var(--transition-med), border-color var(--transition-med), backdrop-filter var(--transition-med);
+            padding: 0 var(--spacing-md);
+        }
+        .globalnav.scrolled {
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .globalnav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.06em;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(0.6rem, 1.5vw, 1.8rem);
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: var(--fs-small);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.8;
+            transition: opacity var(--transition-med);
+            padding: 4px 0;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--white);
+            transition: width var(--transition-med);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown>a { cursor: default; }
+        .nav-dropdown>a::after { display: none; }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            list-style: none;
+            z-index: 10;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-dropdown-menu li { padding: 0; }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 0.4rem 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.7;
+            transition: opacity var(--transition-med);
+            position: relative;
+        }
+        .search-icon:hover { opacity: 1; }
+        .search-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .search-input-wrapper {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            min-width: 240px;
+        }
+        .search-input-wrapper.open { display: flex; }
+        .search-input-wrapper input {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-family: var(--font);
+            font-size: var(--fs-body);
+            outline: none;
+            width: 100%;
+            padding: 4px 0;
+        }
+        .search-input-wrapper input::placeholder { color: rgba(255, 255, 255, 0.5); }
+        .search-input-wrapper .search-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            transition: opacity var(--transition-med);
+            padding: 0 4px;
+        }
+        .search-input-wrapper .search-close:hover { opacity: 1; }
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: var(--fs-small);
+            font-weight: 500;
+        }
+        .lang-switch a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 2px 6px;
+            transition: color var(--transition-med);
+        }
+        .lang-switch a.active {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .lang-switch a:hover { color: #fff; }
+        .lang-switch .sep { color: rgba(255, 255, 255, 0.3); }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 2;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--white);
+            transition: all var(--transition-med);
+            transform-origin: center;
+        }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: saturate(180%) blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1.8rem;
+                transform: translateY(-100%);
+                transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+                padding: 2rem;
+                pointer-events: none;
+            }
+            .nav-links.open {
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            .nav-links a {
+                font-size: 1.4rem;
+                opacity: 1;
+            }
+            .nav-links a::after { display: none; }
+            .nav-dropdown-menu {
+                position: static;
+                transform: none;
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+                padding: 0.5rem 0 0;
+                opacity: 1;
+                pointer-events: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .nav-dropdown-menu a {
+                font-size: 1rem;
+                padding: 0.2rem 1rem;
+                color: rgba(255, 255, 255, 0.6);
+            }
+            .nav-dropdown-menu a:hover {
+                background: transparent;
+                color: #fff;
+            }
+            .nav-toggle { display: flex; }
+            .nav-actions .search-icon { display: none; }
+            .search-input-wrapper {
+                position: fixed;
+                top: 52px;
+                left: 0;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 0.8rem var(--spacing-md);
+                background: rgba(0, 0, 0, 0.95);
+            }
+            .search-input-wrapper.open { display: flex; }
+        }
+
+        /* --- UTILITÁRIOS --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: var(--fs-small);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: var(--spacing-xs);
+        }
+        .section-title {
+            font-size: var(--fs-h2);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-sm);
+        }
+        .section-desc {
+            font-size: var(--fs-body);
+            opacity: 0.7;
+            max-width: 620px;
+            line-height: 1.7;
+        }
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.7rem 1.8rem;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: var(--fs-body);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all var(--transition-med);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
+            color: var(--white);
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1), transform 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* --- SEÇÕES CLARAS (como na página principal) --- */
+        .section-light {
+            background-color: var(--white);
+            color: var(--black);
+        }
+        .section-light .section-label,
+        .section-light .section-title,
+        .section-light .section-desc,
+        .section-light .about-tag,
+        .section-light .diff-item,
+        .section-light .process-card,
+        .section-light .value-card,
+        .section-light .tech-tag {
+            color: var(--black);
+        }
+        .section-light .about-tag,
+        .section-light .tech-tag,
+        .section-light .value-card {
+            border-color: var(--black);
+        }
+        .section-light .about-tag:hover,
+        .section-light .tech-tag:hover,
+        .section-light .value-card:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+        .section-light .diff-item {
+            border-color: var(--black);
+        }
+        .section-light .diff-item:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+        .section-light .process-card {
+            border-color: var(--black);
+        }
+        .section-light .process-card:hover {
+            border-color: var(--black);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        .section-light .btn-primary {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+        .section-light .btn-primary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        .section-light .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border-color: var(--black);
+        }
+        .section-light .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* --- HERO --- */
+        .hero-sobre {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: calc(var(--spacing-xl) * 1.6) 0 var(--spacing-lg);
+            position: relative;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            overflow: hidden;
+        }
+        .hero-sobre::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .hero-sobre .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-sobre .hero-logo {
+            font-size: var(--fs-hero);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sobre .hero-sub {
+            font-size: var(--fs-h3);
+            font-weight: 400;
+            opacity: 0.55;
+            margin-bottom: var(--spacing-sm);
+        }
+        .hero-sobre .hero-text {
+            font-size: var(--fs-body);
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            line-height: 1.7;
+        }
+        .hero-sobre .hero-btns {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- TAGS (sobre) --- */
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+        }
+        .about-tag {
+            padding: 6px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            font-size: var(--fs-small);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all var(--transition-med);
+            color: var(--white);
+        }
+        .about-tag:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* --- CARDS: DIFERENCIAIS (igual à página principal) --- */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .diff-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            border: var(--border-thin);
+            border-radius: 8px;
+            transition: all var(--transition-med);
+            color: var(--white);
+            background: transparent;
+        }
+        .diff-item:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-4px);
+            border-color: var(--white);
+        }
+        .diff-item .diff-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+        .diff-item p {
+            font-weight: 600;
+            font-size: var(--fs-body);
+        }
+
+        /* --- CARDS: PROCESSO (igual à página principal) --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .process-card {
+            padding: var(--spacing-md);
+            border: var(--border-thin);
+            border-radius: 12px;
+            text-align: center;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .process-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .process-card .step-num {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            opacity: 0.4;
+            margin-bottom: var(--spacing-xs);
+        }
+        .process-card h4 {
+            font-weight: 600;
+            font-size: var(--fs-body);
+        }
+        .process-card p {
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            line-height: 1.6;
+            margin-top: 2px;
+        }
+
+        /* --- CARDS: VALORES (missão, visão, valores) --- */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .value-card {
+            padding: var(--spacing-md);
+            border: var(--border-thin);
+            border-radius: 12px;
+            text-align: center;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .value-card .value-icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: inherit;
+        }
+        .value-card h4 {
+            font-weight: 600;
+            font-size: var(--fs-body);
+        }
+        .value-card p {
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            line-height: 1.6;
+            margin-top: 2px;
+        }
+
+        /* --- TECNOLOGIAS (tags) --- */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+        .tech-tag {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: var(--fs-small);
+            font-weight: 500;
+            transition: all var(--transition-med);
+            color: var(--white);
+            background: transparent;
+        }
+        .tech-tag:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* --- CTA --- */
+        .cta-sobre {
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+        }
+
+        /* --- FOOTER (igual à página principal) --- */
+        .footer {
+            border-top: var(--border-thin);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            color: var(--white);
+            margin-top: var(--spacing-lg);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+        .footer-col h4 {
+            font-weight: 600;
+            font-size: var(--fs-small);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .footer-col a,
+        .footer-col p {
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            text-decoration: none;
+            color: var(--white);
+            display: block;
+            margin-bottom: 4px;
+            transition: opacity var(--transition-med);
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.8;
+            transition: all var(--transition-med);
+            text-decoration: none;
+            background: transparent;
+        }
+        .footer-social a:hover {
+            opacity: 1;
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+        }
+        .footer-bottom {
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: var(--fs-small);
+            opacity: 0.5;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        .footer-bottom a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity var(--transition-med);
+        }
+        .footer-bottom a:hover { opacity: 1; }
+
+        /* --- MODAL LEGAL --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-med);
+            padding: var(--spacing-md);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(255, 255, 255, 0.15);
+            color: var(--white);
+        }
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition-med);
+        }
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- CTA FIXO --- */
+        .cta-fixo {
+            position: fixed;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            z-index: 999;
+            background: var(--white);
+            color: var(--black);
+            border-radius: 50px;
+            padding: 0.7rem 1.5rem;
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--fs-small);
+            transition: all var(--transition-med);
+            border: 1px solid var(--white);
+        }
+        .cta-fixo:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.25);
+        }
+        @media (max-width: 768px) {
+            .cta-fixo {
+                bottom: var(--spacing-sm);
+                right: var(--spacing-sm);
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="starCanvas"></canvas>
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <header class="globalnav" id="globalnav" role="navigation" aria-label="Navegação principal">
+        <div class="globalnav-content">
+            <a href="/pt/" class="nav-logo" aria-label="Space">
+                <img src="/images/spacelogo.png" alt="Logo da Space" width="32" height="32" />
+                <span>SPACE</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li class="nav-dropdown">
+                    <a href="#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/pt/criacao-de-sites/">Criação de Sites</a></li>
+                        <li><a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a></li>
+                        <li><a href="/pt/sistemas-web/">Sistemas Web</a></li>
+                        <li><a href="/pt/automacao-de-processos/">Automação</a></li>
+                        <li><a href="/pt/inteligencia-artificial/">Inteligência Artificial</a></li>
+                        <li><a href="/pt/apis-integracoes/">APIs &amp; Integrações</a></li>
+                        <li><a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pt/projetos/">Projetos</a></li>
+                <li><a href="/pt/sobre/" class="active">Sobre</a></li>
+                <li><a href="/pt/contato/">Contato</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-icon" id="searchToggle" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
+                    <div class="search-input-wrapper" id="searchInputWrapper">
+                        <input type="text" id="searchInput" placeholder="Buscar..." />
+                        <button class="search-close" id="searchClose">✕</button>
+                    </div>
+                </div>
+                <div class="lang-switch">
+                    <a href="https://spacetechn.com/en/about/" hreflang="en" aria-label="English">EN</a>
+                    <span class="sep">|</span>
+                    <a href="https://spacetechn.com/pt/sobre/" hreflang="pt-BR" class="active" aria-label="Português">PT</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero-sobre" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-logo" translate="no">Sobre</h1>
+                    <p class="hero-sub">Quem somos</p>
+                    <p class="hero-text">
+                        A Space é uma empresa de tecnologia apaixonada por criar soluções digitais de alto impacto.
+                        Combinamos design minimalista com engenharia de software moderna para entregar produtos
+                        que realmente funcionam — com performance, segurança e uma experiência impecável.
+                        Nossa missão é transformar ideias em realidade digital, com código limpo e inovação constante.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#diferenciais" class="btn btn-primary scroll-link">Nossos diferenciais</a>
+                        <a href="/pt/contato/" class="btn btn-secondary">Fale conosco</a>
+                    </div>
+                    <div class="about-tags">
+                        <span class="about-tag">Desenvolvimento Web</span>
+                        <span class="about-tag">Automação &amp; IA</span>
+                        <span class="about-tag">Performance</span>
+                        <span class="about-tag">UX/UI</span>
+                        <span class="about-tag">Segurança</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSÃO, VISÃO, VALORES -->
+        <section class="section" id="missao">
+            <div class="container text-center">
+                <span class="section-label reveal">Propósito</span>
+                <h2 class="section-title reveal reveal-delay-1">Missão, Visão &amp; Valores</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    O que nos move e como enxergamos o futuro da tecnologia.
+                </p>
+                <div class="value-grid">
+                    <div class="value-card reveal reveal-delay-2">
+                        <i class="bi bi-bullseye value-icon"></i>
+                        <h4>Missão</h4>
+                        <p>Democratizar o acesso a soluções tecnológicas de ponta, ajudando negócios a crescerem através da inovação digital.</p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-3">
+                        <i class="bi bi-globe-americas value-icon"></i>
+                        <h4>Visão</h4>
+                        <p>Ser referência em desenvolvimento de software na América Latina, reconhecida pela qualidade, ética e impacto positivo.</p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-4">
+                        <i class="bi bi-gem value-icon"></i>
+                        <h4>Valores</h4>
+                        <p>Transparência, excelência técnica, colaboração, aprendizado contínuo e foco no cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section class="section section-light" id="diferenciais">
+            <div class="container text-center">
+                <span class="section-label reveal">Diferenciais</span>
+                <h2 class="section-title reveal reveal-delay-1">Por que escolher a Space</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    O que nos torna diferentes é a forma como pensamos e executamos cada projeto.
+                </p>
+                <div class="diff-grid">
+                    <div class="diff-item reveal reveal-delay-2">
+                        <i class="bi bi-code-slash diff-icon"></i>
+                        <p>Código limpo e bem estruturado</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-3">
+                        <i class="bi bi-speedometer2 diff-icon"></i>
+                        <p>Performance e velocidade</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-4">
+                        <i class="bi bi-graph-up-arrow diff-icon"></i>
+                        <p>SEO otimizado desde o início</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-5">
+                        <i class="bi bi-phone diff-icon"></i>
+                        <p>Design responsivo e mobile-first</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-2">
+                        <i class="bi bi-lock diff-icon"></i>
+                        <p>Segurança e boas práticas</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-3">
+                        <i class="bi bi-bar-chart-steps diff-icon"></i>
+                        <p>Escalabilidade</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-4">
+                        <i class="bi bi-palette2 diff-icon"></i>
+                        <p>Interfaces modernas e minimalistas</p>
+                    </div>
+                    <div class="diff-item reveal reveal-delay-5">
+                        <i class="bi bi-heart diff-icon"></i>
+                        <p>Experiência do usuário em primeiro lugar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGIAS -->
+        <section class="section" id="tecnologias">
+            <div class="container text-center">
+                <span class="section-label reveal">Tecnologias</span>
+                <h2 class="section-title reveal reveal-delay-1">Stack que utilizamos</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Trabalhamos com ferramentas modernas para garantir qualidade, performance e escalabilidade.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag reveal reveal-delay-2">HTML5</span>
+                    <span class="tech-tag reveal reveal-delay-3">CSS3</span>
+                    <span class="tech-tag reveal reveal-delay-4">JavaScript</span>
+                    <span class="tech-tag reveal reveal-delay-5">TypeScript</span>
+                    <span class="tech-tag reveal reveal-delay-2">React</span>
+                    <span class="tech-tag reveal reveal-delay-3">Next.js</span>
+                    <span class="tech-tag reveal reveal-delay-4">Node.js</span>
+                    <span class="tech-tag reveal reveal-delay-5">Python</span>
+                    <span class="tech-tag reveal reveal-delay-2">FastAPI</span>
+                    <span class="tech-tag reveal reveal-delay-3">Docker</span>
+                    <span class="tech-tag reveal reveal-delay-4">PostgreSQL</span>
+                    <span class="tech-tag reveal reveal-delay-5">MySQL</span>
+                    <span class="tech-tag reveal reveal-delay-2">Git</span>
+                    <span class="tech-tag reveal reveal-delay-3">GitHub</span>
+                    <span class="tech-tag reveal reveal-delay-4">AWS</span>
+                    <span class="tech-tag reveal reveal-delay-5">Vercel</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESSO -->
+        <section class="section section-light" id="processo">
+            <div class="container text-center">
+                <span class="section-label reveal">Processo</span>
+                <h2 class="section-title reveal reveal-delay-1">Como trabalhamos</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Um fluxo claro e transparente, da ideia à entrega.
+                </p>
+                <div class="process-grid">
+                    <div class="process-card reveal reveal-delay-2">
+                        <span class="step-num">01</span>
+                        <h4>Conversa inicial</h4>
+                        <p>Entendemos suas necessidades, objetivos e visão do projeto.</p>
+                    </div>
+                    <div class="process-card reveal reveal-delay-3">
+                        <span class="step-num">02</span>
+                        <h4>Planejamento</h4>
+                        <p>Definimos escopo, tecnologias, cronograma e entregáveis.</p>
+                    </div>
+                    <div class="process-card reveal reveal-delay-4">
+                        <span class="step-num">03</span>
+                        <h4>Projeto visual</h4>
+                        <p>Criamos wireframes e protótipos de alta fidelidade.</p>
+                    </div>
+                    <div class="process-card reveal reveal-delay-5">
+                        <span class="step-num">04</span>
+                        <h4>Desenvolvimento</h4>
+                        <p>Codificamos com foco em qualidade, desempenho e boas práticas.</p>
+                    </div>
+                    <div class="process-card reveal reveal-delay-2">
+                        <span class="step-num">05</span>
+                        <h4>Testes</h4>
+                        <p>Validamos funcionalidade, performance, segurança e acessibilidade.</p>
+                    </div>
+                    <div class="process-card reveal reveal-delay-3">
+                        <span class="step-num">06</span>
+                        <h4>Entrega</h4>
+                        <p>Deploy em produção com monitoramento e acompanhamento.</p>
+                    </div>
+                    <div class="process-card reveal reveal-delay-4">
+                        <span class="step-num">07</span>
+                        <h4>Suporte contínuo</h4>
+                        <p>Manutenção, evolução e suporte para garantir o sucesso do projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-sobre" id="cta">
+            <div class="container text-center">
+                <span class="section-label reveal">Vamos conversar</span>
+                <h2 class="section-title reveal reveal-delay-1">Pronto para criar algo incrível?</h2>
+                <p class="section-desc reveal reveal-delay-2" style="margin:0 auto;">
+                    Fale conosco e descubra como podemos transformar sua ideia em uma solução digital de alto impacto.
+                </p>
+                <div class="hero-btns mt-md reveal reveal-delay-3">
+                    <a href="/pt/contato/" class="btn btn-primary">Fale conosco</a>
+                    <a href="/pt/projetos/" class="btn btn-secondary">Conheça nossos projetos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SPACE</h4>
+                    <p>Tecnologia &amp; Inovação. Design minimalista, engenharia de excelência.</p>
+                    <p style="margin-top:8px;">spacetechn.com</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/SPACE-techno" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/company/spacetechn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://instagram.com/spacetech.ltda" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/5511954270090" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="/pt/#hero">Início</a>
+                    <a href="/pt/criacao-de-sites/">Criação de Sites</a>
+                    <a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a>
+                    <a href="/pt/sistemas-web/">Sistemas Web</a>
+                    <a href="/pt/automacao-de-processos/">Automação</a>
+                    <a href="/pt/inteligencia-artificial/">IA</a>
+                    <a href="/pt/apis-integracoes/">APIs</a>
+                    <a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <a href="/pt/projetos/">Projetos</a>
+                    <a href="/pt/sobre/">Sobre</a>
+                    <a href="/pt/processo/">Processo</a>
+                    <a href="/pt/tecnologias/">Tecnologias</a>
+                    <a href="/pt/faq/">FAQ</a>
+                    <a href="/pt/contato/">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <a href="mailto:spacetechnologyltda@gmail.com">spacetechnologyltda@gmail.com</a>
+                    <a href="tel:+5511954270090">+55 (11) 95427-0090</a>
+                    <p>São Paulo, Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Space. Todos os direitos reservados.</span>
+                <span>
+                    <a href="#" id="privacyLink">Política de Privacidade</a> &middot;
+                    <a href="#" id="cookieLink">Política de Cookies</a> &middot;
+                    <a href="#" id="termsLink">Termos de Uso</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="/pt/contato/" class="cta-fixo" id="ctaFixo">
+        <i class="bi bi-chat-dots"></i> Vamos conversar
+    </a>
+
+    <div class="modal-overlay" id="legalModalOverlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <button class="modal-close" id="legalModalClose" aria-label="Fechar modal">&times;</button>
+            <h3 id="legalModalTitle" style="font-weight:700;font-size:var(--fs-h3);margin-bottom:var(--spacing-sm);"></h3>
+            <div id="legalModalBody" style="font-size:var(--fs-small);opacity:0.7;line-height:1.7;"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- MODAL LEGAL ---
+        const legalModalOverlay = document.getElementById('legalModalOverlay');
+        const legalModalClose = document.getElementById('legalModalClose');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalBody = document.getElementById('legalModalBody');
+
+        const legalTexts = {
+            privacy: 'Esta Política de Privacidade explica como a SPACE coleta, usa e protege seus dados pessoais de acordo com as leis aplicáveis, incluindo a LGPD para o Brasil.',
+            cookie: 'Utilizamos cookies para melhorar sua experiência de navegação, analisar o tráfego do site e personalizar conteúdo. Ao continuar usando este site, você concorda com o uso de cookies.',
+            terms: 'Ao acessar este site, você concorda com estes termos. Todo o conteúdo é fornecido para fins informativos. A SPACE reserva-se o direito de modificar estes termos a qualquer momento.'
+        };
+
+        function openLegalModal(type) {
+            const titles = { privacy: 'Política de Privacidade', cookie: 'Política de Cookies', terms: 'Termos de Uso' };
+            legalModalTitle.textContent = titles[type];
+            legalModalBody.textContent = legalTexts[type];
+            legalModalOverlay.classList.add('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegalModal() {
+            legalModalOverlay.classList.remove('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        legalModalClose.addEventListener('click', closeLegalModal);
+        legalModalOverlay.addEventListener('click', (e) => { if (e.target === legalModalOverlay) closeLegalModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && legalModalOverlay.classList.contains('active'))
+                closeLegalModal(); });
+
+        document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('privacy'); });
+        document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('cookie'); });
+        document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('terms'); });
+
+        // --- STARFIELD ---
+        class Starfield {
+            constructor() {
+                this.canvas = document.getElementById('starCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.stars = [];
+                this.shootingStars = [];
+                this.mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+                this.targetMouse = { x: this.mouse.x, y: this.mouse.y };
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.STAR_COUNT = 200;
+                this.SHOOTING_STAR_CHANCE = 0.005;
+                this.resize();
+                this.createStars();
+                this.addShootingStar();
+                window.addEventListener('resize', this.resize.bind(this));
+                window.addEventListener('mousemove', this.onMouseMove.bind(this));
+                this.animate();
+            }
+
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width * dpr;
+                this.canvas.height = this.height * dpr;
+                this.canvas.style.width = this.width + 'px';
+                this.canvas.style.height = this.height + 'px';
+                this.ctx.scale(dpr, dpr);
+            }
+
+            onMouseMove(e) {
+                this.targetMouse.x = e.clientX;
+                this.targetMouse.y = e.clientY;
+            }
+
+            createStars() {
+                this.stars = [];
+                for (let i = 0; i < this.STAR_COUNT; i++) {
+                    this.stars.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        radius: Math.random() * 1.5 + 0.3,
+                        speed: 0.02 + Math.random() * 0.04,
+                        phase: Math.random() * Math.PI * 2,
+                        influence: 0.005 + Math.random() * 0.02
+                    });
+                }
+            }
+
+            addShootingStar() {
+                const x = Math.random() * this.width * 0.8;
+                const y = Math.random() * this.height * 0.5;
+                const angle = Math.PI / 4 + (Math.random() * Math.PI / 4);
+                const speed = 4 + Math.random() * 6;
+                const length = 60 + Math.random() * 80;
+                this.shootingStars.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    length,
+                    opacity: 1,
+                    life: 1,
+                    decay: 0.008 + Math.random() * 0.012
+                });
+            }
+
+            animate() {
+                this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.05;
+                this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.05;
+
+                this.ctx.clearRect(0, 0, this.width, this.height);
+
+                const now = performance.now() * 0.001;
+
+                this.stars.forEach(star => {
+                    const dx = this.mouse.x - this.width / 2;
+                    const dy = this.mouse.y - this.height / 2;
+                    const offsetX = dx * star.influence;
+                    const offsetY = dy * star.influence;
+                    const currentX = star.x + offsetX;
+                    const currentY = star.y + offsetY;
+                    const twinkle = 0.4 + 0.6 * Math.sin(now * star.speed * 8 + star.phase);
+                    const alpha = 0.3 + twinkle * 0.7;
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(currentX, currentY, star.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                    this.ctx.fill();
+                });
+
+                for (let i = this.shootingStars.length - 1; i >= 0; i--) {
+                    const s = this.shootingStars[i];
+                    s.x += s.vx;
+                    s.y += s.vy;
+                    s.life -= s.decay;
+                    s.opacity = s.life;
+
+                    if (s.life <= 0 || s.x > this.width || s.y > this.height) {
+                        this.shootingStars.splice(i, 1);
+                        continue;
+                    }
+
+                    const endX = s.x - s.vx / Math.hypot(s.vx, s.vy) * s.length;
+                    const endY = s.y - s.vy / Math.hypot(s.vx, s.vy) * s.length;
+
+                    const gradient = this.ctx.createLinearGradient(s.x, s.y, endX, endY);
+                    gradient.addColorStop(0, `rgba(255, 255, 255, ${s.opacity})`);
+                    gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(s.x, s.y);
+                    this.ctx.lineTo(endX, endY);
+                    this.ctx.strokeStyle = gradient;
+                    this.ctx.lineWidth = 1.5;
+                    this.ctx.stroke();
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${s.opacity * 0.8})`;
+                    this.ctx.fill();
+                }
+
+                if (Math.random() < this.SHOOTING_STAR_CHANCE && this.shootingStars.length < 3) {
+                    this.addShootingStar();
+                }
+
+                this.animationId = requestAnimationFrame(this.animate.bind(this));
+            }
+        }
+
+        const starfield = new Starfield();
+
+        // --- CURSOR ---
+        const cursor = document.getElementById('cursor');
+        if (cursor && window.matchMedia('(min-width: 769px)').matches) {
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            const interactiveSelectors =
+                'a, button, input, textarea, select, [tabindex], .btn, .diff-item, .process-card, .tech-tag, .about-tag, .modal-close, .cta-fixo, .value-card';
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest(interactiveSelectors)) {
+                    cursor.classList.add('dot');
+                } else {
+                    cursor.classList.remove('dot');
+                }
+            });
+            document.addEventListener('mouseout', () => cursor.classList.remove('dot'));
+
+            function animateCursor() {
+                const dx = mouseX - cursorX,
+                    dy = mouseY - cursorY;
+                cursorX += dx * 0.18;
+                cursorY += dy * 0.18;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        }
+
+        // --- NAVEGAÇÃO SCROLL ---
+        const header = document.getElementById('globalnav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        // --- MENU MOBILE ---
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            toggle.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // --- BUSCA ---
+        const searchToggle = document.getElementById('searchToggle');
+        const searchInputWrapper = document.getElementById('searchInputWrapper');
+        const searchInput = document.getElementById('searchInput');
+        const searchClose = document.getElementById('searchClose');
+
+        searchToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = searchInputWrapper.classList.toggle('open');
+            if (isOpen) searchInput.focus();
+        });
+        searchClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInputWrapper.classList.remove('open');
+            searchInput.value = '';
+        });
+        document.addEventListener('click', (e) => {
+            if (!searchToggle.contains(e.target) && !searchInputWrapper.contains(e.target)) {
+                searchInputWrapper.classList.remove('open');
+                searchInput.value = '';
+            }
+        });
+
+        // --- PARALLAX HERO ---
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const maxFade = 300;
+                heroContent.style.opacity = Math.max(0.3, 1 - scrollY / maxFade);
+                heroContent.style.transform = `translateY(${scrollY * 0.2}px)`;
+            }, { passive: true });
+        }
+
+        // --- SCROLL SUAVE ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollLinks = document.querySelectorAll('.scroll-link');
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
