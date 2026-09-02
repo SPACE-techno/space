@@ -39,7 +39,7 @@
     <link rel="icon" type="image/png" href="/images/spacelogo.png" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
-    <!-- JSON-LD: Organization + AboutPage + Breadcrumb -->
+    <!-- JSON-LD (Organization + AboutPage + Breadcrumb) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -92,7 +92,7 @@
     </script>
 
     <style>
-        /* --- Exactly the same CSS as the Portuguese version --- */
+        /* --- RESET AND VARIABLES (identical to PT version) --- */
         * {
             margin: 0;
             padding: 0;
@@ -174,6 +174,7 @@
         }
         @media (max-width: 768px) { .cursor { display: none; } }
 
+        /* --- HEADER UPDATED (with nested dropdowns) --- */
         .globalnav {
             position: fixed;
             top: 0;
@@ -272,7 +273,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 8px;
             padding: 0.6rem 0;
-            min-width: 200px;
+            min-width: 220px;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.25s ease, transform 0.25s ease;
@@ -301,6 +302,50 @@
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
         }
+        .nav-dropdown-sub {
+            position: relative;
+        }
+        .nav-dropdown-sub > a {
+            display: flex;
+            align-items: center;
+        }
+        .nav-dropdown-sub-menu {
+            position: absolute;
+            top: -0.4rem;
+            left: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform: translateX(4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            list-style: none;
+        }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+        .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+        .nav-dropdown-sub-menu a {
+            padding: 0.4rem 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            display: block;
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-dropdown-sub-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+
         .nav-actions {
             display: flex;
             align-items: center;
@@ -427,6 +472,7 @@
                 transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
                 padding: 2rem;
                 pointer-events: none;
+                overflow-y: auto;
             }
             .nav-links.open {
                 transform: translateY(0);
@@ -451,6 +497,7 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 0.5rem;
+                min-width: unset;
             }
             .nav-dropdown-menu a {
                 font-size: 1rem;
@@ -460,6 +507,27 @@
             .nav-dropdown-menu a:hover {
                 background: transparent;
                 color: #fff;
+            }
+            .nav-dropdown-sub-menu {
+                position: static;
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+                padding: 0.3rem 0 0;
+                opacity: 1;
+                pointer-events: auto;
+                transform: none;
+                min-width: unset;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.3rem;
+            }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+            .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+                display: flex;
+                transform: none;
             }
             .nav-toggle { display: flex; }
             .nav-actions .search-icon { display: none; }
@@ -1019,30 +1087,80 @@
 
     <div class="cursor" id="cursor" aria-hidden="true"></div>
 
+    <!-- ===== HEADER UPDATED ===== -->
     <header class="globalnav" id="globalnav" role="navigation" aria-label="Main navigation">
         <div class="globalnav-content">
             <a href="/en/" class="nav-logo" aria-label="Space">
                 <img src="/images/spacelogo.png" alt="Space logo" width="32" height="32" />
                 <span>SPACE</span>
             </a>
+
             <ul class="nav-links" id="navLinks" role="menubar">
+                <!-- SERVICES with subcategories -->
                 <li class="nav-dropdown">
                     <a href="#services" aria-haspopup="true" aria-expanded="false">Services</a>
                     <ul class="nav-dropdown-menu" role="menu">
-                        <li><a href="/en/website-creation/">Website Creation</a></li>
-                        <li><a href="/en/web-development/">Web Development</a></li>
-                        <li><a href="/en/web-systems/">Web Systems</a></li>
-                        <li><a href="/en/process-automation/">Automation</a></li>
-                        <li><a href="/en/artificial-intelligence/">Artificial Intelligence</a></li>
-                        <li><a href="/en/apis-integrations/">APIs &amp; Integrations</a></li>
-                        <li><a href="/en/custom-solutions/">Custom Solutions</a></li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Web Development</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-creation/">Website Creation</a></li>
+                                <li><a href="/en/web-development/">Web Development</a></li>
+                                <li><a href="/en/corporate-websites/">Corporate Websites</a></li>
+                                <li><a href="/en/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/en/digital-platforms/">Digital Platforms</a></li>
+                                <li><a href="/en/web-applications/">Web Applications</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Systems &amp; Platforms</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/web-systems/">Web Systems</a></li>
+                                <li><a href="/en/dashboards/">Dashboards</a></li>
+                                <li><a href="/en/custom-solutions/">Custom Solutions</a></li>
+                                <li><a href="/en/apis-integrations/">APIs &amp; Integrations</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automation &amp; AI</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/process-automation/">Process Automation</a></li>
+                                <li><a href="/en/artificial-intelligence/">Artificial Intelligence</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consulting &amp; Support</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-maintenance/">Website Maintenance</a></li>
+                                <li><a href="/en/seo-services/">SEO Services</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
+
+                <!-- PROJECTS -->
                 <li><a href="/en/projects/">Projects</a></li>
-                <li><a href="/en/about/" class="active">About</a></li>
+
+                <!-- MODELS -->
+                <li><a href="/en/models/">Models</a></li>
+
+                <!-- COMPANY with subitems -->
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Company</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/en/about/" class="active">About</a></li>
+                        <li><a href="/en/process/">Process</a></li>
+                        <li><a href="/en/technologies/">Technologies</a></li>
+                        <li><a href="/en/faq/">FAQ</a></li>
+                        <li><a href="/en/blog/">Blog</a></li>
+                    </ul>
+                </li>
+
+                <!-- CONTACT -->
                 <li><a href="/en/contact/">Contact</a></li>
             </ul>
+
             <div class="nav-actions">
+                <!-- Search -->
                 <div class="search-icon" id="searchToggle" aria-label="Search">
                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
                     <div class="search-input-wrapper" id="searchInputWrapper">
@@ -1050,6 +1168,7 @@
                         <button class="search-close" id="searchClose">✕</button>
                     </div>
                 </div>
+
                 <div class="lang-switch">
                     <a href="https://spacetechn.com/en/about/" hreflang="en" class="active" aria-label="English">EN</a>
                     <span class="sep">|</span>
@@ -1072,7 +1191,7 @@
                     <p class="hero-text">
                         Space is a technology company passionate about creating high‑impact digital solutions.
                         We combine minimalist design with modern software engineering to deliver products
-                        that truly work — with performance, security, and an impeccable user experience.
+                        that truly work — with performance, security and an impeccable user experience.
                         Our mission is to turn ideas into digital reality through clean code and constant innovation.
                     </p>
                     <div class="hero-btns">
@@ -1321,7 +1440,7 @@
     </div>
 
     <script>
-        // --- LEGAL MODAL ---
+        // --- LEGAL MODAL (English) ---
         const legalModalOverlay = document.getElementById('legalModalOverlay');
         const legalModalClose = document.getElementById('legalModalClose');
         const legalModalTitle = document.getElementById('legalModalTitle');
@@ -1418,7 +1537,8 @@
                 const speed = 4 + Math.random() * 6;
                 const length = 60 + Math.random() * 80;
                 this.shootingStars.push({
-                    x, y,
+                    x,
+                    y,
                     vx: Math.cos(angle) * speed,
                     vy: Math.sin(angle) * speed,
                     length,
@@ -1497,7 +1617,10 @@
         // --- CURSOR ---
         const cursor = document.getElementById('cursor');
         if (cursor && window.matchMedia('(min-width: 769px)').matches) {
-            let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
@@ -1514,7 +1637,8 @@
             document.addEventListener('mouseout', () => cursor.classList.remove('dot'));
 
             function animateCursor() {
-                const dx = mouseX - cursorX, dy = mouseY - cursorY;
+                const dx = mouseX - cursorX,
+                    dy = mouseY - cursorY;
                 cursorX += dx * 0.18;
                 cursorY += dy * 0.18;
                 cursor.style.left = cursorX + 'px';
@@ -1524,7 +1648,7 @@
             animateCursor();
         }
 
-        // --- SCROLL NAV ---
+        // --- NAV SCROLL ---
         const header = document.getElementById('globalnav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) {
@@ -1584,7 +1708,7 @@
             }, { passive: true });
         }
 
-        // --- SMOOTH SCROLL FOR ANCHORS ---
+        // --- SMOOTH SCROLL ---
         document.addEventListener('DOMContentLoaded', function() {
             const scrollLinks = document.querySelectorAll('.scroll-link');
             scrollLinks.forEach(link => {

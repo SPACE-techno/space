@@ -88,6 +88,7 @@
         }
         @media (max-width: 768px) { .cursor { display: none; } }
 
+        /* ===== HEADER ATUALIZADO (com dropdowns aninhados) ===== */
         .globalnav {
             position: fixed; top: 0; left: 0; width: 100%; z-index: var(--z-nav);
             height: 52px; display: flex; align-items: center;
@@ -132,8 +133,11 @@
             width: 0; height: 1.5px; background: var(--white);
             transition: width var(--transition-med);
         }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-dropdown { position: relative; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown {
+            position: relative;
+        }
         .nav-dropdown > a { cursor: default; }
         .nav-dropdown > a::after { display: none; }
         .nav-dropdown-menu {
@@ -143,7 +147,7 @@
             backdrop-filter: saturate(180%) blur(20px);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 8px; padding: 0.6rem 0;
-            min-width: 200px; opacity: 0; pointer-events: none;
+            min-width: 220px; opacity: 0; pointer-events: none;
             transition: opacity 0.25s ease, transform 0.25s ease;
             box-shadow: 0 12px 40px rgba(0,0,0,0.6);
             list-style: none; z-index: 10;
@@ -162,7 +166,49 @@
             transition: background 0.15s, color 0.15s;
             white-space: nowrap;
         }
-        .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-dropdown-menu a:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+        .nav-dropdown-sub {
+            position: relative;
+        }
+        .nav-dropdown-sub > a {
+            display: flex;
+            align-items: center;
+        }
+        .nav-dropdown-sub-menu {
+            position: absolute; top: -0.4rem; left: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 200px; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform: translateX(4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            list-style: none;
+        }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+        .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+            opacity: 1; pointer-events: auto;
+            transform: translateX(0);
+        }
+        .nav-dropdown-sub-menu a {
+            padding: 0.4rem 1.2rem;
+            color: rgba(255,255,255,0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            display: block;
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-dropdown-sub-menu a:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
         .nav-actions {
             display: flex; align-items: center; gap: 0.8rem;
             flex-shrink: 0; z-index: 2;
@@ -236,22 +282,35 @@
                 transform: translateY(-100%);
                 transition: transform 0.5s cubic-bezier(.4,0,.2,1);
                 padding: 2rem; pointer-events: none;
+                overflow-y: auto;
             }
             .nav-links.open { transform: translateY(0); pointer-events: auto; }
-            .nav-links a { font-size: 1.4rem; opacity: 1; }
+            .nav-links a { font-size: 1.4rem; opacity: 1; color: var(--white); }
             .nav-links a::after { display: none; }
             .nav-dropdown-menu {
                 position: static; transform: none; background: transparent;
                 backdrop-filter: none; border: none; box-shadow: none;
                 padding: 0.5rem 0 0; opacity: 1; pointer-events: auto;
                 display: flex; flex-direction: column; align-items: center;
-                gap: 0.5rem;
+                gap: 0.5rem; min-width: unset;
             }
             .nav-dropdown-menu a {
                 font-size: 1rem; padding: 0.2rem 1rem;
                 color: rgba(255,255,255,0.6);
             }
             .nav-dropdown-menu a:hover { background: transparent; color: #fff; }
+            .nav-dropdown-sub-menu {
+                position: static; background: transparent;
+                backdrop-filter: none; border: none; box-shadow: none;
+                padding: 0.3rem 0 0; opacity: 1; pointer-events: auto;
+                transform: none; min-width: unset;
+                display: none; flex-direction: column; align-items: center;
+                gap: 0.3rem;
+            }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+            .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+                display: flex; transform: none;
+            }
             .nav-toggle { display: flex; }
             .nav-actions .search-icon { display: none; }
             .search-input-wrapper {
@@ -358,70 +417,6 @@
             margin: 0;
         }
 
-        #projetos {
-            padding-top: var(--spacing-lg) !important;
-            padding-bottom: var(--spacing-xl);
-        }
-
-        .footer {
-            border-top: var(--border-thin);
-            padding: var(--spacing-lg) 0 var(--spacing-md);
-            color: var(--white);
-            margin-top: var(--spacing-lg);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-        }
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-col h4 {
-            font-weight: 600; font-size: var(--fs-small);
-            letter-spacing: 0.06em; text-transform: uppercase;
-            margin-bottom: var(--spacing-xs); color: var(--white);
-        }
-        .footer-col a, .footer-col p {
-            font-size: var(--fs-small); opacity: 0.6;
-            text-decoration: none; color: var(--white);
-            display: block; margin-bottom: 4px;
-            transition: opacity var(--transition-fast);
-        }
-        .footer-col a:hover { opacity: 1; }
-        .footer-social {
-            display: flex; gap: var(--spacing-sm);
-            margin-top: var(--spacing-xs);
-        }
-        .footer-social a {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 42px; height: 42px;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50%;
-            font-size: 1.2rem; color: var(--white);
-            opacity: 0.8;
-            transition: all var(--transition-med);
-            text-decoration: none; background: transparent;
-        }
-        .footer-social a:hover {
-            opacity: 1; background: var(--white); color: var(--black);
-            border-color: var(--white); transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(255,255,255,0.15);
-        }
-        .footer-bottom {
-            padding-top: var(--spacing-sm);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center; font-size: var(--fs-small);
-            opacity: 0.5;
-            display: flex; justify-content: space-between;
-            flex-wrap: wrap; gap: var(--spacing-sm);
-        }
-        .footer-bottom a {
-            color: var(--white); text-decoration: none;
-            opacity: 0.5; transition: opacity var(--transition-fast);
-        }
-        .footer-bottom a:hover { opacity: 1; }
-
         .filtro-wrapper {
             display: flex; flex-wrap: wrap; gap: var(--spacing-sm);
             justify-content: center; margin-bottom: var(--spacing-lg);
@@ -463,10 +458,9 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            perspective: 1000px;
         }
         .projeto-card:hover {
-            transform: translateY(-8px) rotateY(2deg) rotateX(2deg);
+            transform: translateY(-8px);
             border-color: rgba(255,255,255,0.25);
             box-shadow: 0 20px 60px rgba(255,255,255,0.06);
         }
@@ -605,6 +599,65 @@
             display: flex; gap: var(--spacing-sm); flex-wrap: wrap;
         }
 
+        .footer {
+            border-top: var(--border-thin);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            color: var(--white);
+            margin-top: var(--spacing-lg);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-col h4 {
+            font-weight: 600; font-size: var(--fs-small);
+            letter-spacing: 0.06em; text-transform: uppercase;
+            margin-bottom: var(--spacing-xs); color: var(--white);
+        }
+        .footer-col a, .footer-col p {
+            font-size: var(--fs-small); opacity: 0.6;
+            text-decoration: none; color: var(--white);
+            display: block; margin-bottom: 4px;
+            transition: opacity var(--transition-fast);
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social {
+            display: flex; gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+        }
+        .footer-social a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 42px; height: 42px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            font-size: 1.2rem; color: var(--white);
+            opacity: 0.8;
+            transition: all var(--transition-med);
+            text-decoration: none; background: transparent;
+        }
+        .footer-social a:hover {
+            opacity: 1; background: var(--white); color: var(--black);
+            border-color: var(--white); transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.15);
+        }
+        .footer-bottom {
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center; font-size: var(--fs-small);
+            opacity: 0.5;
+            display: flex; justify-content: space-between;
+            flex-wrap: wrap; gap: var(--spacing-sm);
+        }
+        .footer-bottom a {
+            color: var(--white); text-decoration: none;
+            opacity: 0.5; transition: opacity var(--transition-fast);
+        }
+        .footer-bottom a:hover { opacity: 1; }
+
         .modal-overlay {
             position: fixed; inset: 0;
             background: rgba(0,0,0,0.92);
@@ -674,32 +727,76 @@
 <body>
 
     <canvas id="starCanvas"></canvas>
-
     <div class="cursor" id="cursor" aria-hidden="true"></div>
 
+    <!-- ===== HEADER ATUALIZADO ===== -->
     <header class="globalnav" id="globalnav" role="navigation" aria-label="Navegação principal">
         <div class="globalnav-content">
             <a href="/pt/" class="nav-logo" aria-label="Space">
                 <img src="/images/spacelogo.png" alt="Logo da Space" />
                 <span>SPACE</span>
             </a>
+
             <ul class="nav-links" id="navLinks" role="menubar">
+                <!-- SERVIÇOS com subcategorias -->
                 <li class="nav-dropdown">
                     <a href="#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
                     <ul class="nav-dropdown-menu" role="menu">
-                        <li><a href="/pt/criacao-de-sites/">Criação de Sites</a></li>
-                        <li><a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a></li>
-                        <li><a href="/pt/sistemas-web/">Sistemas Web</a></li>
-                        <li><a href="/pt/automacao-de-processos/">Automação</a></li>
-                        <li><a href="/pt/inteligencia-artificial/">Inteligência Artificial</a></li>
-                        <li><a href="/pt/apis-integracoes/">APIs &amp; Integrações</a></li>
-                        <li><a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a></li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Desenvolvimento Web</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/criacao-de-sites/">Criação de Sites</a></li>
+                                <li><a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a></li>
+                                <li><a href="/pt/sites-institucionais/">Sites Institucionais</a></li>
+                                <li><a href="/pt/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/pt/plataformas-digitais/">Plataformas Digitais</a></li>
+                                <li><a href="/pt/aplicacoes-web/">Aplicações Web</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Sistemas &amp; Plataformas</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/sistemas-web/">Sistemas Web</a></li>
+                                <li><a href="/pt/dashboards/">Dashboards</a></li>
+                                <li><a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a></li>
+                                <li><a href="/pt/apis-integracoes/">APIs &amp; Integrações</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automação &amp; IA</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/automacao-de-processos/">Automação de Processos</a></li>
+                                <li><a href="/pt/inteligencia-artificial/">Inteligência Artificial</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consultoria &amp; Suporte</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/manutencao-de-sites/">Manutenção de Sites</a></li>
+                                <li><a href="/pt/seo/">SEO</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
+
                 <li><a href="/pt/projetos/" class="active">Projetos</a></li>
-                <li><a href="/pt/sobre/">Sobre</a></li>
+                <li><a href="/pt/modelos/">Modelos</a></li>
+
+                <!-- INSTITUCIONAL com subitens -->
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Institucional</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/pt/sobre/">Sobre</a></li>
+                        <li><a href="/pt/processo/">Processo</a></li>
+                        <li><a href="/pt/tecnologias/">Tecnologias</a></li>
+                        <li><a href="/pt/faq/">FAQ</a></li>
+                        <li><a href="/pt/blog/">Blog</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="/pt/contato/">Contato</a></li>
             </ul>
+
             <div class="nav-actions">
                 <div class="search-icon" id="searchToggle" aria-label="Buscar">
                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
@@ -866,6 +963,7 @@
     </div>
 
     <script>
+        // DADOS DOS PROJETOS
         const projetos = [
             {
                 id: 1,
@@ -1025,6 +1123,7 @@
                     const id = parseInt(e.currentTarget.dataset.id);
                     abrirModal(id);
                 });
+                // Observer para reveal
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1046,6 +1145,7 @@
             });
         });
 
+        // MODAL
         const modalProjeto = document.getElementById('modalProjeto');
         const modalClose = document.getElementById('modalClose');
         const modalImg = document.getElementById('modalImg').querySelector('img');
@@ -1088,6 +1188,7 @@
             if (destaque) abrirModal(destaque.id);
         });
 
+        // LEGAL MODAL
         const legalModalOverlay = document.getElementById('legalModalOverlay');
         const legalModalClose = document.getElementById('legalModalClose');
         const legalModalTitle = document.getElementById('legalModalTitle');
@@ -1119,6 +1220,7 @@
         document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault(); openLegalModal('cookie'); });
         document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault(); openLegalModal('terms'); });
 
+        // STARFIELD (idêntico)
         class Starfield {
             constructor() {
                 this.canvas = document.getElementById('starCanvas');
@@ -1221,6 +1323,7 @@
         }
         const starfield = new Starfield();
 
+        // CURSOR
         const cursor = document.getElementById('cursor');
         if (cursor && window.matchMedia('(min-width: 769px)').matches) {
             let mouseX=0, mouseY=0, cursorX=0, cursorY=0;
@@ -1240,12 +1343,14 @@
             animateCursor();
         }
 
+        // HEADER SCROLL
         const header = document.getElementById('globalnav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         }, { passive: true });
 
+        // MOBILE TOGGLE
         const toggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
         toggle.addEventListener('click', () => {
@@ -1261,6 +1366,7 @@
             });
         });
 
+        // SEARCH
         const searchToggle = document.getElementById('searchToggle');
         const searchInputWrapper = document.getElementById('searchInputWrapper');
         const searchInput = document.getElementById('searchInput');
@@ -1295,6 +1401,7 @@
             });
         });
 
+        // HERO FADE
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) {
             window.addEventListener('scroll', () => {

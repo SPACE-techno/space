@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Space – Technology & Innovation</title>
-    <meta name="description" content="Explore the projects developed by Space: websites, systems, automation, and custom digital solutions built with cutting-edge technology." />
+    <meta name="description" content="Explore the projects developed by Space: websites, systems, automation and custom digital solutions with cutting-edge technology." />
     <link rel="canonical" href="https://spacetechn.com/en/projects/" />
-    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/projetos/" />
     <link rel="alternate" hreflang="en" href="https://spacetechn.com/en/projects/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/projetos/" />
     <link rel="alternate" hreflang="x-default" href="https://spacetechn.com/en/projects/" />
 
     <meta property="og:title" content="Projects | Space" />
-    <meta property="og:description" content="Portfolio of innovative projects by Space: websites, web systems, automation, and AI." />
+    <meta property="og:description" content="Portfolio of innovative projects by Space: websites, web systems, automation and AI." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://spacetechn.com/en/projects/" />
-    <meta property="og:image" content="https://spacetechn.com/images/og-projetos.jpg" />
+    <meta property="og:image" content="https://spacetechn.com/images/og-projects.jpg" />
     <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -46,6 +46,7 @@
     }
     </script>
 
+    <!-- CSS (mesmo da versão PT) -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -132,8 +133,11 @@
             width: 0; height: 1.5px; background: var(--white);
             transition: width var(--transition-med);
         }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-dropdown { position: relative; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown {
+            position: relative;
+        }
         .nav-dropdown > a { cursor: default; }
         .nav-dropdown > a::after { display: none; }
         .nav-dropdown-menu {
@@ -143,7 +147,7 @@
             backdrop-filter: saturate(180%) blur(20px);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 8px; padding: 0.6rem 0;
-            min-width: 200px; opacity: 0; pointer-events: none;
+            min-width: 220px; opacity: 0; pointer-events: none;
             transition: opacity 0.25s ease, transform 0.25s ease;
             box-shadow: 0 12px 40px rgba(0,0,0,0.6);
             list-style: none; z-index: 10;
@@ -162,7 +166,49 @@
             transition: background 0.15s, color 0.15s;
             white-space: nowrap;
         }
-        .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-dropdown-menu a:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+        .nav-dropdown-sub {
+            position: relative;
+        }
+        .nav-dropdown-sub > a {
+            display: flex;
+            align-items: center;
+        }
+        .nav-dropdown-sub-menu {
+            position: absolute; top: -0.4rem; left: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 200px; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform: translateX(4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            list-style: none;
+        }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+        .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+            opacity: 1; pointer-events: auto;
+            transform: translateX(0);
+        }
+        .nav-dropdown-sub-menu a {
+            padding: 0.4rem 1.2rem;
+            color: rgba(255,255,255,0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            display: block;
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-dropdown-sub-menu a:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
         .nav-actions {
             display: flex; align-items: center; gap: 0.8rem;
             flex-shrink: 0; z-index: 2;
@@ -236,22 +282,35 @@
                 transform: translateY(-100%);
                 transition: transform 0.5s cubic-bezier(.4,0,.2,1);
                 padding: 2rem; pointer-events: none;
+                overflow-y: auto;
             }
             .nav-links.open { transform: translateY(0); pointer-events: auto; }
-            .nav-links a { font-size: 1.4rem; opacity: 1; }
+            .nav-links a { font-size: 1.4rem; opacity: 1; color: var(--white); }
             .nav-links a::after { display: none; }
             .nav-dropdown-menu {
                 position: static; transform: none; background: transparent;
                 backdrop-filter: none; border: none; box-shadow: none;
                 padding: 0.5rem 0 0; opacity: 1; pointer-events: auto;
                 display: flex; flex-direction: column; align-items: center;
-                gap: 0.5rem;
+                gap: 0.5rem; min-width: unset;
             }
             .nav-dropdown-menu a {
                 font-size: 1rem; padding: 0.2rem 1rem;
                 color: rgba(255,255,255,0.6);
             }
             .nav-dropdown-menu a:hover { background: transparent; color: #fff; }
+            .nav-dropdown-sub-menu {
+                position: static; background: transparent;
+                backdrop-filter: none; border: none; box-shadow: none;
+                padding: 0.3rem 0 0; opacity: 1; pointer-events: auto;
+                transform: none; min-width: unset;
+                display: none; flex-direction: column; align-items: center;
+                gap: 0.3rem;
+            }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+            .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+                display: flex; transform: none;
+            }
             .nav-toggle { display: flex; }
             .nav-actions .search-icon { display: none; }
             .search-input-wrapper {
@@ -358,70 +417,6 @@
             margin: 0;
         }
 
-        #projetos {
-            padding-top: var(--spacing-lg) !important;
-            padding-bottom: var(--spacing-xl);
-        }
-
-        .footer {
-            border-top: var(--border-thin);
-            padding: var(--spacing-lg) 0 var(--spacing-md);
-            color: var(--white);
-            margin-top: var(--spacing-lg);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-        }
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-col h4 {
-            font-weight: 600; font-size: var(--fs-small);
-            letter-spacing: 0.06em; text-transform: uppercase;
-            margin-bottom: var(--spacing-xs); color: var(--white);
-        }
-        .footer-col a, .footer-col p {
-            font-size: var(--fs-small); opacity: 0.6;
-            text-decoration: none; color: var(--white);
-            display: block; margin-bottom: 4px;
-            transition: opacity var(--transition-fast);
-        }
-        .footer-col a:hover { opacity: 1; }
-        .footer-social {
-            display: flex; gap: var(--spacing-sm);
-            margin-top: var(--spacing-xs);
-        }
-        .footer-social a {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 42px; height: 42px;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50%;
-            font-size: 1.2rem; color: var(--white);
-            opacity: 0.8;
-            transition: all var(--transition-med);
-            text-decoration: none; background: transparent;
-        }
-        .footer-social a:hover {
-            opacity: 1; background: var(--white); color: var(--black);
-            border-color: var(--white); transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(255,255,255,0.15);
-        }
-        .footer-bottom {
-            padding-top: var(--spacing-sm);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center; font-size: var(--fs-small);
-            opacity: 0.5;
-            display: flex; justify-content: space-between;
-            flex-wrap: wrap; gap: var(--spacing-sm);
-        }
-        .footer-bottom a {
-            color: var(--white); text-decoration: none;
-            opacity: 0.5; transition: opacity var(--transition-fast);
-        }
-        .footer-bottom a:hover { opacity: 1; }
-
         .filtro-wrapper {
             display: flex; flex-wrap: wrap; gap: var(--spacing-sm);
             justify-content: center; margin-bottom: var(--spacing-lg);
@@ -463,10 +458,9 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            perspective: 1000px;
         }
         .projeto-card:hover {
-            transform: translateY(-8px) rotateY(2deg) rotateX(2deg);
+            transform: translateY(-8px);
             border-color: rgba(255,255,255,0.25);
             box-shadow: 0 20px 60px rgba(255,255,255,0.06);
         }
@@ -605,6 +599,65 @@
             display: flex; gap: var(--spacing-sm); flex-wrap: wrap;
         }
 
+        .footer {
+            border-top: var(--border-thin);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            color: var(--white);
+            margin-top: var(--spacing-lg);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-col h4 {
+            font-weight: 600; font-size: var(--fs-small);
+            letter-spacing: 0.06em; text-transform: uppercase;
+            margin-bottom: var(--spacing-xs); color: var(--white);
+        }
+        .footer-col a, .footer-col p {
+            font-size: var(--fs-small); opacity: 0.6;
+            text-decoration: none; color: var(--white);
+            display: block; margin-bottom: 4px;
+            transition: opacity var(--transition-fast);
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social {
+            display: flex; gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+        }
+        .footer-social a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 42px; height: 42px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            font-size: 1.2rem; color: var(--white);
+            opacity: 0.8;
+            transition: all var(--transition-med);
+            text-decoration: none; background: transparent;
+        }
+        .footer-social a:hover {
+            opacity: 1; background: var(--white); color: var(--black);
+            border-color: var(--white); transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.15);
+        }
+        .footer-bottom {
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center; font-size: var(--fs-small);
+            opacity: 0.5;
+            display: flex; justify-content: space-between;
+            flex-wrap: wrap; gap: var(--spacing-sm);
+        }
+        .footer-bottom a {
+            color: var(--white); text-decoration: none;
+            opacity: 0.5; transition: opacity var(--transition-fast);
+        }
+        .footer-bottom a:hover { opacity: 1; }
+
         .modal-overlay {
             position: fixed; inset: 0;
             background: rgba(0,0,0,0.92);
@@ -674,32 +727,76 @@
 <body>
 
     <canvas id="starCanvas"></canvas>
-
     <div class="cursor" id="cursor" aria-hidden="true"></div>
 
+    <!-- ===== HEADER ATUALIZADO (EN) ===== -->
     <header class="globalnav" id="globalnav" role="navigation" aria-label="Main navigation">
         <div class="globalnav-content">
             <a href="/en/" class="nav-logo" aria-label="Space">
                 <img src="/images/spacelogo.png" alt="Space logo" />
                 <span>SPACE</span>
             </a>
+
             <ul class="nav-links" id="navLinks" role="menubar">
+                <!-- SERVICES -->
                 <li class="nav-dropdown">
                     <a href="#services" aria-haspopup="true" aria-expanded="false">Services</a>
                     <ul class="nav-dropdown-menu" role="menu">
-                        <li><a href="/en/website-development/">Website Development</a></li>
-                        <li><a href="/en/web-development/">Web Development</a></li>
-                        <li><a href="/en/web-systems/">Web Systems</a></li>
-                        <li><a href="/en/process-automation/">Process Automation</a></li>
-                        <li><a href="/en/artificial-intelligence/">Artificial Intelligence</a></li>
-                        <li><a href="/en/apis-integrations/">APIs &amp; Integrations</a></li>
-                        <li><a href="/en/custom-solutions/">Custom Solutions</a></li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Web Development</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-creation/">Website Creation</a></li>
+                                <li><a href="/en/web-development/">Web Development</a></li>
+                                <li><a href="/en/corporate-websites/">Corporate Websites</a></li>
+                                <li><a href="/en/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/en/digital-platforms/">Digital Platforms</a></li>
+                                <li><a href="/en/web-applications/">Web Applications</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Systems &amp; Platforms</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/web-systems/">Web Systems</a></li>
+                                <li><a href="/en/dashboards/">Dashboards</a></li>
+                                <li><a href="/en/custom-solutions/">Custom Solutions</a></li>
+                                <li><a href="/en/apis-integrations/">APIs &amp; Integrations</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automation &amp; AI</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/process-automation/">Process Automation</a></li>
+                                <li><a href="/en/artificial-intelligence/">Artificial Intelligence</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consulting &amp; Support</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-maintenance/">Website Maintenance</a></li>
+                                <li><a href="/en/seo-services/">SEO Services</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
+
                 <li><a href="/en/projects/" class="active">Projects</a></li>
-                <li><a href="/en/about/">About</a></li>
+                <li><a href="/en/models/">Models</a></li>
+
+                <!-- COMPANY -->
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Company</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/en/about/">About</a></li>
+                        <li><a href="/en/process/">Process</a></li>
+                        <li><a href="/en/technologies/">Technologies</a></li>
+                        <li><a href="/en/faq/">FAQ</a></li>
+                        <li><a href="/en/blog/">Blog</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="/en/contact/">Contact</a></li>
             </ul>
+
             <div class="nav-actions">
                 <div class="search-icon" id="searchToggle" aria-label="Search">
                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
@@ -713,7 +810,7 @@
                     <span class="sep">|</span>
                     <a href="https://spacetechn.com/pt/projetos/" hreflang="pt-BR" aria-label="Português">PT</a>
                 </div>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
@@ -727,7 +824,7 @@
                     <h1 class="hero-logo" translate="no">Projects</h1>
                     <p class="hero-sub">Our innovation portfolio</p>
                     <p class="hero-text">
-                        Each project is a story of technology and creativity. From concept to delivery,
+                        Every project is a story of technology and creativity. From concept to delivery,
                         we create digital solutions that transform businesses and generate real impact.
                     </p>
                     <div class="hero-btns">
@@ -745,8 +842,8 @@
                 <span class="section-label reveal">Portfolio</span>
                 <h2 class="section-title reveal reveal-delay-1">Projects that transform</h2>
                 <p class="section-desc reveal reveal-delay-2 mb-md">
-                    A selection of digital solutions we have developed for clients across various industries.
-                    Each project is unique, custom-built with the best technologies.
+                    A selection of digital solutions we developed for clients across various industries.
+                    Every project is unique, custom‑built with the best technologies.
                 </p>
 
                 <div class="filtro-wrapper reveal reveal-delay-3" id="filtroWrapper">
@@ -774,9 +871,9 @@
                             <span>Automation</span>
                         </div>
                         <p>
-                            We developed a comprehensive platform that integrates machine learning, process automation,
-                            and real-time dashboards, reducing operational costs by 35% and increasing logistics efficiency
-                            for one of the largest companies in the sector.
+                            We developed a complete platform integrating machine learning, process automation
+                            and real‑time dashboards, reducing operational costs by 35% and increasing logistics
+                            efficiency for one of the largest companies in the sector.
                         </p>
                         <a href="#" class="btn btn-primary btn-sm" id="destaqueBtn">View details <i class="bi bi-arrow-right"></i></a>
                     </div>
@@ -802,16 +899,16 @@
                 <div class="footer-col">
                     <h4>Links</h4>
                     <a href="/en/#hero">Home</a>
-                    <a href="/en/website-development/">Website Development</a>
+                    <a href="/en/website-creation/">Website Creation</a>
                     <a href="/en/web-development/">Web Development</a>
                     <a href="/en/web-systems/">Web Systems</a>
-                    <a href="/en/process-automation/">Process Automation</a>
+                    <a href="/en/process-automation/">Automation</a>
                     <a href="/en/artificial-intelligence/">AI</a>
                     <a href="/en/apis-integrations/">APIs</a>
                     <a href="/en/custom-solutions/">Custom Solutions</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Institutional</h4>
+                    <h4>Company</h4>
                     <a href="/en/projects/">Projects</a>
                     <a href="/en/about/">About</a>
                     <a href="/en/process/">Process</a>
@@ -838,7 +935,7 @@
     </footer>
 
     <a href="/en/contact/" class="cta-fixo" id="ctaFixo">
-        <i class="bi bi-chat-dots"></i> Let's create your project
+        <i class="bi bi-chat-dots"></i> Let's build your project
     </a>
 
     <div class="modal-overlay modal-projeto" id="modalProjeto" aria-hidden="true">
@@ -866,41 +963,42 @@
     </div>
 
     <script>
+        // PROJECT DATA (English)
         const projetos = [
             {
                 id: 1,
-                titulo: 'Institutional Website for Medical Clinic',
-                descricao: 'We developed a modern and responsive website for a medical clinic, with online scheduling, patient area, and integration with an electronic health record system.',
+                titulo: 'Medical Clinic Corporate Website',
+                descricao: 'We developed a modern and responsive website for a medical clinic, with online scheduling, patient area and EHR integration.',
                 imagem: '/images/projeto-clinica.jpg',
                 tags: ['Web', 'UX/UI', 'Integration'],
                 categoria: 'web',
                 link: '#',
-                detalhes: 'The project included custom design, React development, integration with a scheduling API, and SEO optimization. The result was a 40% increase in appointments scheduled through the website.'
+                detalhes: 'The project included custom design, React development, scheduling API integration and SEO optimization. Resulted in a 40% increase in appointments scheduled via the website.'
             },
             {
                 id: 2,
-                titulo: 'Data Analysis Dashboard for E-commerce',
-                descricao: 'We created an interactive dashboard for analyzing sales, customer behavior, and inventory, with real-time visualizations.',
+                titulo: 'E-commerce Data Analytics Dashboard',
+                descricao: 'We created an interactive dashboard for sales analysis, customer behavior and inventory management with real‑time visualizations.',
                 imagem: '/images/projeto-dashboard.jpg',
                 tags: ['Systems', 'Data Viz', 'React'],
                 categoria: 'sistemas',
                 link: '#',
-                detalhes: 'We used React, D3.js, and WebSockets to provide real-time updated data. The dashboard allows filtering by period, product, and sales channel.'
+                detalhes: 'We used React, D3.js and WebSockets to deliver real‑time data. The dashboard allows filtering by period, product and sales channel.'
             },
             {
                 id: 3,
-                titulo: 'AI-Driven Process Automation for Logistics',
-                descricao: 'We implemented an automation system with machine learning to optimize delivery routes and forecast demand, reducing operational costs.',
+                titulo: 'AI Process Automation for Logistics',
+                descricao: 'Implemented an automation system with machine learning to optimize delivery routes and predict demand, reducing operational costs.',
                 imagem: '/images/projeto-automacao.jpg',
                 tags: ['AI', 'Automation', 'Python'],
                 categoria: 'automacao',
                 link: '#',
-                detalhes: 'We used Python, TensorFlow, and integration with GPS systems. The system reduced average delivery time by 25%.'
+                detalhes: 'We used Python, TensorFlow and GPS integration. The system reduced average delivery time by 25%.'
             },
             {
                 id: 4,
-                titulo: 'High-Conversion Landing Page for a Startup',
-                descricao: 'We developed a conversion-focused landing page with A/B testing, strategic copywriting, and minimalist design.',
+                titulo: 'High‑Conversion Landing Page for Startup',
+                descricao: 'Developed a conversion‑focused landing page with A/B testing, strategic copywriting and minimalist design.',
                 imagem: '/images/projeto-landing.jpg',
                 tags: ['Web', 'SEO', 'Design'],
                 categoria: 'web',
@@ -909,8 +1007,8 @@
             },
             {
                 id: 5,
-                titulo: 'AI-Powered Project Management System',
-                descricao: 'We created a project management platform with an intelligent assistant for task suggestions and deadline forecasting.',
+                titulo: 'AI‑Powered Project Management System',
+                descricao: 'Created a project management platform with an intelligent assistant for task suggestions and deadline forecasting.',
                 imagem: '/images/projeto-sistema.jpg',
                 tags: ['Systems', 'AI', 'React'],
                 categoria: 'sistemas',
@@ -919,73 +1017,73 @@
             },
             {
                 id: 6,
-                titulo: 'Intelligent Chatbot for Customer Service',
-                descricao: 'We developed an NLP chatbot for automated e-commerce support, capable of answering questions and routing issues.',
+                titulo: 'Intelligent Chatbot for Customer Support',
+                descricao: 'Developed an NLP chatbot for automated e‑commerce support, capable of answering questions and routing issues.',
                 imagem: '/images/projeto-chatbot.jpg',
                 tags: ['AI', 'Automation', 'NLP'],
                 categoria: 'ia',
                 link: '#',
-                detalhes: 'We used the ChatGPT API and trained a model with company data. The chatbot resolves 80% of inquiries without human intervention.'
+                detalhes: 'We used the ChatGPT API and trained a model with company data. The chatbot resolves 80% of queries without human intervention.'
             },
             {
                 id: 7,
                 titulo: 'Mobile App for Food Delivery',
-                descricao: 'We developed a mobile app for food delivery with real-time tracking and payment integration.',
+                descricao: 'Developed a mobile food delivery app with real‑time tracking and payment integration.',
                 imagem: '/images/projeto-mobile.jpg',
                 tags: ['Mobile', 'React Native', 'Integration'],
                 categoria: 'mobile',
                 link: '#',
-                detalhes: 'App developed with React Native, integrating with payment APIs and maps. Available for Android and iOS.'
+                detalhes: 'App built with React Native, payment API and maps integration. Available for Android and iOS.'
             },
             {
                 id: 8,
                 titulo: 'Gamified Learning Platform',
-                descricao: 'We created an online learning platform with gamification elements, learning paths, and certification.',
+                descricao: 'Created an online learning platform with gamification elements, learning paths and certification.',
                 imagem: '/images/projeto-ensino.jpg',
                 tags: ['Web', 'Gamification', 'UX/UI'],
                 categoria: 'web',
                 link: '#',
-                detalhes: 'Platform developed with Next.js, integrating with a rewards system and ranking. Used by over 5,000 students.'
+                detalhes: 'Platform built with Next.js, rewards system and ranking. Used by over 5,000 students.'
             },
             {
                 id: 9,
-                titulo: 'Integration API for Marketplace',
-                descricao: 'We developed a robust API for integrating multiple marketplaces, synchronizing inventory, orders, and products.',
+                titulo: 'Marketplace Integration API',
+                descricao: 'Developed a robust API for integrating multiple marketplaces, syncing inventory, orders and products.',
                 imagem: '/images/projeto-api.jpg',
                 tags: ['Systems', 'API', 'Integration'],
                 categoria: 'sistemas',
                 link: '#',
-                detalhes: 'RESTful API with JWT authentication, OpenAPI documentation, and queue processing. Integrates with Shopify, WooCommerce, and Mercado Livre.'
+                detalhes: 'RESTful API with JWT authentication, OpenAPI documentation and queue handling. Integrates with Shopify, WooCommerce and Mercado Livre.'
             },
             {
                 id: 10,
-                titulo: 'Facial Recognition System for Security',
-                descricao: 'We implemented an AI-powered facial recognition system for access control and security monitoring.',
+                titulo: 'Facial Recognition Security System',
+                descricao: 'Implemented an AI facial recognition system for access control and security monitoring.',
                 imagem: '/images/projeto-facial.jpg',
                 tags: ['AI', 'Security', 'Python'],
                 categoria: 'ia',
                 link: '#',
-                detalhes: 'We used OpenCV and deep learning models for real-time recognition with high accuracy.'
+                detalhes: 'Used OpenCV and deep learning models for real‑time recognition with high accuracy.'
             },
             {
                 id: 11,
                 titulo: 'Digital Marketing Automation Platform',
-                descricao: 'We created a platform that automates marketing campaigns, lead management, and result analysis.',
+                descricao: 'Created a platform that automates marketing campaigns, lead management and results analysis.',
                 imagem: '/images/projeto-marketing.jpg',
                 tags: ['Automation', 'Web', 'Marketing'],
                 categoria: 'automacao',
                 link: '#',
-                detalhes: 'Integration with CRM, email marketing, and social media. Automated reports and audience segmentation.'
+                detalhes: 'Integration with CRM, email marketing and social media. Automated reports and audience segmentation.'
             },
             {
                 id: 12,
-                titulo: 'Health Monitoring App with Data Tracking',
-                descricao: 'We developed a mobile app for health data monitoring, integrated with wearable devices.',
+                titulo: 'Health Monitoring Mobile App',
+                descricao: 'Developed a mobile app for health data monitoring, integrated with wearable devices.',
                 imagem: '/images/projeto-saude.jpg',
                 tags: ['Mobile', 'IoT', 'Health'],
                 categoria: 'mobile',
                 link: '#',
-                detalhes: 'App connected to wearables (Apple Watch, Fitbit) with personalized dashboards and health alerts.'
+                detalhes: 'App connected to wearables (Apple Watch, Fitbit) with custom dashboards and health alerts.'
             }
         ];
 
@@ -1046,6 +1144,7 @@
             });
         });
 
+        // MODAL
         const modalProjeto = document.getElementById('modalProjeto');
         const modalClose = document.getElementById('modalClose');
         const modalImg = document.getElementById('modalImg').querySelector('img');
@@ -1088,15 +1187,16 @@
             if (destaque) abrirModal(destaque.id);
         });
 
+        // LEGAL MODAL (English)
         const legalModalOverlay = document.getElementById('legalModalOverlay');
         const legalModalClose = document.getElementById('legalModalClose');
         const legalModalTitle = document.getElementById('legalModalTitle');
         const legalModalBody = document.getElementById('legalModalBody');
 
         const legalTexts = {
-            privacy: 'This Privacy Policy explains how SPACE collects, uses, and protects your personal data in accordance with applicable laws, including LGPD for Brazil.',
-            cookie: 'We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies.',
-            terms: 'By accessing this website, you agree to these terms. All content is provided for informational purposes. SPACE reserves the right to modify these terms at any time.'
+            privacy: 'This Privacy Policy explains how SPACE collects, uses and protects your personal data in accordance with applicable laws, including LGPD for Brazil.',
+            cookie: 'We use cookies to improve your browsing experience, analyze site traffic and personalize content. By continuing to use this site, you agree to our use of cookies.',
+            terms: 'By accessing this site, you agree to these terms. All content is provided for informational purposes. SPACE reserves the right to modify these terms at any time.'
         };
 
         function openLegalModal(type) {
@@ -1119,6 +1219,7 @@
         document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault(); openLegalModal('cookie'); });
         document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault(); openLegalModal('terms'); });
 
+        // STARFIELD (idêntico)
         class Starfield {
             constructor() {
                 this.canvas = document.getElementById('starCanvas');
@@ -1221,6 +1322,7 @@
         }
         const starfield = new Starfield();
 
+        // CURSOR
         const cursor = document.getElementById('cursor');
         if (cursor && window.matchMedia('(min-width: 769px)').matches) {
             let mouseX=0, mouseY=0, cursorX=0, cursorY=0;
@@ -1240,12 +1342,14 @@
             animateCursor();
         }
 
+        // HEADER SCROLL
         const header = document.getElementById('globalnav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         }, { passive: true });
 
+        // MOBILE TOGGLE
         const toggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
         toggle.addEventListener('click', () => {
@@ -1261,6 +1365,7 @@
             });
         });
 
+        // SEARCH
         const searchToggle = document.getElementById('searchToggle');
         const searchInputWrapper = document.getElementById('searchInputWrapper');
         const searchInput = document.getElementById('searchInput');
@@ -1295,6 +1400,7 @@
             });
         });
 
+        // HERO FADE
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) {
             window.addEventListener('scroll', () => {
