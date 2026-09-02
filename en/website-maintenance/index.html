@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelos | Space – Soluções prontas para sua empresa</title>
+    <meta name="description" content="Conheça nossos modelos de sites institucionais, landing pages, portfólios e muito mais. Escolha o modelo ideal para o seu negócio." />
+    <link rel="canonical" href="https://spacetechn.com/pt/modelos/" />
+    <link rel="alternate" hreflang="en" href="https://spacetechn.com/en/models/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/modelos/" />
+    <link rel="alternate" hreflang="x-default" href="https://spacetechn.com/pt/modelos/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Modelos | Space – Soluções prontas para sua empresa" />
+    <meta property="og:description" content="Modelos de sites profissionais com design exclusivo e alta performance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacetechn.com/pt/modelos/" />
+    <meta property="og:image" content="https://spacetechn.com/images/og-models.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Modelos | Space" />
+    <meta name="twitter:description" content="Modelos de sites profissionais com design exclusivo e alta performance." />
+
+    <!-- Fonts, Icons, Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" type="image/png" href="https://spacetechn.com/images/spacelogo.png" />
+    <link rel="apple-touch-icon" href="https://spacetechn.com/images/apple-touch-icon.png" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Modelos de Sites",
+        "description": "Modelos profissionais de sites para diversos segmentos.",
+        "url": "https://spacetechn.com/pt/modelos/"
+    }
+    </script>
+
+    <style>
+        /* ===== RESET E VARIÁVEIS (mesmo padrão Space) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #000000; --white: #FFFFFF; --corp-dark: #080c1a; --corp-blue: #0d1b3e; --corp-cobalt: #1a3a7a; --corp-gray: #2a3a5a; --corp-cyan: #00d4ff; --gray-light: #f0f0f0; --gray-border: rgba(255, 255, 255, 0.06); --card-bg: rgba(255, 255, 255, 0.03); --font: 'Space Grotesk', 'Inter', 'Helvetica Neue', sans-serif; --fs-hero: clamp(2.8rem, 6vw, 4.5rem); --fs-h2: clamp(1.8rem, 3.5vw, 2.8rem); --fs-h3: clamp(1.1rem, 2.2vw, 1.6rem); --fs-body: clamp(0.9rem, 1.4vw, 1.05rem); --fs-small: clamp(0.7rem, 1vw, 0.85rem); --spacing-xs: clamp(0.4rem, 0.8vw, 0.6rem); --spacing-sm: clamp(0.8rem, 1.5vw, 1.2rem); --spacing-md: clamp(1.5rem, 3vw, 2.5rem); --spacing-lg: clamp(2.5rem, 5vw, 5rem); --spacing-xl: clamp(4rem, 8vw, 9rem); --max-width: 1400px; --transition-med: 350ms cubic-bezier(.4, 0, .2, 1); --z-nav: 1000; }
+        html { scroll-behavior: smooth; font-size: 16px; background: var(--corp-dark); color: var(--white); font-family: var(--font); }
+        body { background: transparent; color: var(--white); font-family: var(--font); line-height: 1.6; overflow-x: hidden; cursor: default; }
+        #modelCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background: var(--corp-dark); }
+        @media (min-width: 769px) { body { cursor: none; } .cursor { position: fixed; top: 0; left: 0; width: 24px; height: 24px; border: 1.5px solid var(--white); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s; mix-blend-mode: difference; will-change: transform; } .cursor.dot { width: 8px; height: 8px; background: var(--white); border: none; mix-blend-mode: difference; } a, button, input, textarea, select, [tabindex] { cursor: none; } }
+        @media (max-width: 768px) { .cursor { display: none; } }
+
+        /* ===== NAVEGAÇÃO (idêntica à principal) ===== */
+        .globalnav { position: fixed; top: 0; left: 0; width: 100%; z-index: var(--z-nav); height: 52px; display: flex; align-items: center; background: rgba(8, 12, 26, 0.7); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.04); transition: background var(--transition-med), border-color var(--transition-med); padding: 0 var(--spacing-md); }
+        .globalnav.scrolled { background: rgba(8, 12, 26, 0.92); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .globalnav-content { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--max-width); margin: 0 auto; }
+        .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--white); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.06em; flex-shrink: 0; z-index: 2; }
+        .nav-logo img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }
+        .nav-links { display: flex; list-style: none; gap: clamp(0.6rem, 1.5vw, 1.8rem); align-items: center; flex: 1; justify-content: center; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--white); font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.02em; opacity: 0.7; transition: opacity var(--transition-med); padding: 4px 0; position: relative; white-space: nowrap; }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--white); transition: width var(--transition-med); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > a { cursor: default; }
+        .nav-dropdown > a::after { display: none; }
+        .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: rgba(8, 12, 26, 0.95); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.6rem 0; min-width: 220px; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); list-style: none; z-index: 10; }
+        .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown-menu li { padding: 0; }
+        .nav-dropdown-menu a { display: block; padding: 0.4rem 1.2rem; color: rgba(255, 255, 255, 0.8); font-size: var(--fs-small); font-weight: 400; text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+        .nav-dropdown-menu a:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+        .nav-dropdown-sub { position: relative; }
+        .nav-dropdown-sub > a { display: flex; align-items: center; }
+        .nav-dropdown-sub-menu { position: absolute; top: -0.4rem; left: 100%; background: rgba(8, 12, 26, 0.95); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.6rem 0; min-width: 200px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; transform: translateX(4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); list-style: none; }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu, .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu { opacity: 1; pointer-events: auto; transform: translateX(0); }
+        .nav-dropdown-sub-menu a { padding: 0.4rem 1.2rem; color: rgba(255, 255, 255, 0.8); font-size: var(--fs-small); font-weight: 400; text-decoration: none; display: block; transition: background 0.15s, color 0.15s; }
+        .nav-dropdown-sub-menu a:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+
+        .nav-actions { display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0; z-index: 2; }
+        .search-icon { display: flex; align-items: center; justify-content: center; background: none; border: none; color: var(--white); cursor: pointer; padding: 4px; opacity: 0.7; transition: opacity var(--transition-med); position: relative; }
+        .search-icon:hover { opacity: 1; }
+        .search-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .search-input-wrapper { position: absolute; top: calc(100% + 8px); right: 0; background: rgba(8, 12, 26, 0.95); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.8rem; display: none; align-items: center; gap: 8px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); min-width: 240px; }
+        .search-input-wrapper.open { display: flex; }
+        .search-input-wrapper input { background: transparent; border: none; color: var(--white); font-family: var(--font); font-size: var(--fs-body); outline: none; width: 100%; padding: 4px 0; }
+        .search-input-wrapper input::placeholder { color: rgba(255, 255, 255, 0.3); }
+        .search-input-wrapper .search-close { background: none; border: none; color: var(--white); cursor: pointer; font-size: 1.2rem; opacity: 0.5; transition: opacity var(--transition-med); padding: 0 4px; }
+        .search-input-wrapper .search-close:hover { opacity: 1; }
+        .lang-switch { display: flex; gap: 4px; align-items: center; font-size: var(--fs-small); font-weight: 500; }
+        .lang-switch a { color: rgba(255, 255, 255, 0.4); text-decoration: none; padding: 2px 6px; transition: color var(--transition-med); }
+        .lang-switch a.active { color: #fff; text-decoration: underline; }
+        .lang-switch a:hover { color: #fff; }
+        .lang-switch .sep { color: rgba(255, 255, 255, 0.2); }
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 2; }
+        .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all var(--transition-med); transform-origin: center; }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(8, 12, 26, 0.97); backdrop-filter: saturate(180%) blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 1.8rem; transform: translateY(-100%); transition: transform 0.5s cubic-bezier(.4, 0, .2, 1); padding: 2rem; pointer-events: none; overflow-y: auto; border-bottom: 1px solid rgba(255,255,255,0.04); }
+            .nav-links.open { transform: translateY(0); pointer-events: auto; }
+            .nav-links a { font-size: 1.4rem; opacity: 1; color: var(--white); }
+            .nav-links a::after { display: none; }
+            .nav-dropdown-menu { position: static; transform: none; background: transparent; backdrop-filter: none; border: none; box-shadow: none; padding: 0.5rem 0 0; opacity: 1; pointer-events: auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; min-width: unset; }
+            .nav-dropdown-menu a { font-size: 1rem; padding: 0.2rem 1rem; color: rgba(255, 255, 255, 0.6); }
+            .nav-dropdown-menu a:hover { background: transparent; color: #fff; }
+            .nav-dropdown-sub-menu { position: static; background: transparent; backdrop-filter: none; border: none; box-shadow: none; padding: 0.3rem 0 0; opacity: 1; pointer-events: auto; transform: none; min-width: unset; display: none; flex-direction: column; align-items: center; gap: 0.3rem; }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu, .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu { display: flex; transform: none; }
+            .nav-toggle { display: flex; }
+            .nav-actions .search-icon { display: none; }
+            .search-input-wrapper { position: fixed; top: 52px; left: 0; width: 100%; border-radius: 0; border: none; border-bottom: 1px solid rgba(255,255,255,0.04); padding: 0.8rem var(--spacing-md); background: rgba(8, 12, 26, 0.97); }
+            .search-input-wrapper.open { display: flex; }
+        }
+
+        /* ===== CONTAINER E ELEMENTOS COMUNS ===== */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-md); position: relative; z-index: 1; }
+        .section { padding: var(--spacing-xl) 0; }
+        .section-label { display: inline-block; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.5; margin-bottom: var(--spacing-xs); color: var(--white); }
+        .section-title { font-size: var(--fs-h2); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: var(--spacing-sm); color: var(--white); }
+        .section-desc { font-size: var(--fs-body); opacity: 0.7; max-width: 620px; line-height: 1.7; color: var(--white); }
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1), transform 0.7s cubic-bezier(.4, 0, .2, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== HERO ===== */
+        .hero-models { min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: calc(var(--spacing-xl) * 1.4) 0 var(--spacing-lg); position: relative; overflow: hidden; }
+        .hero-models .hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-models .hero-logo { font-size: var(--fs-hero); font-weight: 700; letter-spacing: 0.04em; line-height: 1.1; color: var(--white); text-shadow: 0 0 80px rgba(0, 212, 255, 0.08); }
+        .hero-models .hero-sub { font-size: var(--fs-h3); font-weight: 400; opacity: 0.6; margin-bottom: var(--spacing-sm); color: var(--white); }
+        .hero-models .hero-text { font-size: var(--fs-body); opacity: 0.7; max-width: 600px; margin: 0 auto var(--spacing-md); line-height: 1.7; color: var(--white); }
+
+        /* ===== GRADE DE MODELOS ===== */
+        .models-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        .model-card { border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 16px; padding: var(--spacing-md); text-align: center; transition: all var(--transition-med); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--white); display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+        .model-card:hover { transform: translateY(-6px); border-color: rgba(0, 212, 255, 0.2); box-shadow: 0 16px 40px rgba(0, 212, 255, 0.04); background: rgba(0, 212, 255, 0.04); }
+        .model-card i { font-size: 2.6rem; display: block; margin-bottom: var(--spacing-xs); color: var(--white); transition: transform var(--transition-med); }
+        .model-card:hover i { transform: scale(1.08); }
+        .model-card h3 { font-weight: 600; font-size: var(--fs-body); margin-bottom: 4px; color: var(--white); }
+        .model-card p { font-size: var(--fs-small); opacity: 0.6; line-height: 1.6; color: var(--white); }
+
+        /* ===== FOOTER ===== */
+        .footer { border-top: 1px solid rgba(255, 255, 255, 0.03); padding: var(--spacing-lg) 0 var(--spacing-md); color: var(--white); margin-top: var(--spacing-lg); background: rgba(8, 12, 26, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-lg); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-col h4 { font-weight: 600; font-size: var(--fs-small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--spacing-xs); color: var(--white); }
+        .footer-col a, .footer-col p { font-size: var(--fs-small); opacity: 0.5; text-decoration: none; color: var(--white); display: block; margin-bottom: 4px; transition: opacity var(--transition-med); }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-xs); }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 50%; font-size: 1.2rem; color: var(--white); opacity: 0.6; transition: all var(--transition-med); text-decoration: none; background: transparent; }
+        .footer-social a:hover { opacity: 1; background: var(--white); color: var(--black); border-color: var(--white); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(255, 255, 255, 0.06); }
+        .footer-bottom { padding-top: var(--spacing-sm); border-top: 1px solid rgba(255, 255, 255, 0.03); text-align: center; font-size: var(--fs-small); opacity: 0.5; display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-sm); }
+        .footer-bottom a { color: var(--white); text-decoration: none; opacity: 0.5; transition: opacity var(--transition-med); }
+        .footer-bottom a:hover { opacity: 1; }
+
+        /* ===== MODAL LEGAL ===== */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition-med); padding: var(--spacing-md); }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-content { background: rgba(8, 12, 26, 0.95); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: var(--spacing-lg); max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); color: var(--white); }
+        .modal-close { position: absolute; top: var(--spacing-sm); right: var(--spacing-sm); background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--white); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all var(--transition-med); }
+        .modal-close:hover { background: rgba(255, 255, 255, 0.04); }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CANVAS (Buraco Negro) ===== -->
+    <canvas id="modelCanvas"></canvas>
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <!-- ===== HEADER (idêntico à página principal) ===== -->
+    <header class="globalnav" id="globalnav" role="navigation" aria-label="Navegação principal">
+        <div class="globalnav-content">
+            <a href="/pt/" class="nav-logo" aria-label="Space">
+                <img src="https://spacetechn.com/images/spacelogo.png" alt="Logo Space" />
+                <span>SPACE</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li class="nav-dropdown">
+                    <a href="#servicos" aria-haspopup="true" aria-expanded="false">Serviços</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Desenvolvimento Web</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/criacao-de-sites/">Criação de Sites</a></li>
+                                <li><a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a></li>
+                                <li><a href="/pt/sites-institucionais/">Sites Institucionais</a></li>
+                                <li><a href="/pt/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/pt/plataformas-digitais/">Plataformas Digitais</a></li>
+                                <li><a href="/pt/aplicacoes-web/">Aplicações Web</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Sistemas &amp; Plataformas</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/sistemas-web/">Sistemas Web</a></li>
+                                <li><a href="/pt/dashboards/">Dashboards</a></li>
+                                <li><a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a></li>
+                                <li><a href="/pt/apis-integracoes/">APIs &amp; Integrações</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automação &amp; IA</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/automacao-de-processos/">Automação de Processos</a></li>
+                                <li><a href="/pt/inteligencia-artificial/">Inteligência Artificial</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consultoria &amp; Suporte</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/manutencao-de-sites/">Manutenção de Sites</a></li>
+                                <li><a href="/pt/servicos-seo/">Serviços SEO</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/pt/projetos/">Projetos</a></li>
+                <li><a href="/pt/modelos/" class="active">Modelos</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Empresa</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/pt/sobre/">Sobre</a></li>
+                        <li><a href="/pt/processo/">Processo</a></li>
+                        <li><a href="/pt/tecnologias/">Tecnologias</a></li>
+                        <li><a href="/pt/faq/">FAQ</a></li>
+                        <li><a href="/pt/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pt/contato/">Contato</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-icon" id="searchToggle" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
+                    <div class="search-input-wrapper" id="searchInputWrapper">
+                        <input type="text" id="searchInput" placeholder="Buscar..." />
+                        <button class="search-close" id="searchClose">✕</button>
+                    </div>
+                </div>
+                <div class="lang-switch">
+                    <a href="https://spacetechn.com/en/models/" hreflang="en" aria-label="English">EN</a>
+                    <span class="sep">|</span>
+                    <a href="https://spacetechn.com/pt/modelos/" hreflang="pt-BR" class="active" aria-label="Português">PT</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero-models" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-logo" translate="no">Modelos</h1>
+                    <p class="hero-sub">Escolha a base ideal para o seu projeto</p>
+                    <p class="hero-text">
+                        Nossos modelos são projetados com excelência e podem ser totalmente personalizados
+                        para atender às necessidades específicas do seu negócio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GRADE DE MODELOS ===== -->
+        <section class="section" id="modelos">
+            <div class="container">
+                <span class="section-label reveal">Catálogo</span>
+                <h2 class="section-title reveal reveal-delay-1">Modelos disponíveis</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Escolha entre diversas categorias e personalize com a identidade da sua marca.
+                </p>
+                <div class="models-grid" id="modelsGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SPACE</h4>
+                    <p>Tecnologia &amp; Inovação. Design minimalista, excelência em engenharia.</p>
+                    <p style="margin-top:8px;">spacetechn.com</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/SPACE-techno" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/company/spacetechn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://instagram.com/spacetech.ltda" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/5511954270090" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="/pt/#hero">Início</a>
+                    <a href="/pt/criacao-de-sites/">Criação de Sites</a>
+                    <a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a>
+                    <a href="/pt/sistemas-web/">Sistemas Web</a>
+                    <a href="/pt/automacao-de-processos/">Automação</a>
+                    <a href="/pt/inteligencia-artificial/">IA</a>
+                    <a href="/pt/apis-integracoes/">APIs</a>
+                    <a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <a href="/pt/projetos/">Projetos</a>
+                    <a href="/pt/sobre/">Sobre</a>
+                    <a href="/pt/processo/">Processo</a>
+                    <a href="/pt/tecnologias/">Tecnologias</a>
+                    <a href="/pt/faq/">FAQ</a>
+                    <a href="/pt/contato/">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <a href="mailto:spacetechnologyltda@gmail.com">spacetechnologyltda@gmail.com</a>
+                    <a href="tel:+5511954270090">+55 (11) 95427-0090</a>
+                    <p>São Paulo, Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Space. Todos os direitos reservados.</span>
+                <span>
+                    <a href="#" id="privacyLink">Política de Privacidade</a> &middot;
+                    <a href="#" id="cookieLink">Política de Cookies</a> &middot;
+                    <a href="#" id="termsLink">Termos de Uso</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL LEGAL ===== -->
+    <div class="modal-overlay" id="legalModalOverlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <button class="modal-close" id="legalModalClose" aria-label="Fechar modal">&times;</button>
+            <h3 id="legalModalTitle" style="font-weight:700;font-size:var(--fs-h3);margin-bottom:var(--spacing-sm);"></h3>
+            <div id="legalModalBody" style="font-size:var(--fs-small);opacity:0.7;line-height:1.7;"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============ CANVAS – BURACO NEGRO ============
+        class BlackHoleCanvas {
+            constructor() {
+                this.canvas = document.getElementById('modelCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.particles = [];
+                this.time = 0;
+                this.resize();
+                this.createParticles();
+                window.addEventListener('resize', this.resize.bind(this));
+                this.animate();
+            }
+
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width * dpr;
+                this.canvas.height = this.height * dpr;
+                this.canvas.style.width = this.width + 'px';
+                this.canvas.style.height = this.height + 'px';
+                this.ctx.scale(dpr, dpr);
+                // Fundo escuro com gradiente radial
+                const grad = this.ctx.createRadialGradient(
+                    this.width * 0.5, this.height * 0.5, 0,
+                    this.width * 0.5, this.height * 0.5, this.width * 0.7
+                );
+                grad.addColorStop(0, '#0a0a1a');
+                grad.addColorStop(0.5, '#070714');
+                grad.addColorStop(1, '#020208');
+                this.ctx.fillStyle = grad;
+                this.ctx.fillRect(0, 0, this.width, this.height);
+            }
+
+            createParticles() {
+                this.particles = [];
+                const count = 800;
+                for (let i = 0; i < count; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const radius = Math.random() * this.width * 0.6;
+                    this.particles.push({
+                        x: this.width * 0.5 + Math.cos(angle) * radius,
+                        y: this.height * 0.5 + Math.sin(angle) * radius,
+                        angle: angle,
+                        radius: radius,
+                        speed: 0.002 + Math.random() * 0.006,
+                        size: 0.5 + Math.random() * 2,
+                        alpha: 0.1 + Math.random() * 0.6,
+                        drift: Math.random() * 0.02 - 0.01,
+                    });
+                }
+            }
+
+            drawBlackHole() {
+                const ctx = this.ctx;
+                const w = this.width;
+                const h = this.height;
+                const time = this.time;
+
+                // Centro do buraco negro (escuro absoluto)
+                const cx = w * 0.5;
+                const cy = h * 0.5;
+
+                // Anel de acreção (disco de matéria)
+                for (let r = 40; r < 280; r += 2) {
+                    const alpha = 0.02 + 0.06 * Math.sin(r * 0.05 + time * 0.5);
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(0, 180, 255, ${alpha * 0.4})`;
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                }
+
+                // Partículas em espiral
+                this.particles.forEach(p => {
+                    p.angle += p.speed + p.drift;
+                    p.radius *= 0.9998; // gradualmente caindo
+                    if (p.radius < 10) {
+                        p.radius = 200 + Math.random() * 300;
+                        p.angle = Math.random() * Math.PI * 2;
+                    }
+                    const x = cx + Math.cos(p.angle) * p.radius;
+                    const y = cy + Math.sin(p.angle) * p.radius;
+                    const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2);
+                    const alpha = p.alpha * Math.min(1, dist / 150);
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 200, 255, ${alpha * 0.6})`;
+                    ctx.fill();
+
+                    // Brilho
+                    if (p.size > 1.2) {
+                        ctx.shadowColor = 'rgba(0, 200, 255, 0.2)';
+                        ctx.shadowBlur = 10;
+                        ctx.beginPath();
+                        ctx.arc(x, y, p.size * 2.5, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(0, 200, 255, ${alpha * 0.08})`;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+                });
+
+                // Centro escuro com efeito de lente
+                const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 60);
+                grad.addColorStop(0, 'rgba(0,0,0,1)');
+                grad.addColorStop(0.4, 'rgba(0,0,0,0.9)');
+                grad.addColorStop(0.7, 'rgba(0,20,40,0.5)');
+                grad.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.beginPath();
+                ctx.arc(cx, cy, 60, 0, Math.PI * 2);
+                ctx.fillStyle = grad;
+                ctx.fill();
+
+                // Anel interno brilhante
+                ctx.beginPath();
+                ctx.arc(cx, cy, 38, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(100, 200, 255, ${0.2 + 0.1 * Math.sin(time * 0.8)})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(cx, cy, 44, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(100, 200, 255, ${0.05})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // Estrelas distantes (fixas)
+                for (let i = 0; i < 200; i++) {
+                    const sx = (i * 137.508) % w;
+                    const sy = (i * 269.134) % h;
+                    const distToCenter = Math.sqrt((sx - cx) ** 2 + (sy - cy) ** 2);
+                    if (distToCenter > 80) {
+                        const brightness = 0.1 + 0.3 * Math.sin(i + time * 0.2);
+                        ctx.beginPath();
+                        ctx.arc(sx, sy, 0.3 + brightness * 0.5, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(255, 255, 255, ${brightness * 0.3})`;
+                        ctx.fill();
+                    }
+                }
+            }
+
+            animate() {
+                this.time += 0.012;
+                this.drawBlackHole();
+                requestAnimationFrame(this.animate.bind(this));
+            }
+        }
+
+        const blackHole = new BlackHoleCanvas();
+
+        // ============ DADOS DOS MODELOS ============
+        const modelsList = [
+            { icon: 'bi-building', name: 'Empresa', desc: 'Site institucional para empresas de todos os portes.', link: '/pt/models/company/' },
+            { icon: 'bi-briefcase', name: 'Portfólio', desc: 'Apresente seus trabalhos com elegância.', link: '/pt/models/portfolio/' },
+            { icon: 'bi-shop', name: 'E-commerce', desc: 'Loja virtual completa e integrada.', link: '/pt/models/ecommerce/' },
+            { icon: 'bi-person-video3', name: 'Clínica', desc: 'Para médicos, dentistas e clínicas.', link: '/pt/models/clinic/' },
+            { icon: 'bi-book', name: 'Academia', desc: 'Cursos, treinos e conteúdo educacional.', link: '/pt/models/academy/' },
+            { icon: 'bi-calendar-check', name: 'Agendamentos', desc: 'Sistema de reservas e agendamento.', link: '/pt/models/appointments/' },
+            { icon: 'bi-scissors', name: 'Barbearia', desc: 'Estilo e sofisticação para barbearias.', link: '/pt/models/barbershop/' },
+            { icon: 'bi-church', name: 'Igreja', desc: 'Comunidade e eventos religiosos.', link: '/pt/models/church/' },
+            { icon: 'bi-hotel', name: 'Hotel', desc: 'Reservas e hospitalidade.', link: '/pt/models/hotel/' },
+            { icon: 'bi-laptop', name: 'Tech', desc: 'Para startups e empresas de tecnologia.', link: '/pt/models/tech/' },
+            { icon: 'bi-gavel', name: 'Advocacia', desc: 'Escritórios de advocacia e jurídico.', link: '/pt/models/lawyer/' },
+            { icon: 'bi-egg-fried', name: 'Restaurante', desc: 'Cardápio, reservas e delivery.', link: '/pt/models/restaurant/' },
+            { icon: 'bi-mortarboard', name: 'Escola', desc: 'Instituições de ensino e cursos.', link: '/pt/models/school/' },
+            { icon: 'bi-house', name: 'Desk', desc: 'Escritórios e espaços de trabalho.', link: '/pt/models/desk/' },
+            { icon: 'bi-megaphone', name: 'Landing Page', desc: 'Páginas de conversão para campanhas.', link: '/pt/models/landing/' },
+            { icon: 'bi-journal', name: 'Story', desc: 'Contação de histórias e conteúdo imersivo.', link: '/pt/models/story/' }
+        ];
+
+        // ============ RENDERIZAR MODELOS ============
+        function renderModels() {
+            const container = document.getElementById('modelsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            modelsList.forEach((model, i) => {
+                const div = document.createElement('a');
+                div.className = 'model-card reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.href = model.link;
+                div.innerHTML = `
+                    <i class="bi ${model.icon}"></i>
+                    <h3>${model.name}</h3>
+                    <p>${model.desc}</p>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        // ============ REVEAL OBSERVER ============
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        renderModels();
+
+        // ============ LEGAL MODAL (PT) ============
+        const legalModalOverlay = document.getElementById('legalModalOverlay');
+        const legalModalClose = document.getElementById('legalModalClose');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalBody = document.getElementById('legalModalBody');
+
+        const legalTexts = {
+            privacy: 'Esta Política de Privacidade explica como a SPACE coleta, usa e protege seus dados pessoais, em conformidade com as leis aplicáveis, incluindo a LGPD.',
+            cookie: 'Utilizamos cookies para melhorar sua experiência de navegação, analisar o tráfego do site e personalizar conteúdo. Ao continuar usando este site, você concorda com o uso de cookies.',
+            terms: 'Ao acessar este site, você concorda com estes termos. Todo o conteúdo é fornecido apenas para fins informativos. A SPACE se reserva o direito de modificar estes termos a qualquer momento.'
+        };
+
+        function openLegalModal(type) {
+            const titles = { privacy: 'Política de Privacidade', cookie: 'Política de Cookies', terms: 'Termos de Uso' };
+            legalModalTitle.textContent = titles[type];
+            legalModalBody.textContent = legalTexts[type];
+            legalModalOverlay.classList.add('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegalModal() {
+            legalModalOverlay.classList.remove('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        legalModalClose.addEventListener('click', closeLegalModal);
+        legalModalOverlay.addEventListener('click', (e) => { if (e.target === legalModalOverlay) closeLegalModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && legalModalOverlay.classList.contains('active'))
+                closeLegalModal(); });
+
+        document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('privacy'); });
+        document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('cookie'); });
+        document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('terms'); });
+
+        // ============ CURSOR ============
+        const cursor = document.getElementById('cursor');
+        if (cursor && window.matchMedia('(min-width: 769px)').matches) {
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+                mouseY = e.clientY; });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.12;
+                cursorY += (mouseY - cursorY) * 0.12;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            const interactive = document.querySelectorAll('a, button, input, textarea, select, [tabindex]');
+            interactive.forEach(el => {
+                el.addEventListener('mouseenter', () => { cursor.classList.add('dot'); });
+                el.addEventListener('mouseleave', () => { cursor.classList.remove('dot'); });
+            });
+            document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+            document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+        }
+
+        // ============ MOBILE MENU ============
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                navToggle.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('open');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const header = document.querySelector('.globalnav');
+                    if (!header.contains(e.target) && navLinks.classList.contains('open')) {
+                        navLinks.classList.remove('open');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        }
+
+        // ============ SEARCH ============
+        const searchToggle = document.getElementById('searchToggle');
+        const searchInputWrapper = document.getElementById('searchInputWrapper');
+        const searchClose = document.getElementById('searchClose');
+        const searchInput = document.getElementById('searchInput');
+
+        if (searchToggle && searchInputWrapper) {
+            searchToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = searchInputWrapper.classList.toggle('open');
+                if (isOpen) searchInput.focus();
+            });
+            if (searchClose) {
+                searchClose.addEventListener('click', () => {
+                    searchInputWrapper.classList.remove('open');
+                    searchInput.value = '';
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchInputWrapper.classList.contains('open')) {
+                    searchInputWrapper.classList.remove('open');
+                    searchInput.value = '';
+                }
+            });
+            document.addEventListener('click', (e) => {
+                if (!searchToggle.contains(e.target) && searchInputWrapper.classList.contains('open')) {
+                    searchInputWrapper.classList.remove('open');
+                }
+            });
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) console.log('Buscar por:', query);
+                }
+            });
+        }
+
+        // ============ HEADER SCROLL ============
+        const globalnav = document.getElementById('globalnav');
+        if (globalnav) {
+            window.addEventListener('scroll', () => {
+                globalnav.classList.toggle('scrolled', window.scrollY > 50);
+            });
+        }
+
+        console.log('🚀 Space – Página de Modelos carregada.');
+    </script>
+</body>
+</html>

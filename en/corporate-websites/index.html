@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corporate Websites | Space – Professional digital presence</title>
+    <meta name="description" content="Professional corporate websites with exclusive design, SEO optimized, responsive and high performance. Transform your digital presence with Space." />
+    <link rel="canonical" href="https://spacetechn.com/en/corporate-websites/" />
+    <link rel="alternate" hreflang="en" href="https://spacetechn.com/en/corporate-websites/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/sites-institucionais/" />
+    <link rel="alternate" hreflang="x-default" href="https://spacetechn.com/en/corporate-websites/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Corporate Websites | Space – Professional digital presence" />
+    <meta property="og:description" content="Professional corporate websites with exclusive design, SEO and high performance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacetechn.com/en/corporate-websites/" />
+    <meta property="og:image" content="https://spacetechn.com/images/og-corporate-websites.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Corporate Websites | Space" />
+    <meta name="twitter:description" content="Professional corporate websites with exclusive design and high performance." />
+
+    <!-- Fonts, Icons, Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" type="image/png" href="https://spacetechn.com/images/spacelogo.png" />
+    <link rel="apple-touch-icon" href="https://spacetechn.com/images/apple-touch-icon.png" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Corporate Websites",
+        "description": "Professional corporate website creation with exclusive design, SEO optimized and high performance.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Space"
+        },
+        "url": "https://spacetechn.com/en/corporate-websites/"
+    }
+    </script>
+
+    <!-- CSS (identical to PT, with English texts in HTML) -->
+    <style>
+        /* ===== RESET AND VARIABLES (identical to PT) ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #000000; --white: #FFFFFF; --corp-dark: #080c1a; --corp-blue: #0d1b3e; --corp-cobalt: #1a3a7a; --corp-gray: #2a3a5a; --corp-cyan: #00d4ff; --gray-light: #f0f0f0; --gray-border: rgba(255, 255, 255, 0.06); --card-bg: rgba(255, 255, 255, 0.03); --font: 'Space Grotesk', 'Inter', 'Helvetica Neue', sans-serif; --fs-hero: clamp(3rem, 7vw, 5.5rem); --fs-h2: clamp(1.8rem, 3.5vw, 2.8rem); --fs-h3: clamp(1.1rem, 2.2vw, 1.6rem); --fs-body: clamp(0.9rem, 1.4vw, 1.05rem); --fs-small: clamp(0.7rem, 1vw, 0.85rem); --spacing-xs: clamp(0.4rem, 0.8vw, 0.6rem); --spacing-sm: clamp(0.8rem, 1.5vw, 1.2rem); --spacing-md: clamp(1.5rem, 3vw, 2.5rem); --spacing-lg: clamp(2.5rem, 5vw, 5rem); --spacing-xl: clamp(4rem, 8vw, 9rem); --max-width: 1400px; --transition-med: 350ms cubic-bezier(.4, 0, .2, 1); --z-nav: 1000; }
+        html { scroll-behavior: smooth; font-size: 16px; background: var(--corp-dark); color: var(--white); font-family: var(--font); }
+        body { background: transparent; color: var(--white); font-family: var(--font); line-height: 1.6; overflow-x: hidden; cursor: default; }
+        #corpCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background: var(--corp-dark); }
+        @media (min-width: 769px) { body { cursor: none; } .cursor { position: fixed; top: 0; left: 0; width: 24px; height: 24px; border: 1.5px solid var(--white); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s; mix-blend-mode: difference; will-change: transform; } .cursor.dot { width: 8px; height: 8px; background: var(--white); border: none; mix-blend-mode: difference; } a, button, input, textarea, select, [tabindex] { cursor: none; } }
+        @media (max-width: 768px) { .cursor { display: none; } }
+
+        .globalnav { position: fixed; top: 0; left: 0; width: 100%; z-index: var(--z-nav); height: 52px; display: flex; align-items: center; background: rgba(8, 12, 26, 0.7); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.04); transition: background var(--transition-med), border-color var(--transition-med); padding: 0 var(--spacing-md); }
+        .globalnav.scrolled { background: rgba(8, 12, 26, 0.92); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .globalnav-content { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--max-width); margin: 0 auto; }
+        .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--white); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.06em; flex-shrink: 0; z-index: 2; }
+        .nav-logo img { width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1); }
+        .nav-links { display: flex; list-style: none; gap: clamp(0.6rem, 1.5vw, 1.8rem); align-items: center; flex: 1; justify-content: center; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--white); font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.02em; opacity: 0.7; transition: opacity var(--transition-med); padding: 4px 0; position: relative; white-space: nowrap; }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--white); transition: width var(--transition-med); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown > a { cursor: default; }
+        .nav-dropdown > a::after { display: none; }
+        .nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: rgba(8, 12, 26, 0.95); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.6rem 0; min-width: 220px; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); list-style: none; z-index: 10; }
+        .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown-menu li { padding: 0; }
+        .nav-dropdown-menu a { display: block; padding: 0.4rem 1.2rem; color: rgba(255, 255, 255, 0.8); font-size: var(--fs-small); font-weight: 400; text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+        .nav-dropdown-menu a:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+        .nav-dropdown-sub { position: relative; }
+        .nav-dropdown-sub > a { display: flex; align-items: center; }
+        .nav-dropdown-sub-menu { position: absolute; top: -0.4rem; left: 100%; background: rgba(8, 12, 26, 0.95); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.6rem 0; min-width: 200px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; transform: translateX(4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); list-style: none; }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu, .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu { opacity: 1; pointer-events: auto; transform: translateX(0); }
+        .nav-dropdown-sub-menu a { padding: 0.4rem 1.2rem; color: rgba(255, 255, 255, 0.8); font-size: var(--fs-small); font-weight: 400; text-decoration: none; display: block; transition: background 0.15s, color 0.15s; }
+        .nav-dropdown-sub-menu a:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+
+        .nav-actions { display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0; z-index: 2; }
+        .search-icon { display: flex; align-items: center; justify-content: center; background: none; border: none; color: var(--white); cursor: pointer; padding: 4px; opacity: 0.7; transition: opacity var(--transition-med); position: relative; }
+        .search-icon:hover { opacity: 1; }
+        .search-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .search-input-wrapper { position: absolute; top: calc(100% + 8px); right: 0; background: rgba(8, 12, 26, 0.95); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.8rem; display: none; align-items: center; gap: 8px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); min-width: 240px; }
+        .search-input-wrapper.open { display: flex; }
+        .search-input-wrapper input { background: transparent; border: none; color: var(--white); font-family: var(--font); font-size: var(--fs-body); outline: none; width: 100%; padding: 4px 0; }
+        .search-input-wrapper input::placeholder { color: rgba(255, 255, 255, 0.3); }
+        .search-input-wrapper .search-close { background: none; border: none; color: var(--white); cursor: pointer; font-size: 1.2rem; opacity: 0.5; transition: opacity var(--transition-med); padding: 0 4px; }
+        .search-input-wrapper .search-close:hover { opacity: 1; }
+        .lang-switch { display: flex; gap: 4px; align-items: center; font-size: var(--fs-small); font-weight: 500; }
+        .lang-switch a { color: rgba(255, 255, 255, 0.4); text-decoration: none; padding: 2px 6px; transition: color var(--transition-med); }
+        .lang-switch a.active { color: #fff; text-decoration: underline; }
+        .lang-switch a:hover { color: #fff; }
+        .lang-switch .sep { color: rgba(255, 255, 255, 0.2); }
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 2; }
+        .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all var(--transition-med); transform-origin: center; }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(8, 12, 26, 0.97); backdrop-filter: saturate(180%) blur(20px); flex-direction: column; justify-content: center; align-items: center; gap: 1.8rem; transform: translateY(-100%); transition: transform 0.5s cubic-bezier(.4, 0, .2, 1); padding: 2rem; pointer-events: none; overflow-y: auto; border-bottom: 1px solid rgba(255,255,255,0.04); }
+            .nav-links.open { transform: translateY(0); pointer-events: auto; }
+            .nav-links a { font-size: 1.4rem; opacity: 1; color: var(--white); }
+            .nav-links a::after { display: none; }
+            .nav-dropdown-menu { position: static; transform: none; background: transparent; backdrop-filter: none; border: none; box-shadow: none; padding: 0.5rem 0 0; opacity: 1; pointer-events: auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; min-width: unset; }
+            .nav-dropdown-menu a { font-size: 1rem; padding: 0.2rem 1rem; color: rgba(255, 255, 255, 0.6); }
+            .nav-dropdown-menu a:hover { background: transparent; color: #fff; }
+            .nav-dropdown-sub-menu { position: static; background: transparent; backdrop-filter: none; border: none; box-shadow: none; padding: 0.3rem 0 0; opacity: 1; pointer-events: auto; transform: none; min-width: unset; display: none; flex-direction: column; align-items: center; gap: 0.3rem; }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu, .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu { display: flex; transform: none; }
+            .nav-toggle { display: flex; }
+            .nav-actions .search-icon { display: none; }
+            .search-input-wrapper { position: fixed; top: 52px; left: 0; width: 100%; border-radius: 0; border: none; border-bottom: 1px solid rgba(255,255,255,0.04); padding: 0.8rem var(--spacing-md); background: rgba(8, 12, 26, 0.97); }
+            .search-input-wrapper.open { display: flex; }
+        }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-md); position: relative; z-index: 1; }
+        .section { padding: var(--spacing-xl) 0; }
+        .section-label { display: inline-block; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.5; margin-bottom: var(--spacing-xs); color: var(--white); }
+        .section-title { font-size: var(--fs-h2); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: var(--spacing-sm); color: var(--white); }
+        .section-desc { font-size: var(--fs-body); opacity: 0.7; max-width: 620px; line-height: 1.7; color: var(--white); }
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.7rem 1.8rem; font-family: var(--font); font-weight: 600; font-size: var(--fs-body); border-radius: 4px; text-decoration: none; transition: all var(--transition-med); border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: var(--white); white-space: nowrap; }
+        .btn-primary { background: var(--white); color: var(--black); border-color: var(--white); }
+        .btn-primary:hover { background: transparent; color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08); }
+        .btn-secondary { background: transparent; color: var(--white); border-color: rgba(255, 255, 255, 0.3); }
+        .btn-secondary:hover { background: var(--white); color: var(--black); transform: translateY(-2px); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1), transform 0.7s cubic-bezier(.4, 0, .2, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        .hero-corp { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: calc(var(--spacing-xl) * 1.6) 0 var(--spacing-lg); position: relative; overflow: hidden; }
+        .hero-corp .hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-corp .hero-logo { font-size: var(--fs-hero); font-weight: 700; letter-spacing: 0.04em; line-height: 1.1; color: var(--white); text-shadow: 0 0 80px rgba(0, 212, 255, 0.08); }
+        .hero-corp .hero-sub { font-size: var(--fs-h3); font-weight: 400; opacity: 0.6; margin-bottom: var(--spacing-sm); color: var(--white); }
+        .hero-corp .hero-text { font-size: var(--fs-body); opacity: 0.7; max-width: 600px; margin: 0 auto var(--spacing-md); line-height: 1.7; color: var(--white); }
+        .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin: var(--spacing-md) auto var(--spacing-lg); max-width: 700px; }
+        .hero-tags span { padding: 0.4rem 1rem; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 30px; font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.02em; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: all var(--transition-med); color: var(--white); cursor: default; }
+        .hero-tags span:hover { background: var(--white); color: var(--black); border-color: var(--white); transform: translateY(-2px) scale(1.04); box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08); }
+
+        .corp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        .corp-card { border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 16px; padding: var(--spacing-md); text-align: center; transition: all var(--transition-med); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--white); display: flex; flex-direction: column; align-items: center; }
+        .corp-card:hover { transform: translateY(-6px); border-color: rgba(0, 212, 255, 0.2); box-shadow: 0 16px 40px rgba(0, 212, 255, 0.04); background: rgba(0, 212, 255, 0.04); }
+        .corp-card i { font-size: 2.6rem; display: block; margin-bottom: var(--spacing-xs); color: var(--white); transition: transform var(--transition-med); }
+        .corp-card:hover i { transform: scale(1.08); }
+        .corp-card h3 { font-weight: 600; font-size: var(--fs-body); margin-bottom: 4px; }
+        .corp-card p { font-size: var(--fs-small); opacity: 0.6; line-height: 1.6; }
+        .corp-card .corp-tag { display: inline-block; margin-top: 8px; padding: 2px 14px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; transition: all var(--transition-med); }
+        .corp-card:hover .corp-tag { opacity: 0.9; border-color: rgba(0, 212, 255, 0.3); }
+
+        .diff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        .diff-item { text-align: center; padding: var(--spacing-md); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 12px; transition: all var(--transition-med); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: var(--white); }
+        .diff-item:hover { transform: translateY(-4px); border-color: rgba(0, 212, 255, 0.15); background: rgba(0, 212, 255, 0.04); }
+        .diff-item i { font-size: 2rem; display: block; margin-bottom: var(--spacing-xs); color: var(--white); }
+        .diff-item p { font-weight: 500; font-size: var(--fs-body); }
+
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        .process-step { text-align: center; padding: var(--spacing-sm); border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 12px; background: rgba(255, 255, 255, 0.015); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: all var(--transition-med); }
+        .process-step:hover { border-color: rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.03); }
+        .process-step .step-num { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; opacity: 0.3; margin-bottom: var(--spacing-xs); color: var(--white); }
+        .process-step h4 { font-weight: 600; font-size: var(--fs-body); color: var(--white); }
+        .process-step p { font-size: var(--fs-small); opacity: 0.5; line-height: 1.5; color: var(--white); }
+
+        .faq-list { display: flex; flex-direction: column; gap: var(--spacing-sm); max-width: 800px; margin: 0 auto; }
+        .faq-item { border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; overflow: hidden; transition: all var(--transition-med); background: rgba(255, 255, 255, 0.015); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: var(--white); }
+        .faq-item:hover { border-color: rgba(255, 255, 255, 0.08); }
+        .faq-question { width: 100%; background: none; border: none; font-family: var(--font); font-size: var(--fs-body); font-weight: 600; text-align: left; padding: var(--spacing-sm) var(--spacing-md); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--spacing-sm); color: var(--white); letter-spacing: 0.01em; }
+        .faq-icon { font-size: 1.4rem; transition: transform var(--transition-med); flex-shrink: 0; color: var(--white); }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 var(--spacing-md); font-size: var(--fs-small); opacity: 0.6; line-height: 1.7; color: var(--white); }
+        .faq-item.open .faq-answer { max-height: 300px; padding: 0 var(--spacing-md) var(--spacing-sm); }
+
+        .cta-section { background: rgba(255, 255, 255, 0.015); border-top: 1px solid rgba(255, 255, 255, 0.03); border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
+        .cta-section .btn-primary { background: var(--white); color: var(--black); border-color: var(--white); }
+        .cta-section .btn-primary:hover { background: transparent; color: var(--white); }
+        .cta-section .btn-secondary { border-color: rgba(255, 255, 255, 0.3); color: var(--white); }
+        .cta-section .btn-secondary:hover { background: var(--white); color: var(--black); }
+
+        .footer { border-top: 1px solid rgba(255, 255, 255, 0.03); padding: var(--spacing-lg) 0 var(--spacing-md); color: var(--white); margin-top: var(--spacing-lg); background: rgba(8, 12, 26, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-lg); }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-col h4 { font-weight: 600; font-size: var(--fs-small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--spacing-xs); color: var(--white); }
+        .footer-col a, .footer-col p { font-size: var(--fs-small); opacity: 0.5; text-decoration: none; color: var(--white); display: block; margin-bottom: 4px; transition: opacity var(--transition-med); }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-xs); }
+        .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 50%; font-size: 1.2rem; color: var(--white); opacity: 0.6; transition: all var(--transition-med); text-decoration: none; background: transparent; }
+        .footer-social a:hover { opacity: 1; background: var(--white); color: var(--black); border-color: var(--white); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(255, 255, 255, 0.06); }
+        .footer-bottom { padding-top: var(--spacing-sm); border-top: 1px solid rgba(255, 255, 255, 0.03); text-align: center; font-size: var(--fs-small); opacity: 0.5; display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-sm); }
+        .footer-bottom a { color: var(--white); text-decoration: none; opacity: 0.5; transition: opacity var(--transition-med); }
+        .footer-bottom a:hover { opacity: 1; }
+
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition-med); padding: var(--spacing-md); }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-content { background: rgba(8, 12, 26, 0.95); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: var(--spacing-lg); max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); color: var(--white); }
+        .modal-close { position: absolute; top: var(--spacing-sm); right: var(--spacing-sm); background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--white); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all var(--transition-med); }
+        .modal-close:hover { background: rgba(255, 255, 255, 0.04); }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CORPORATE CANVAS ===== -->
+    <canvas id="corpCanvas"></canvas>
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="globalnav" id="globalnav" role="navigation" aria-label="Main navigation">
+        <div class="globalnav-content">
+            <a href="/en/" class="nav-logo" aria-label="Space">
+                <img src="https://spacetechn.com/images/spacelogo.png" alt="Space logo" />
+                <span>SPACE</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li class="nav-dropdown">
+                    <a href="#services" aria-haspopup="true" aria-expanded="false">Services</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Web Development</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-creation/">Website Creation</a></li>
+                                <li><a href="/en/web-development/">Web Development</a></li>
+                                <li><a href="/en/corporate-websites/" class="active">Corporate Websites</a></li>
+                                <li><a href="/en/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/en/digital-platforms/">Digital Platforms</a></li>
+                                <li><a href="/en/web-applications/">Web Applications</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Systems &amp; Platforms</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/web-systems/">Web Systems</a></li>
+                                <li><a href="/en/dashboards/">Dashboards</a></li>
+                                <li><a href="/en/custom-solutions/">Custom Solutions</a></li>
+                                <li><a href="/en/apis-integrations/">APIs &amp; Integrations</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automation &amp; AI</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/process-automation/">Process Automation</a></li>
+                                <li><a href="/en/artificial-intelligence/">Artificial Intelligence</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consulting &amp; Support</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/en/website-maintenance/">Website Maintenance</a></li>
+                                <li><a href="/en/seo-services/">SEO Services</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/en/projects/">Projects</a></li>
+                <li><a href="/en/models/">Models</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Company</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/en/about/">About</a></li>
+                        <li><a href="/en/process/">Process</a></li>
+                        <li><a href="/en/technologies/">Technologies</a></li>
+                        <li><a href="/en/faq/">FAQ</a></li>
+                        <li><a href="/en/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="/en/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-icon" id="searchToggle" aria-label="Search">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
+                    <div class="search-input-wrapper" id="searchInputWrapper">
+                        <input type="text" id="searchInput" placeholder="Search..." />
+                        <button class="search-close" id="searchClose">✕</button>
+                    </div>
+                </div>
+                <div class="lang-switch">
+                    <a href="https://spacetechn.com/en/corporate-websites/" hreflang="en" class="active" aria-label="English">EN</a>
+                    <span class="sep">|</span>
+                    <a href="https://spacetechn.com/pt/sites-institucionais/" hreflang="pt-BR" aria-label="Português">PT</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero-corp" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-logo" translate="no">Corporate Websites</h1>
+                    <p class="hero-sub">Your digital presence with credibility</p>
+                    <p class="hero-text">
+                        We create corporate websites that convey trust, professionalism and
+                        strong visual identity. Exclusive design, SEO optimized and impeccable
+                        experience to consolidate your brand in the digital environment.
+                    </p>
+                    <div class="hero-tags">
+                        <span>Exclusive design</span>
+                        <span>SEO optimized</span>
+                        <span>Responsive</span>
+                        <span>High performance</span>
+                        <span>Credibility</span>
+                        <span>Ongoing support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="section" id="caracteristicas">
+            <div class="container">
+                <span class="section-label reveal">Features</span>
+                <h2 class="section-title reveal reveal-delay-1">What we offer</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Our corporate websites are built to strengthen your brand and deliver real results.
+                </p>
+                <div class="corp-grid" id="corpGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== DIFFERENTIALS ===== -->
+        <section class="section" id="diferenciais" style="background: rgba(255,255,255,0.015); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+            <div class="container text-center">
+                <span class="section-label reveal">Differentials</span>
+                <h2 class="section-title reveal reveal-delay-1">Why choose Space</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    We deliver much more than a beautiful website – we create a business tool.
+                </p>
+                <div class="diff-grid" id="diffGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== PROCESS ===== -->
+        <section class="section" id="processo">
+            <div class="container text-center">
+                <span class="section-label reveal">Process</span>
+                <h2 class="section-title reveal reveal-delay-1">How we create your website</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    A transparent and collaborative flow, from idea to launch.
+                </p>
+                <div class="process-steps" id="processStepsGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section" id="faq" style="background: rgba(255,255,255,0.015); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+            <div class="container">
+                <span class="section-label reveal">FAQ</span>
+                <h2 class="section-title reveal reveal-delay-1">Frequently asked questions</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">
+                    Get answers about corporate websites.
+                </p>
+                <div class="faq-list" id="faqList"></div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section cta-section" id="cta">
+            <div class="container text-center">
+                <span class="section-label reveal" style="color: rgba(255,255,255,0.5);">Let's build</span>
+                <h2 class="section-title reveal reveal-delay-1" style="color: var(--white);">Ready for a website that impresses?</h2>
+                <p class="section-desc reveal reveal-delay-2" style="margin:0 auto; color: rgba(255,255,255,0.7);">
+                    Get in touch and let's build the digital presence your business deserves.
+                </p>
+                <div class="hero-btns mt-md reveal reveal-delay-3">
+                    <a href="/en/contact/" class="btn btn-primary">Request a quote</a>
+                    <a href="/en/projects/" class="btn btn-secondary">View projects</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SPACE</h4>
+                    <p>Technology &amp; Innovation. Minimalist design, engineering excellence.</p>
+                    <p style="margin-top:8px;">spacetechn.com</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/SPACE-techno" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/company/spacetechn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://instagram.com/spacetech.ltda" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/5511954270090" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="/en/#hero">Home</a>
+                    <a href="/en/website-creation/">Website Creation</a>
+                    <a href="/en/web-development/">Web Development</a>
+                    <a href="/en/web-systems/">Web Systems</a>
+                    <a href="/en/process-automation/">Automation</a>
+                    <a href="/en/artificial-intelligence/">AI</a>
+                    <a href="/en/apis-integrations/">APIs</a>
+                    <a href="/en/custom-solutions/">Custom Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/en/projects/">Projects</a>
+                    <a href="/en/about/">About</a>
+                    <a href="/en/process/">Process</a>
+                    <a href="/en/technologies/">Technologies</a>
+                    <a href="/en/faq/">FAQ</a>
+                    <a href="/en/contact/">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:spacetechnologyltda@gmail.com">spacetechnologyltda@gmail.com</a>
+                    <a href="tel:+5511954270090">+55 (11) 95427-0090</a>
+                    <p>São Paulo, Brazil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Space. All rights reserved.</span>
+                <span>
+                    <a href="#" id="privacyLink">Privacy Policy</a> &middot;
+                    <a href="#" id="cookieLink">Cookie Policy</a> &middot;
+                    <a href="#" id="termsLink">Terms of Use</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== LEGAL MODAL ===== -->
+    <div class="modal-overlay" id="legalModalOverlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <button class="modal-close" id="legalModalClose" aria-label="Close modal">&times;</button>
+            <h3 id="legalModalTitle" style="font-weight:700;font-size:var(--fs-h3);margin-bottom:var(--spacing-sm);"></h3>
+            <div id="legalModalBody" style="font-size:var(--fs-small);opacity:0.7;line-height:1.7;"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============ CORPORATE CANVAS (identical to PT) ============
+        class CorpCanvas {
+            constructor() {
+                this.canvas = document.getElementById('corpCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.points = [];
+                this.gridLines = [];
+                this.time = 0;
+                this.resize();
+                this.createPoints();
+                this.createGrid();
+                window.addEventListener('resize', this.resize.bind(this));
+                this.animate();
+            }
+
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width * dpr;
+                this.canvas.height = this.height * dpr;
+                this.canvas.style.width = this.width + 'px';
+                this.canvas.style.height = this.height + 'px';
+                this.ctx.scale(dpr, dpr);
+                const grad = this.ctx.createRadialGradient(
+                    this.width * 0.5, this.height * 0.5, 0,
+                    this.width * 0.5, this.height * 0.5, this.width * 0.7
+                );
+                grad.addColorStop(0, '#0d1b3e');
+                grad.addColorStop(0.4, '#080f2a');
+                grad.addColorStop(0.7, '#080c1a');
+                grad.addColorStop(1, '#04060e');
+                this.ctx.fillStyle = grad;
+                this.ctx.fillRect(0, 0, this.width, this.height);
+            }
+
+            createPoints() {
+                this.points = [];
+                for (let i = 0; i < 40; i++) {
+                    this.points.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        radius: 1.5 + Math.random() * 2,
+                        alpha: 0.15 + Math.random() * 0.4,
+                        speed: 0.1 + Math.random() * 0.2
+                    });
+                }
+            }
+
+            createGrid() {
+                this.gridLines = [];
+                const cols = Math.floor(this.width / 80);
+                const rows = Math.floor(this.height / 80);
+                for (let i = 0; i < cols; i++) {
+                    this.gridLines.push({
+                        type: 'vertical',
+                        x: 40 + i * 80,
+                        alpha: 0.015 + Math.random() * 0.02
+                    });
+                }
+                for (let i = 0; i < rows; i++) {
+                    this.gridLines.push({
+                        type: 'horizontal',
+                        y: 40 + i * 80,
+                        alpha: 0.015 + Math.random() * 0.02
+                    });
+                }
+            }
+
+            drawCorporate() {
+                const ctx = this.ctx;
+                const w = this.width;
+                const h = this.height;
+                const time = this.time;
+
+                this.gridLines.forEach(line => {
+                    ctx.strokeStyle = `rgba(0, 212, 255, ${line.alpha})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    if (line.type === 'vertical') {
+                        ctx.moveTo(line.x, 0);
+                        ctx.lineTo(line.x, h);
+                    } else {
+                        ctx.moveTo(0, line.y);
+                        ctx.lineTo(w, line.y);
+                    }
+                    ctx.stroke();
+                });
+
+                this.points.forEach(p => {
+                    const pulse = 0.6 + 0.4 * Math.sin(time * p.speed + p.x * 0.001);
+                    const alpha = p.alpha * pulse;
+                    const radius = p.radius * (0.8 + 0.2 * pulse);
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 212, 255, ${alpha * 0.4})`;
+                    ctx.fill();
+
+                    if (radius > 1.5) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, radius * 3, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(0, 212, 255, ${alpha * 0.05})`;
+                        ctx.fill();
+                    }
+                });
+
+                for (let i = 0; i < this.points.length; i++) {
+                    for (let j = i + 1; j < this.points.length; j++) {
+                        const p1 = this.points[i];
+                        const p2 = this.points[j];
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 180) {
+                            const alpha = (1 - dist / 180) * 0.08;
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${alpha})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                const cornerSize = 30;
+                const corners = [
+                    { x: 20, y: 20 },
+                    { x: w - 20, y: 20 },
+                    { x: 20, y: h - 20 },
+                    { x: w - 20, y: h - 20 }
+                ];
+                corners.forEach(corner => {
+                    ctx.strokeStyle = 'rgba(0, 212, 255, 0.08)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(corner.x, corner.y + cornerSize);
+                    ctx.lineTo(corner.x, corner.y);
+                    ctx.lineTo(corner.x + cornerSize, corner.y);
+                    ctx.stroke();
+                });
+
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.02)';
+                ctx.font = '120px monospace';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('SPACE', w / 2, h - 20);
+            }
+
+            animate() {
+                this.time += 0.012;
+                this.drawCorporate();
+                this.animationId = requestAnimationFrame(this.animate.bind(this));
+            }
+        }
+
+        const corp = new CorpCanvas();
+
+        // ============ DATA (English) ============
+        const corpData = [
+            { icon: 'bi-palette', title: 'Exclusive Design', desc: 'Unique visual identity that reflects your brand and values.', tag: 'Design' },
+            { icon: 'bi-graph-up-arrow', title: 'SEO Optimized', desc: 'Structure and content optimized for search engines.', tag: 'SEO' },
+            { icon: 'bi-phone', title: 'Fully Responsive', desc: 'Perfect experience on all devices and screen sizes.', tag: 'Responsive' },
+            { icon: 'bi-speedometer2', title: 'High Performance', desc: 'Fast loading and smooth navigation for your visitors.', tag: 'Performance' },
+            { icon: 'bi-lock', title: 'Security', desc: 'Data protection and SSL to ensure user trust.', tag: 'Security' },
+            { icon: 'bi-heart', title: 'User‑Focused UX', desc: 'Intuitive and enjoyable journey for your customers.', tag: 'UX' },
+        ];
+
+        const diffData = [
+            { icon: 'bi-pencil', label: 'Exclusive design' },
+            { icon: 'bi-graph-up-arrow', label: 'SEO optimized' },
+            { icon: 'bi-phone', label: 'Responsive' },
+            { icon: 'bi-speedometer2', label: 'High performance' },
+            { icon: 'bi-lock', label: 'Security' },
+            { icon: 'bi-heart', label: 'User‑focused UX' },
+        ];
+
+        const processStepsData = [
+            { title: '1. Conversation', desc: 'We understand your needs and goals.' },
+            { title: '2. Planning', desc: 'Define scope, deadlines and technologies.' },
+            { title: '3. Design', desc: 'Create wireframes and high‑fidelity prototypes.' },
+            { title: '4. Development', desc: 'Code with best practices.' },
+            { title: '5. Testing', desc: 'Validate on all devices and browsers.' },
+            { title: '6. Launch', desc: 'Deploy and continuous monitoring.' },
+        ];
+
+        const faqData = [
+            { q: 'How much does a corporate website cost?', a: 'The price depends on complexity and features. Corporate websites start at $2,500. Contact us for a custom quote.' },
+            { q: 'How long does it take to create a corporate website?', a: 'On average, 2‑4 weeks, depending on the number of pages and features.' },
+            { q: 'Will the website be optimized for mobile?', a: 'Yes! All our websites are responsive and tested on multiple devices.' },
+            { q: 'Can I update the website content myself?', a: 'Yes! We deliver all websites with an easy‑to‑use CMS (WordPress or custom panel).' },
+            { q: 'Do you offer maintenance after launch?', a: 'Yes, we have maintenance plans and ongoing support to ensure security, updates and evolution of your website.' },
+            { q: 'Will the website be SEO optimized?', a: 'Yes. We apply SEO best practices from development, including meta tags, URL structure, sitemap and speed.' },
+        ];
+
+        // ============ RENDER ============
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        function renderCorp() {
+            const container = document.getElementById('corpGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            corpData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'corp-card reveal';
+                div.style.transitionDelay = `${i * 0.06}s`;
+                div.innerHTML = `
+                    <i class="bi ${item.icon}"></i>
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                    <span class="corp-tag">${item.tag}</span>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderDiffs() {
+            const container = document.getElementById('diffGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            diffData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'diff-item reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.innerHTML = `<i class="bi ${item.icon}"></i><p>${item.label}</p>`;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderProcessSteps() {
+            const container = document.getElementById('processStepsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            processStepsData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'process-step reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.innerHTML = `
+                    <span class="step-num">${item.title.split(' ')[0]}</span>
+                    <h4>${item.title}</h4>
+                    <p>${item.desc}</p>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faqList');
+            if (!container) return;
+            container.innerHTML = '';
+            faqData.forEach((faq, i) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item reveal';
+                item.style.transitionDelay = `${i * 0.05}s`;
+                item.innerHTML = `
+                    <button class="faq-question" aria-expanded="false">
+                        ${faq.q}
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>${faq.a}</p></div>
+                `;
+                container.appendChild(item);
+                revealObserver.observe(item);
+                const btn = item.querySelector('.faq-question');
+                btn.addEventListener('click', () => {
+                    const isOpen = item.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen);
+                    btn.querySelector('.faq-icon').textContent = isOpen ? '−' : '+';
+                });
+            });
+        }
+
+        renderCorp();
+        renderDiffs();
+        renderProcessSteps();
+        renderFAQ();
+
+        // ============ LEGAL MODAL (English) ============
+        const legalModalOverlay = document.getElementById('legalModalOverlay');
+        const legalModalClose = document.getElementById('legalModalClose');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalBody = document.getElementById('legalModalBody');
+
+        const legalTexts = {
+            privacy: 'This Privacy Policy explains how SPACE collects, uses and protects your personal data in accordance with applicable laws, including LGPD for Brazil.',
+            cookie: 'We use cookies to improve your browsing experience, analyze site traffic and personalize content. By continuing to use this site, you agree to our use of cookies.',
+            terms: 'By accessing this site, you agree to these terms. All content is provided for informational purposes. SPACE reserves the right to modify these terms at any time.'
+        };
+
+        function openLegalModal(type) {
+            const titles = { privacy: 'Privacy Policy', cookie: 'Cookie Policy', terms: 'Terms of Use' };
+            legalModalTitle.textContent = titles[type];
+            legalModalBody.textContent = legalTexts[type];
+            legalModalOverlay.classList.add('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegalModal() {
+            legalModalOverlay.classList.remove('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        legalModalClose.addEventListener('click', closeLegalModal);
+        legalModalOverlay.addEventListener('click', (e) => { if (e.target === legalModalOverlay) closeLegalModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && legalModalOverlay.classList.contains('active'))
+                closeLegalModal(); });
+
+        document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('privacy'); });
+        document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('cookie'); });
+        document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('terms'); });
+
+        // ============ CURSOR ============
+        const cursor = document.getElementById('cursor');
+        if (cursor && window.matchMedia('(min-width: 769px)').matches) {
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.12;
+                cursorY += (mouseY - cursorY) * 0.12;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Hover effect on interactive elements
+            const interactive = document.querySelectorAll('a, button, input, textarea, select, [tabindex]');
+            interactive.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('dot');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('dot');
+                });
+            });
+
+            // Hide cursor when leaving window
+            document.addEventListener('mouseleave', () => {
+                cursor.style.opacity = '0';
+            });
+            document.addEventListener('mouseenter', () => {
+                cursor.style.opacity = '1';
+            });
+        }
+
+        // ============ MOBILE MENU ============
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                navToggle.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+
+            // Close menu when a link is clicked (mobile)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('open');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const header = document.querySelector('.globalnav');
+                    if (!header.contains(e.target) && navLinks.classList.contains('open')) {
+                        navLinks.classList.remove('open');
+                        navToggle.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        }
+
+        // ============ SEARCH ============
+        const searchToggle = document.getElementById('searchToggle');
+        const searchInputWrapper = document.getElementById('searchInputWrapper');
+        const searchClose = document.getElementById('searchClose');
+        const searchInput = document.getElementById('searchInput');
+
+        if (searchToggle && searchInputWrapper) {
+            searchToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = searchInputWrapper.classList.toggle('open');
+                if (isOpen) {
+                    searchInput.focus();
+                }
+            });
+
+            if (searchClose) {
+                searchClose.addEventListener('click', () => {
+                    searchInputWrapper.classList.remove('open');
+                    searchInput.value = '';
+                });
+            }
+
+            // Close search on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchInputWrapper.classList.contains('open')) {
+                    searchInputWrapper.classList.remove('open');
+                    searchInput.value = '';
+                }
+            });
+
+            // Close search when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchToggle.contains(e.target) && searchInputWrapper.classList.contains('open')) {
+                    searchInputWrapper.classList.remove('open');
+                }
+            });
+
+            // Handle search input (example)
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        // You can implement a search redirect or logic here
+                        console.log('Search for:', query);
+                        // Example: window.location.href = '/en/search/?q=' + encodeURIComponent(query);
+                    }
+                }
+            });
+        }
+
+        // ============ HEADER SCROLL EFFECT ============
+        const globalnav = document.getElementById('globalnav');
+        if (globalnav) {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                if (scrollY > 50) {
+                    globalnav.classList.add('scrolled');
+                } else {
+                    globalnav.classList.remove('scrolled');
+                }
+                lastScroll = scrollY;
+            });
+        }
+
+        // ============ ACTIVE NAV LINK (optional) ============
+        // Highlight current page in navigation (based on URL)
+        (function highlightActiveNav() {
+            const currentPath = window.location.pathname;
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && href !== '' && currentPath === href) {
+                    link.classList.add('active');
+                } else if (href && href !== '#' && href !== '' && currentPath.includes(href) && href !== '/') {
+                    link.classList.add('active');
+                }
+            });
+        })();
+
+        console.log('🚀 Space – Corporate Websites page fully loaded.');
+    </script>
+</body>
+</html>

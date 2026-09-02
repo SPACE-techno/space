@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboards | Space – Dados em tempo real</title>
+    <meta name="description" content="Dashboards interativos e personalizados para visualização de dados, KPI, métricas e análise em tempo real. Transforme dados em decisões." />
+    <link rel="canonical" href="https://spacetechn.com/pt/dashboards/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://spacetechn.com/pt/dashboards/" />
+    <link rel="alternate" hreflang="en" href="https://spacetechn.com/en/dashboards/" />
+    <link rel="alternate" hreflang="x-default" href="https://spacetechn.com/en/dashboards/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dashboards | Space – Dados em tempo real" />
+    <meta property="og:description" content="Dashboards interativos para visualização de dados, KPIs e análise em tempo real." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacetechn.com/pt/dashboards/" />
+    <meta property="og:image" content="https://spacetechn.com/images/og-dashboards.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dashboards | Space – Dados em tempo real" />
+    <meta name="twitter:description" content="Dashboards interativos para visualização de dados e KPIs." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://spacetechn.com/images/spacelogo.png" />
+    <link rel="apple-touch-icon" href="https://spacetechn.com/images/apple-touch-icon.png" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Dashboards",
+        "description": "Criação de dashboards interativos e personalizados para visualização de dados e KPIs.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Space"
+        },
+        "url": "https://spacetechn.com/pt/dashboards/"
+    }
+    </script>
+
+    <style>
+        /* ===== RESET E VARIÁVEIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --data-dark: #060b18;
+            --data-blue: #0a1a3a;
+            --data-cyan: #00d4ff;
+            --data-cyan-dim: rgba(0, 212, 255, 0.05);
+            --data-gray: #2a3a5a;
+            --gray-light: #f0f0f0;
+            --gray-border: rgba(255, 255, 255, 0.06);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --font: 'Space Grotesk', 'Inter', 'Helvetica Neue', sans-serif;
+            --fs-hero: clamp(3rem, 7vw, 5.5rem);
+            --fs-h2: clamp(1.8rem, 3.5vw, 2.8rem);
+            --fs-h3: clamp(1.1rem, 2.2vw, 1.6rem);
+            --fs-body: clamp(0.9rem, 1.4vw, 1.05rem);
+            --fs-small: clamp(0.7rem, 1vw, 0.85rem);
+            --spacing-xs: clamp(0.4rem, 0.8vw, 0.6rem);
+            --spacing-sm: clamp(0.8rem, 1.5vw, 1.2rem);
+            --spacing-md: clamp(1.5rem, 3vw, 2.5rem);
+            --spacing-lg: clamp(2.5rem, 5vw, 5rem);
+            --spacing-xl: clamp(4rem, 8vw, 9rem);
+            --max-width: 1400px;
+            --transition-med: 350ms cubic-bezier(.4, 0, .2, 1);
+            --z-nav: 1000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background: var(--data-dark);
+            color: var(--white);
+            font-family: var(--font);
+        }
+
+        body {
+            background: transparent;
+            color: var(--white);
+            font-family: var(--font);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* ===== CANVAS DASHBOARD ===== */
+        #dashboardCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: var(--data-dark);
+        }
+
+        /* ===== CURSOR BRANCO ===== */
+        @media (min-width: 769px) {
+            body { cursor: none; }
+            .cursor {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 24px;
+                height: 24px;
+                border: 1.5px solid var(--white);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+                mix-blend-mode: difference;
+                will-change: transform;
+            }
+            .cursor.dot {
+                width: 8px;
+                height: 8px;
+                background: var(--white);
+                border: none;
+                mix-blend-mode: difference;
+            }
+            a, button, input, textarea, select, [tabindex] { cursor: none; }
+        }
+        @media (max-width: 768px) { .cursor { display: none; } }
+
+        /* ===== HEADER ===== */
+        .globalnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: var(--z-nav);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            background: rgba(6, 11, 24, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background var(--transition-med), border-color var(--transition-med);
+            padding: 0 var(--spacing-md);
+        }
+        .globalnav.scrolled {
+            background: rgba(6, 11, 24, 0.92);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .globalnav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.06em;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(0.6rem, 1.5vw, 1.8rem);
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: var(--fs-small);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.7;
+            transition: opacity var(--transition-med);
+            padding: 4px 0;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--white);
+            transition: width var(--transition-med);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { opacity: 1; }
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown > a { cursor: default; }
+        .nav-dropdown > a::after { display: none; }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: rgba(6, 11, 24, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 220px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            list-style: none;
+            z-index: 10;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-dropdown-menu li { padding: 0; }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 0.4rem 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+        }
+        .nav-dropdown-sub {
+            position: relative;
+        }
+        .nav-dropdown-sub > a {
+            display: flex;
+            align-items: center;
+        }
+        .nav-dropdown-sub-menu {
+            position: absolute;
+            top: -0.4rem;
+            left: 100%;
+            background: rgba(6, 11, 24, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            min-width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform: translateX(4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            list-style: none;
+        }
+        .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+        .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+        .nav-dropdown-sub-menu a {
+            padding: 0.4rem 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--fs-small);
+            font-weight: 400;
+            text-decoration: none;
+            display: block;
+            transition: background 0.15s, color 0.15s;
+        }
+        .nav-dropdown-sub-menu a:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.7;
+            transition: opacity var(--transition-med);
+            position: relative;
+        }
+        .search-icon:hover { opacity: 1; }
+        .search-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .search-input-wrapper {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(6, 11, 24, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            min-width: 240px;
+        }
+        .search-input-wrapper.open { display: flex; }
+        .search-input-wrapper input {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-family: var(--font);
+            font-size: var(--fs-body);
+            outline: none;
+            width: 100%;
+            padding: 4px 0;
+        }
+        .search-input-wrapper input::placeholder { color: rgba(255, 255, 255, 0.3); }
+        .search-input-wrapper .search-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            transition: opacity var(--transition-med);
+            padding: 0 4px;
+        }
+        .search-input-wrapper .search-close:hover { opacity: 1; }
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: var(--fs-small);
+            font-weight: 500;
+        }
+        .lang-switch a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            padding: 2px 6px;
+            transition: color var(--transition-med);
+        }
+        .lang-switch a.active {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .lang-switch a:hover { color: #fff; }
+        .lang-switch .sep { color: rgba(255, 255, 255, 0.2); }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 2;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--white);
+            transition: all var(--transition-med);
+            transform-origin: center;
+        }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(6, 11, 24, 0.97);
+                backdrop-filter: saturate(180%) blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1.8rem;
+                transform: translateY(-100%);
+                transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+                padding: 2rem;
+                pointer-events: none;
+                overflow-y: auto;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+            }
+            .nav-links.open {
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            .nav-links a {
+                font-size: 1.4rem;
+                opacity: 1;
+                color: var(--white);
+            }
+            .nav-links a::after { display: none; }
+            .nav-dropdown-menu {
+                position: static;
+                transform: none;
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+                padding: 0.5rem 0 0;
+                opacity: 1;
+                pointer-events: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                min-width: unset;
+            }
+            .nav-dropdown-menu a {
+                font-size: 1rem;
+                padding: 0.2rem 1rem;
+                color: rgba(255, 255, 255, 0.6);
+            }
+            .nav-dropdown-menu a:hover {
+                background: transparent;
+                color: #fff;
+            }
+            .nav-dropdown-sub-menu {
+                position: static;
+                background: transparent;
+                backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+                padding: 0.3rem 0 0;
+                opacity: 1;
+                pointer-events: auto;
+                transform: none;
+                min-width: unset;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.3rem;
+            }
+            .nav-dropdown-sub:hover .nav-dropdown-sub-menu,
+            .nav-dropdown-sub:focus-within .nav-dropdown-sub-menu {
+                display: flex;
+                transform: none;
+            }
+            .nav-toggle { display: flex; }
+            .nav-actions .search-icon { display: none; }
+            .search-input-wrapper {
+                position: fixed;
+                top: 52px;
+                left: 0;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+                padding: 0.8rem var(--spacing-md);
+                background: rgba(6, 11, 24, 0.97);
+            }
+            .search-input-wrapper.open { display: flex; }
+        }
+
+        /* ===== CONTEÚDO ===== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 1;
+        }
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: var(--fs-small);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .section-title {
+            font-size: var(--fs-h2);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+        .section-desc {
+            font-size: var(--fs-body);
+            opacity: 0.7;
+            max-width: 620px;
+            line-height: 1.7;
+            color: var(--white);
+        }
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.7rem 1.8rem;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: var(--fs-body);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all var(--transition-med);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            color: var(--white);
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.4, 0, .2, 1), transform 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== HERO ===== */
+        .hero-dashboards {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: calc(var(--spacing-xl) * 1.6) 0 var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-dashboards .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-dashboards .hero-logo {
+            font-size: var(--fs-hero);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            color: var(--white);
+            text-shadow: 0 0 80px rgba(0, 212, 255, 0.08);
+        }
+        .hero-dashboards .hero-sub {
+            font-size: var(--fs-h3);
+            font-weight: 400;
+            opacity: 0.6;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+        .hero-dashboards .hero-text {
+            font-size: var(--fs-body);
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            line-height: 1.7;
+            color: var(--white);
+        }
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: var(--spacing-md) auto var(--spacing-lg);
+            max-width: 700px;
+        }
+        .hero-tags span {
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 30px;
+            font-size: var(--fs-small);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all var(--transition-med);
+            color: var(--white);
+            cursor: default;
+        }
+        .hero-tags span:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+        }
+
+        /* ===== CARDS ===== */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .dashboard-card {
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 212, 255, 0.25);
+            box-shadow: 0 16px 40px rgba(0, 212, 255, 0.05);
+            background: rgba(0, 212, 255, 0.04);
+        }
+        .dashboard-card i {
+            font-size: 2.6rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+            transition: transform var(--transition-med);
+        }
+        .dashboard-card:hover i { transform: scale(1.08); }
+        .dashboard-card h3 {
+            font-weight: 600;
+            font-size: var(--fs-body);
+            margin-bottom: 4px;
+        }
+        .dashboard-card p {
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+        .dashboard-card .dashboard-tag {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 2px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.5;
+            transition: all var(--transition-med);
+        }
+        .dashboard-card:hover .dashboard-tag {
+            opacity: 0.9;
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* ===== DIFERENCIAIS ===== */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .diff-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--white);
+        }
+        .diff-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 212, 255, 0.15);
+            background: rgba(0, 212, 255, 0.04);
+        }
+        .diff-item i {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .diff-item p {
+            font-weight: 500;
+            font-size: var(--fs-body);
+        }
+
+        /* ===== PROCESSO ===== */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .process-step {
+            text-align: center;
+            padding: var(--spacing-sm);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.015);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all var(--transition-med);
+        }
+        .process-step:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .process-step .step-num {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            opacity: 0.3;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .process-step h4 {
+            font-weight: 600;
+            font-size: var(--fs-body);
+            color: var(--white);
+        }
+        .process-step p {
+            font-size: var(--fs-small);
+            opacity: 0.5;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all var(--transition-med);
+            background: rgba(255, 255, 255, 0.015);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--white);
+        }
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            font-family: var(--font);
+            font-size: var(--fs-body);
+            font-weight: 600;
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--white);
+            letter-spacing: 0.01em;
+        }
+        .faq-icon {
+            font-size: 1.4rem;
+            transition: transform var(--transition-med);
+            flex-shrink: 0;
+            color: var(--white);
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 var(--spacing-md);
+            font-size: var(--fs-small);
+            opacity: 0.6;
+            line-height: 1.7;
+            color: var(--white);
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 var(--spacing-md) var(--spacing-sm);
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: rgba(255, 255, 255, 0.015);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .cta-section .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+        .cta-section .btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+        }
+        .cta-section .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+        }
+        .cta-section .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            color: var(--white);
+            margin-top: var(--spacing-lg);
+            background: rgba(6, 11, 24, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+        .footer-col h4 {
+            font-weight: 600;
+            font-size: var(--fs-small);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xs);
+            color: var(--white);
+        }
+        .footer-col a,
+        .footer-col p {
+            font-size: var(--fs-small);
+            opacity: 0.5;
+            text-decoration: none;
+            color: var(--white);
+            display: block;
+            margin-bottom: 4px;
+            transition: opacity var(--transition-med);
+        }
+        .footer-col a:hover { opacity: 1; }
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.6;
+            transition: all var(--transition-med);
+            text-decoration: none;
+            background: transparent;
+        }
+        .footer-social a:hover {
+            opacity: 1;
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.06);
+        }
+        .footer-bottom {
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            font-size: var(--fs-small);
+            opacity: 0.5;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        .footer-bottom a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity var(--transition-med);
+        }
+        .footer-bottom a:hover { opacity: 1; }
+
+        /* ===== MODAL LEGAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-med);
+            padding: var(--spacing-md);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            background: rgba(6, 11, 24, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+            color: var(--white);
+        }
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition-med);
+        }
+        .modal-close:hover { background: rgba(255, 255, 255, 0.04); }
+
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CANVAS DASHBOARD ===== -->
+    <canvas id="dashboardCanvas"></canvas>
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="globalnav" id="globalnav" role="navigation" aria-label="Navegação principal">
+        <div class="globalnav-content">
+            <a href="/pt/" class="nav-logo" aria-label="Space">
+                <img src="https://spacetechn.com/images/spacelogo.png" alt="Logo da Space" />
+                <span>SPACE</span>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li class="nav-dropdown">
+                    <a href="#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Desenvolvimento Web</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/criacao-de-sites/">Criação de Sites</a></li>
+                                <li><a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a></li>
+                                <li><a href="/pt/sites-institucionais/">Sites Institucionais</a></li>
+                                <li><a href="/pt/landing-pages/">Landing Pages</a></li>
+                                <li><a href="/pt/plataformas-digitais/">Plataformas Digitais</a></li>
+                                <li><a href="/pt/aplicacoes-web/">Aplicações Web</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Sistemas &amp; Plataformas</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/sistemas-web/">Sistemas Web</a></li>
+                                <li><a href="/pt/dashboards/" class="active">Dashboards</a></li>
+                                <li><a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a></li>
+                                <li><a href="/pt/apis-integracoes/">APIs &amp; Integrações</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Automação &amp; IA</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/automacao-de-processos/">Automação de Processos</a></li>
+                                <li><a href="/pt/inteligencia-artificial/">Inteligência Artificial</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-sub">
+                            <a href="#">Consultoria &amp; Suporte</a>
+                            <ul class="nav-dropdown-sub-menu">
+                                <li><a href="/pt/manutencao-de-sites/">Manutenção de Sites</a></li>
+                                <li><a href="/pt/seo/">SEO</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/pt/projetos/">Projetos</a></li>
+                <li><a href="/pt/modelos/">Modelos</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">Institucional</a>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li><a href="/pt/sobre/">Sobre</a></li>
+                        <li><a href="/pt/processo/">Processo</a></li>
+                        <li><a href="/pt/tecnologias/">Tecnologias</a></li>
+                        <li><a href="/pt/faq/">FAQ</a></li>
+                        <li><a href="/pt/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pt/contato/">Contato</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-icon" id="searchToggle" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="22" y2="22" /></svg>
+                    <div class="search-input-wrapper" id="searchInputWrapper">
+                        <input type="text" id="searchInput" placeholder="Buscar..." />
+                        <button class="search-close" id="searchClose">✕</button>
+                    </div>
+                </div>
+                <div class="lang-switch">
+                    <a href="https://spacetechn.com/en/dashboards/" hreflang="en" aria-label="English">EN</a>
+                    <span class="sep">|</span>
+                    <a href="https://spacetechn.com/pt/dashboards/" hreflang="pt-BR" class="active" aria-label="Português">PT</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero-dashboards" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-logo" translate="no">Dashboards</h1>
+                    <p class="hero-sub">Dados em tempo real</p>
+                    <p class="hero-text">
+                        Transforme dados brutos em insights claros com dashboards interativos
+                        e personalizados. Acompanhe KPIs, métricas e tendências em tempo real
+                        com visualizações que facilitam a tomada de decisão.
+                    </p>
+                    <div class="hero-tags">
+                        <span>KPIs</span>
+                        <span>Visualização de dados</span>
+                        <span>Gráficos interativos</span>
+                        <span>Tempo real</span>
+                        <span>Análise</span>
+                        <span>Customizável</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIPOS DE DASHBOARDS ===== -->
+        <section class="section" id="tipos">
+            <div class="container">
+                <span class="section-label reveal">Soluções</span>
+                <h2 class="section-title reveal reveal-delay-1">Dashboards que criamos</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Desenvolvemos dashboards para diferentes áreas e necessidades, sempre
+                    com foco em clareza, usabilidade e dados acionáveis.
+                </p>
+                <div class="dashboard-grid" id="dashboardGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== DIFERENCIAIS ===== -->
+        <section class="section" id="diferenciais" style="background: rgba(255,255,255,0.015); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+            <div class="container text-center">
+                <span class="section-label reveal">Diferenciais</span>
+                <h2 class="section-title reveal reveal-delay-1">O que torna nossos dashboards especiais</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Cada dashboard é projetado para transformar dados em decisões rápidas e precisas.
+                </p>
+                <div class="diff-grid" id="diffGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== PROCESSO ===== -->
+        <section class="section" id="processo">
+            <div class="container text-center">
+                <span class="section-label reveal">Processo</span>
+                <h2 class="section-title reveal reveal-delay-1">Como criamos dashboards</h2>
+                <p class="section-desc reveal reveal-delay-2">
+                    Um fluxo que garante que seus dados sejam apresentados da melhor forma possível.
+                </p>
+                <div class="process-steps" id="processStepsGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section" id="faq" style="background: rgba(255,255,255,0.015); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+            <div class="container">
+                <span class="section-label reveal">FAQ</span>
+                <h2 class="section-title reveal reveal-delay-1">Perguntas frequentes sobre dashboards</h2>
+                <p class="section-desc reveal reveal-delay-2 mb-md">
+                    Tire suas dúvidas sobre criação e implementação de dashboards.
+                </p>
+                <div class="faq-list" id="faqList"></div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section cta-section" id="cta">
+            <div class="container text-center">
+                <span class="section-label reveal" style="color: rgba(255,255,255,0.5);">Vamos visualizar</span>
+                <h2 class="section-title reveal reveal-delay-1" style="color: var(--white);">Pronto para enxergar seus dados com clareza?</h2>
+                <p class="section-desc reveal reveal-delay-2" style="margin:0 auto; color: rgba(255,255,255,0.7);">
+                    Entre em contato e descubra como podemos criar o dashboard perfeito para sua empresa.
+                </p>
+                <div class="hero-btns mt-md reveal reveal-delay-3">
+                    <a href="/pt/contato/" class="btn btn-primary">Solicitar orçamento</a>
+                    <a href="/pt/projetos/" class="btn btn-secondary">Ver projetos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SPACE</h4>
+                    <p>Tecnologia &amp; Inovação. Design minimalista, engenharia de excelência.</p>
+                    <p style="margin-top:8px;">spacetechn.com</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/SPACE-techno" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://linkedin.com/company/spacetechn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://instagram.com/spacetech.ltda" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/5511954270090" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="/pt/#hero">Início</a>
+                    <a href="/pt/criacao-de-sites/">Criação de Sites</a>
+                    <a href="/pt/desenvolvimento-web/">Desenvolvimento Web</a>
+                    <a href="/pt/sistemas-web/">Sistemas Web</a>
+                    <a href="/pt/automacao-de-processos/">Automação</a>
+                    <a href="/pt/inteligencia-artificial/">IA</a>
+                    <a href="/pt/apis-integracoes/">APIs</a>
+                    <a href="/pt/solucoes-personalizadas/">Soluções Personalizadas</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <a href="/pt/projetos/">Projetos</a>
+                    <a href="/pt/sobre/">Sobre</a>
+                    <a href="/pt/processo/">Processo</a>
+                    <a href="/pt/tecnologias/">Tecnologias</a>
+                    <a href="/pt/faq/">FAQ</a>
+                    <a href="/pt/contato/">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <a href="mailto:spacetechnologyltda@gmail.com">spacetechnologyltda@gmail.com</a>
+                    <a href="tel:+5511954270090">+55 (11) 95427-0090</a>
+                    <p>São Paulo, Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Space. Todos os direitos reservados.</span>
+                <span>
+                    <a href="#" id="privacyLink">Política de Privacidade</a> &middot;
+                    <a href="#" id="cookieLink">Política de Cookies</a> &middot;
+                    <a href="#" id="termsLink">Termos de Uso</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL LEGAL ===== -->
+    <div class="modal-overlay" id="legalModalOverlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+            <button class="modal-close" id="legalModalClose" aria-label="Fechar modal">&times;</button>
+            <h3 id="legalModalTitle" style="font-weight:700;font-size:var(--fs-h3);margin-bottom:var(--spacing-sm);"></h3>
+            <div id="legalModalBody" style="font-size:var(--fs-small);opacity:0.7;line-height:1.7;"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============ DASHBOARD ANIMADO (Dados em movimento) ============
+        class DashboardCanvas {
+            constructor() {
+                this.canvas = document.getElementById('dashboardCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.particles = [];
+                this.gridLines = [];
+                this.chartPoints = [];
+                this.time = 0;
+                this.resize();
+                this.createParticles();
+                this.createGridLines();
+                this.createChartPoints();
+                window.addEventListener('resize', this.resize.bind(this));
+                this.animate();
+            }
+
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+                this.canvas.width = this.width * dpr;
+                this.canvas.height = this.height * dpr;
+                this.canvas.style.width = this.width + 'px';
+                this.canvas.style.height = this.height + 'px';
+                this.ctx.scale(dpr, dpr);
+                // Fundo
+                const grad = this.ctx.createRadialGradient(
+                    this.width * 0.5, this.height * 0.5, 0,
+                    this.width * 0.5, this.height * 0.5, this.width * 0.7
+                );
+                grad.addColorStop(0, '#0a1a3a');
+                grad.addColorStop(0.4, '#080f2a');
+                grad.addColorStop(0.7, '#060b18');
+                grad.addColorStop(1, '#03050c');
+                this.ctx.fillStyle = grad;
+                this.ctx.fillRect(0, 0, this.width, this.height);
+            }
+
+            createParticles() {
+                this.particles = [];
+                for (let i = 0; i < 80; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        radius: 1 + Math.random() * 2.5,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        vy: (Math.random() - 0.5) * 0.3,
+                        alpha: 0.2 + Math.random() * 0.6,
+                        pulse: 0.5 + Math.random() * 0.5
+                    });
+                }
+            }
+
+            createGridLines() {
+                this.gridLines = [];
+                const cols = Math.floor(this.width / 60);
+                const rows = Math.floor(this.height / 60);
+                for (let i = 0; i < cols; i++) {
+                    this.gridLines.push({
+                        type: 'vertical',
+                        x: 30 + i * 60,
+                        alpha: 0.02 + Math.random() * 0.03
+                    });
+                }
+                for (let i = 0; i < rows; i++) {
+                    this.gridLines.push({
+                        type: 'horizontal',
+                        y: 30 + i * 60,
+                        alpha: 0.02 + Math.random() * 0.03
+                    });
+                }
+            }
+
+            createChartPoints() {
+                this.chartPoints = [];
+                for (let i = 0; i < 40; i++) {
+                    this.chartPoints.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        value: Math.random(),
+                        label: ['Vendas', 'Receita', 'Usuários', 'Conversão', 'Engajamento'][Math.floor(Math.random() *
+                            5)],
+                        color: `hsl(${200 + Math.random() * 30}, 80%, ${50 + Math.random() * 30}%)`
+                    });
+                }
+            }
+
+            drawDashboard() {
+                const ctx = this.ctx;
+                const w = this.width;
+                const h = this.height;
+                const time = this.time;
+
+                // Linhas de grade
+                this.gridLines.forEach(line => {
+                    ctx.strokeStyle = `rgba(0, 212, 255, ${line.alpha})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    if (line.type === 'vertical') {
+                        ctx.moveTo(line.x, 0);
+                        ctx.lineTo(line.x, h);
+                    } else {
+                        ctx.moveTo(0, line.y);
+                        ctx.lineTo(w, line.y);
+                    }
+                    ctx.stroke();
+                });
+
+                // Partículas de dados
+                this.particles.forEach(p => {
+                    p.x += p.vx + Math.sin(time * 0.2 + p.x * 0.01) * 0.1;
+                    p.y += p.vy + Math.cos(time * 0.15 + p.y * 0.01) * 0.1;
+                    if (p.x < 0 || p.x > w) p.vx *= -1;
+                    if (p.y < 0 || p.y > h) p.vy *= -1;
+
+                    const pulse = 0.6 + 0.4 * Math.sin(time * p.pulse + p.x * 0.01);
+                    const alpha = p.alpha * pulse;
+                    const radius = p.radius * (0.8 + 0.2 * pulse);
+
+                    const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 4);
+                    glow.addColorStop(0, `rgba(0, 212, 255, ${alpha * 0.1})`);
+                    glow.addColorStop(1, 'rgba(0, 212, 255, 0)');
+                    ctx.fillStyle = glow;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, radius * 4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 212, 255, ${alpha * 0.6})`;
+                    ctx.fill();
+
+                    if (radius > 1.5) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, radius * 0.3, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(255,255,255,${alpha * 0.2})`;
+                        ctx.fill();
+                    }
+                });
+
+                // Gráfico de linha animado (área)
+                const chartX = w * 0.15;
+                const chartY = h * 0.65;
+                const chartW = w * 0.35;
+                const chartH = h * 0.2;
+
+                // Fundo do gráfico
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.04)';
+                ctx.strokeStyle = 'rgba(0, 212, 255, 0.15)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(chartX, chartY, chartW, chartH);
+                ctx.fillRect(chartX, chartY, chartW, chartH);
+
+                // Linha do gráfico
+                const points = 30;
+                const step = chartW / points;
+                ctx.beginPath();
+                for (let i = 0; i < points; i++) {
+                    const x = chartX + i * step;
+                    const val = 0.3 + 0.5 * Math.sin(time * 0.5 + i * 0.2) +
+                        0.2 * Math.sin(time * 0.3 + i * 0.1);
+                    const y = chartY + chartH - val * chartH * 0.8;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = 'rgba(0, 212, 255, 0.7)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Área abaixo da linha
+                const lastX = chartX + (points - 1) * step;
+                const lastY = chartY + chartH - (0.3 + 0.5 * Math.sin(time * 0.5 + (points - 1) * 0.2) +
+                    0.2 * Math.sin(time * 0.3 + (points - 1) * 0.1)) * chartH * 0.8;
+                ctx.lineTo(lastX, chartY + chartH);
+                ctx.lineTo(chartX, chartY + chartH);
+                ctx.closePath();
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.08)';
+                ctx.fill();
+
+                // Ponto final brilhante
+                ctx.beginPath();
+                ctx.arc(lastX, lastY, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.9)';
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(lastX, lastY, 8, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.2)';
+                ctx.fill();
+
+                // Labels do gráfico
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '10px monospace';
+                ctx.fillText('KPI: Vendas', chartX + 4, chartY - 4);
+
+                // Barras animadas (segundo gráfico)
+                const barX = w * 0.6;
+                const barY = h * 0.5;
+                const barW = w * 0.3;
+                const barH = h * 0.35;
+                const barCount = 8;
+                const barSpacing = barW / barCount;
+
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.04)';
+                ctx.strokeStyle = 'rgba(0, 212, 255, 0.15)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(barX, barY, barW, barH);
+                ctx.fillRect(barX, barY, barW, barH);
+
+                for (let i = 0; i < barCount; i++) {
+                    const x = barX + i * barSpacing + 4;
+                    const width = barSpacing - 6;
+                    const val = 0.2 + 0.7 * (0.5 + 0.5 * Math.sin(time * 0.4 + i * 0.5));
+                    const height = val * barH * 0.8;
+                    const y = barY + barH - height;
+
+                    const hue = 200 + i * 5;
+                    ctx.fillStyle = `hsla(${hue}, 80%, 60%, 0.4)`;
+                    ctx.fillRect(x, y, width, height);
+
+                    ctx.fillStyle = `hsla(${hue}, 80%, 70%, 0.1)`;
+                    ctx.fillRect(x, y - 4, width, 2);
+
+                    // Label
+                    ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                    ctx.font = '8px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(`${(val * 100).toFixed(0)}%`, x + width / 2, barY + barH + 12);
+                }
+                ctx.textAlign = 'left';
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '10px monospace';
+                ctx.fillText('KPIs: Conversão por Canal', barX + 4, barY - 4);
+
+                // Números flutuantes
+                const numbers = ['+12.4%', '87.3%', '1.2M', '2.8x', '34.7%', '5.6s'];
+                numbers.forEach((num, i) => {
+                    const x = w * 0.05 + i * 90;
+                    const y = h * 0.08 + 20 * Math.sin(time * 0.3 + i * 0.7);
+                    ctx.fillStyle = `rgba(0, 212, 255, ${0.2 + 0.1 * Math.sin(time * 0.5 + i)})`;
+                    ctx.font = '11px monospace';
+                    ctx.fillText(num, x, y);
+                });
+            }
+
+            animate() {
+                this.time += 0.02;
+                this.drawDashboard();
+                this.animationId = requestAnimationFrame(this.animate.bind(this));
+            }
+        }
+
+        const dashboard = new DashboardCanvas();
+
+        // ============ DADOS ============
+        const dashboardData = [
+            { icon: 'bi-graph-up-arrow', title: 'Dashboards de Vendas', desc: 'Acompanhe receita, conversões, tickets médios e metas em tempo real.', tag: 'Vendas' },
+            { icon: 'bi-people', title: 'Dashboards de Marketing', desc: 'Métricas de engajamento, leads, ROI de campanhas e funil de conversão.', tag: 'Marketing' },
+            { icon: 'bi-cpu', title: 'Dashboards de IA', desc: 'Monitoramento de modelos, precisão, consumo e alertas de performance.', tag: 'IA' },
+            { icon: 'bi-box', title: 'Dashboards de Estoque', desc: 'Controle de inventário, giro, reposição e alertas automáticos.', tag: 'Operações' },
+            { icon: 'bi-currency-dollar', title: 'Dashboards Financeiros', desc: 'Fluxo de caixa, DRE, contas a pagar/receber e projeções.', tag: 'Financeiro' },
+            { icon: 'bi-calendar-event', title: 'Dashboards de Recursos', desc: 'Alocação de equipe, produtividade, horas e projetos.', tag: 'Recursos' },
+        ];
+
+        const diffData = [
+            { icon: 'bi-bar-chart', label: 'Visualizações interativas' },
+            { icon: 'bi-clock', label: 'Dados em tempo real' },
+            { icon: 'bi-palette', label: 'Design personalizado' },
+            { icon: 'bi-phone', label: 'Responsivo' },
+            { icon: 'bi-lock', label: 'Segurança' },
+            { icon: 'bi-arrow-repeat', label: 'Atualizações automáticas' },
+        ];
+
+        const processStepsData = [
+            { title: '1. Levantamento', desc: 'Identificamos métricas e fontes de dados.' },
+            { title: '2. Design', desc: 'Criamos wireframes e protótipos.' },
+            { title: '3. Integração', desc: 'Conectamos com suas fontes de dados.' },
+            { title: '4. Desenvolvimento', desc: 'Codificamos com visualizações interativas.' },
+            { title: '5. Testes', desc: 'Validamos com dados reais.' },
+            { title: '6. Implantação', desc: 'Publicamos e treinamos sua equipe.' },
+        ];
+
+        const faqData = [
+            { q: 'Quanto custa um dashboard personalizado?', a: 'O custo depende da complexidade, número de fontes de dados e visualizações. Dashboards simples a partir de R$ 3.000, projetos mais complexos sob consulta.' },
+            { q: 'Quais fontes de dados vocês integram?', a: 'Integramos com bancos de dados (PostgreSQL, MySQL), APIs REST, Google Analytics, planilhas, sistemas ERP/CRM e muito mais.' },
+            { q: 'O dashboard será atualizado em tempo real?', a: 'Sim! Oferecemos dashboards com atualização em tempo real via WebSockets ou polling, dependendo da sua necessidade.' },
+            { q: 'O dashboard é responsivo?', a: 'Sim, todos os nossos dashboards são totalmente responsivos e adaptáveis a diferentes dispositivos e tamanhos de tela.' },
+            { q: 'A Space oferece treinamento para usar o dashboard?', a: 'Sim, oferecemos treinamento completo para sua equipe e documentação detalhada sobre o uso do dashboard.' },
+            { q: 'O código fonte é entregue ao cliente?', a: 'Sim, entregamos o código fonte completo com documentação e acesso ao repositório.' },
+        ];
+
+        // ============ RENDER ============
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        function renderDashboards() {
+            const container = document.getElementById('dashboardGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            dashboardData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'dashboard-card reveal';
+                div.style.transitionDelay = `${i * 0.06}s`;
+                div.innerHTML = `
+                    <i class="bi ${item.icon}"></i>
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                    <span class="dashboard-tag">${item.tag}</span>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderDiffs() {
+            const container = document.getElementById('diffGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            diffData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'diff-item reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.innerHTML = `<i class="bi ${item.icon}"></i><p>${item.label}</p>`;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderProcessSteps() {
+            const container = document.getElementById('processStepsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            processStepsData.forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'process-step reveal';
+                div.style.transitionDelay = `${i * 0.05}s`;
+                div.innerHTML = `
+                    <span class="step-num">${item.title.split(' ')[0]}</span>
+                    <h4>${item.title}</h4>
+                    <p>${item.desc}</p>
+                `;
+                container.appendChild(div);
+                revealObserver.observe(div);
+            });
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faqList');
+            if (!container) return;
+            container.innerHTML = '';
+            faqData.forEach((faq, i) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item reveal';
+                item.style.transitionDelay = `${i * 0.05}s`;
+                item.innerHTML = `
+                    <button class="faq-question" aria-expanded="false">
+                        ${faq.q}
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><p>${faq.a}</p></div>
+                `;
+                container.appendChild(item);
+                revealObserver.observe(item);
+                const btn = item.querySelector('.faq-question');
+                btn.addEventListener('click', () => {
+                    const isOpen = item.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen);
+                    btn.querySelector('.faq-icon').textContent = isOpen ? '−' : '+';
+                });
+            });
+        }
+
+        renderDashboards();
+        renderDiffs();
+        renderProcessSteps();
+        renderFAQ();
+
+        // ============ LEGAL MODAL ============
+        const legalModalOverlay = document.getElementById('legalModalOverlay');
+        const legalModalClose = document.getElementById('legalModalClose');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalBody = document.getElementById('legalModalBody');
+
+        const legalTexts = {
+            privacy: 'Esta Política de Privacidade explica como a SPACE coleta, usa e protege seus dados pessoais de acordo com as leis aplicáveis, incluindo a LGPD para o Brasil.',
+            cookie: 'Utilizamos cookies para melhorar sua experiência de navegação, analisar o tráfego do site e personalizar conteúdo. Ao continuar usando este site, você concorda com o uso de cookies.',
+            terms: 'Ao acessar este site, você concorda com estes termos. Todo o conteúdo é fornecido para fins informativos. A SPACE reserva-se o direito de modificar estes termos a qualquer momento.'
+        };
+
+        function openLegalModal(type) {
+            const titles = { privacy: 'Política de Privacidade', cookie: 'Política de Cookies', terms: 'Termos de Uso' };
+            legalModalTitle.textContent = titles[type];
+            legalModalBody.textContent = legalTexts[type];
+            legalModalOverlay.classList.add('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegalModal() {
+            legalModalOverlay.classList.remove('active');
+            legalModalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        legalModalClose.addEventListener('click', closeLegalModal);
+        legalModalOverlay.addEventListener('click', (e) => { if (e.target === legalModalOverlay) closeLegalModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && legalModalOverlay.classList.contains('active'))
+                closeLegalModal(); });
+
+        document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('privacy'); });
+        document.getElementById('cookieLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('cookie'); });
+        document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault();
+            openLegalModal('terms'); });
+
+        // ============ CURSOR ============
+        const cursor = document.getElementById('cursor');
+        if (cursor && window.matchMedia('(min-width: 769px)').matches) {
+            let mouseX = 0,
+                mouseY = 0,
+                cursorX = 0,
+                cursorY = 0;
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+                mouseY = e.clientY; });
+            const interactiveSelectors =
+                'a, button, input, textarea, select, [tabindex], .btn, .dashboard-card, .diff-item, .process-step, .faq-question, .hero-tags span, .modal-close, .footer-social a';
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.closest(interactiveSelectors)) cursor.classList.add('dot');
+                else cursor.classList.remove('dot');
+            });
+            document.addEventListener('mouseout', () => cursor.classList.remove('dot'));
+
+            function animateCursor() {
+                const dx = mouseX - cursorX,
+                    dy = mouseY - cursorY;
+                cursorX += dx * 0.18;
+                cursorY += dy * 0.18;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        }
+
+        // ============ HEADER SCROLL ============
+        const header = document.getElementById('globalnav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
+
+        // ============ MOBILE TOGGLE ============
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            toggle.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ============ SEARCH ============
+        const searchToggle = document.getElementById('searchToggle');
+        const searchInputWrapper = document.getElementById('searchInputWrapper');
+        const searchInput = document.getElementById('searchInput');
+        const searchClose = document.getElementById('searchClose');
+
+        searchToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = searchInputWrapper.classList.toggle('open');
+            if (isOpen) searchInput.focus();
+        });
+        searchClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInputWrapper.classList.remove('open');
+            searchInput.value = '';
+        });
+        document.addEventListener('click', (e) => {
+            if (!searchToggle.contains(e.target) && !searchInputWrapper.contains(e.target)) {
+                searchInputWrapper.classList.remove('open');
+                searchInput.value = '';
+            }
+        });
+
+        // ============ HERO FADE ============
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const maxFade = 300;
+                heroContent.style.opacity = Math.max(0.3, 1 - scrollY / maxFade);
+                heroContent.style.transform = `translateY(${scrollY * 0.2}px)`;
+            }, { passive: true });
+        }
+
+        // ============ REVEAL ON SCROLL ============
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
